@@ -9,7 +9,6 @@ import ec.edu.ups.practica5joaquinzavala.modelo.Cantante;
 import ec.edu.ups.practica5joaquinzavala.modelo.Disco;
 import ec.edu.ups.practica5joaquinzavala.modelo.GeneroMusical;
 import ec.edu.ups.practica5joaquinzavala.modelo.Nacionalidad;
-import java.util.List;
 
 
 
@@ -23,12 +22,11 @@ public class Main {
         cantanteDAO.create(new Cantante("mat", GeneroMusical.ROCK_METAL, 25, 2, 4, "Paul", "Naspud", 19, 0.25, Nacionalidad.CANADA));
         Cantante cantante = cantanteDAO.read(4);
         System.out.println(cantante);
-        cantanteDAO.createDisco(cantante, 3, "123", 2020);
-        cantanteDAO.createDisco(cantante, 2, "1234", 2021);
-        cantanteDAO.createDisco(cantante, 1, "13245", 2022);
-        cantanteDAO.createDisco(cantante, 5, "123456", 2023);
-       
-        cantante = cantanteDAO.read(3);
+        cantanteDAO.createDisco(cantante, 123, "Disco", 2022);
+        Disco disco = cantanteDAO.readDisco(cantante, 123);
+        System.out.println(disco);
+        cantante = cantanteDAO.read(4);
         System.out.println(cantante);
+        
     }
 }

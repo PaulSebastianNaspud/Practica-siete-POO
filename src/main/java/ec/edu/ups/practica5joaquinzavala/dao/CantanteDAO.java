@@ -89,63 +89,62 @@ public class CantanteDAO implements ICantanteDAO {
             long cont = 0;
             while (cont < listaCantanteRAF.length()) {
                 listaCantanteRAF.seek(cont);
-                
+
                 int codigoLista = listaCantanteRAF.readInt();
                 if (codigoLista == codigo) {
-                    
+
                     listaCantanteRAF.seek(cont + 4);
                     String nombre = listaCantanteRAF.readUTF().trim();
-                    
+
                     listaCantanteRAF.seek(cont + 31);
                     String apellido = listaCantanteRAF.readUTF().trim();
-                    
+
                     listaCantanteRAF.seek(cont + 58);
                     int edad = listaCantanteRAF.readInt();
-                    
-                    listaCantanteRAF.seek(cont+ 62);
+
+                    listaCantanteRAF.seek(cont + 62);
                     double salario = listaCantanteRAF.readDouble();
-                    
+
                     listaCantanteRAF.seek(cont + 70);
                     Nacionalidad nacionalidad = Nacionalidad.valueOf((listaCantanteRAF.readUTF().replaceAll("\\s", "")));
-                    
+
                     listaCantanteRAF.seek(cont + 92);
                     String nombreArtistico = listaCantanteRAF.readUTF().trim();
-                    
+
                     listaCantanteRAF.seek(cont + 119);
                     GeneroMusical generoMusical = GeneroMusical.valueOf(listaCantanteRAF.readUTF().trim().replaceAll("\\s", ""));
 
                     listaCantanteRAF.seek(cont + 136);
                     int numeroDeConciertos = listaCantanteRAF.readInt();
-                    
+
                     listaCantanteRAF.seek(cont + 140);
                     int numeroDeGiras = listaCantanteRAF.readInt();
-                    
+
                     //numero de sensillos se calcula en base de la lista
-                    
                     Cantante cantante = new Cantante(nombreArtistico, generoMusical, numeroDeConciertos, numeroDeGiras, codigo, nombre, apellido, edad, salario, nacionalidad);
-                    
+
                     long conDisco = cont + 148;
-                    while(conDisco < (cont + 350)){
-                        listaCantanteRAF.seek(conDisco);
-                        int codigoDos = listaCantanteRAF.readInt();
-                        if( codigoDos == codigo){
-                            listaCantanteRAF.seek(conDisco + 4);
-                            String nombreDisco = listaCantanteRAF.readUTF();
-                            listaCantanteRAF.seek(conDisco + 31);
-                            int anioDeLanzamiento = listaCantanteRAF.readInt();
-                            cantante.agregarDisco(new Disco(codigoDos, nombre, anioDeLanzamiento));
+                    while (conDisco < (cont + 350)) {
+
+                        // Verificar si el campo reservado está vacío (valor ASCII cero)
+                        byte firstByte = listaCantanteRAF.readByte();
+                        if (firstByte == 0) {
+                            return cantante; 
                         }
+                        
+                        int codigoDisco = listaCantanteRAF.readInt();
+                        listaCantanteRAF.seek(conDisco + 5); // Saltar el primer byte vacío
+                        String nombreDisco = listaCantanteRAF.readUTF();
+                        int anioDeLanzamiento = listaCantanteRAF.readInt();
+                        cantante.agregarDisco(new Disco(codigoDisco, nombreDisco, anioDeLanzamiento));
                         conDisco += 35;
-                    }
-                    
-                    return cantante;
-                    
-                }
-                cont += 498;
+                    } return cantante;
+                }    
             }
-        }catch (IOException iOException) {
-            System.out.println("Erro: "  +  iOException);
-        }
+        } catch (IOException iOException) {
+            System.out.println("Erro: " + iOException);
+        } 
+        
         return null;
     }
     
@@ -273,15 +272,17 @@ public class CantanteDAO implements ICantanteDAO {
     public void createDisco(Cantante cantante, int codigo, String nombre, int anioDeLanzamiento) {
         try {
             long cont = 0;
+            
             while (cont < listaCantanteRAF.length()) {
                 listaCantanteRAF.seek(cont);
-                
-                if (listaCantanteRAF.readInt() == cantante.getCodigo() ) {
-                    if(cantante.getNumeroDeSensillos() ==  10){
+
+                if (listaCantanteRAF.readInt() == cantante.getCodigo()) {
+                    if (cantante.getNumeroDeSensillos() == 10) {
                         return;
                     }
-                    long cont2 = (35 * cantante.getNumeroDeSensillos());
-                    listaCantanteRAF.seek(cont + cont2 );
+
+                    cont += (cantante.getCodigo() * 35) + 148;
+                    listaCantanteRAF.seek(cont + cont);
                     // codigo 4 byte (ContDis) pos 148
                     listaCantanteRAF.writeInt(codigo);
                     // nombre 2 byte (ContDisc) pos 152
