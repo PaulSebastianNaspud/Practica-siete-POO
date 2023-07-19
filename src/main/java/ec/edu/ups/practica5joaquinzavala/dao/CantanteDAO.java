@@ -3,6 +3,8 @@ package ec.edu.ups.practica5joaquinzavala.dao;
 import ec.edu.ups.practica5joaquinzavala.idao.ICantanteDAO;
 import ec.edu.ups.practica5joaquinzavala.modelo.Cantante;
 import ec.edu.ups.practica5joaquinzavala.modelo.Disco;
+import ec.edu.ups.practica5joaquinzavala.modelo.GeneroMusical;
+import ec.edu.ups.practica5joaquinzavala.modelo.Nacionalidad;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
@@ -25,42 +27,30 @@ public class CantanteDAO implements ICantanteDAO {
         
     }
     
+    
     private RandomAccessFile instanciarListaCantanteRAF(){
         try{
-            return new RandomAccessFile("resources\\ec\\ups\\edu\\practiasiete\\archivoraf", "rw");
+            return new RandomAccessFile("src\\main\\resources\\ec\\edu\\ups\\practicasiete\\fileraf\\cantante.datcan", "rw");
         }catch(IOException iOException){
         }return null;
     }
     
-    private long instanciarContMaxDisco(){
-        try{
-            return listaCantanteRAF.length();
-        }catch(IOException exception){}
-        return 0;
-    }
-    
     private String rellenarBite(String obj, int max){
-        if (obj.length() < 10) {
-            obj = String.format("%-" + 10 + "s", obj);
+        if (obj.length() < max) {
+            obj = String.format("%-" + max + "s", obj);
         } else if (obj.length() > max) {
             obj = obj.substring(0, max);
         }
         return obj;
     }
     
-    private long length(){
-        try{
-            return listaCantanteRAF.length();
-        }catch(IOException iOException){
-            return 0;
-        }
-    }
+    
 
     //sobrescritura
     @Override
     public void create(Cantante obj) {
         try{
-            listaCantanteRAF.seek(this.length());
+            listaCantanteRAF.seek(listaCantanteRAF.length());
             //codigo 4 byte pos 0
             listaCantanteRAF.writeInt(obj.getCodigo());
             //nombre 27 byte pos 4
@@ -82,13 +72,11 @@ public class CantanteDAO implements ICantanteDAO {
             //numero de conciertos 4 bity pos 158
             listaCantanteRAF.writeInt(obj.getNumeroDeConciertos());
             //numero de sensillos 4 bity pos 162
-            listaCantanteRAF.writeInt(obj.getNumeroDeSensillos());
-            //numero de giras 4 bity pos 166
-            listaCantanteRAF.writeInt(obj.getNumeroDeSensillos());
-            // canatante byte sin discos 170
-            
+            // cantante byte sin discos 166
+
             //rellenar archivos (55 Disco) * 10
             listaCantanteRAF.writeUTF(rellenarBite("", 350));
+            //cantante peso 516
             
         }catch(IOException iOException){}
          catch(Exception exception){}
@@ -96,10 +84,50 @@ public class CantanteDAO implements ICantanteDAO {
 
     @Override
     public Cantante read(int codigo) {
-        for (Cantante cantante : listaCantante) {
-            if (cantante.getCodigo() == codigo) {
-                return cantante;
+        try {
+            long cont = 0;
+            while (cont < listaCantanteRAF.length()) {
+                System.out.println("ENTRO EN EL BUCLE");
+                listaCantanteRAF.seek(cont);
+                int codigoLista = listaCantanteRAF.readInt();
+                if (codigoLista == codigo) {
+
+                    listaCantanteRAF.seek(cont + 4);
+                    String nombre = listaCantanteRAF.readUTF().trim();
+
+                    listaCantanteRAF.seek(cont + 31);
+                    String apellido = listaCantanteRAF.readUTF().trim();
+                    
+                    listaCantanteRAF.seek(cont + 58);
+                    int edad = listaCantanteRAF.readInt();
+                    
+                    listaCantanteRAF.seek(cont+ 66);
+                    double salario = listaCantanteRAF.readDouble();
+                    
+                    listaCantanteRAF.seek(cont + 88);
+                    Nacionalidad nacionalidad = Nacionalidad.valueOf(listaCantanteRAF.readUTF().replaceAll("\\s", ""));
+                    System.out.println("Nacionalidad" + nacionalidad);
+                    
+                    listaCantanteRAF.seek(cont + 110);
+                    String nombreArtistico = listaCantanteRAF.readUTF().trim();
+                    
+                    listaCantanteRAF.seek(cont + 137 );
+                    GeneroMusical generoMusical = GeneroMusical.valueOf(listaCantanteRAF.readUTF().trim());
+                    
+                    //numero de sensillos se calcula en base de la lista
+
+                    listaCantanteRAF.seek(cont + 158);
+                    int numeroDeConciertos = listaCantanteRAF.readInt();
+                    
+                    listaCantanteRAF.seek(cont + 162);
+                    int numeroDeGiras = listaCantanteRAF.readInt();
+                    
+                    return new Cantante(nombreArtistico, generoMusical, numeroDeConciertos, numeroDeGiras, codigo, nombre, apellido, edad, salario, nacionalidad);
+                }
+                cont += 516;
             }
+        }catch (IOException iOException) {
+            System.out.println("Erro: "  +  iOException);
         }
         return null;
     }
