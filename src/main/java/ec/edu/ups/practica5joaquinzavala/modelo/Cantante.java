@@ -51,7 +51,7 @@ public class Cantante extends Persona {
     }
     
     public int getNumeroDeSensillos() {
-        return listarDiscografia().size();
+        return discografia.size();
     }
 
     public void setNumeroDeSensillos(int numeroDeSensillos) {
