@@ -13,7 +13,6 @@ import java.util.List;
 public class CantanteDAO implements ICantanteDAO {
     
     //contador estatico para el maximo elementos de la lista de la clase
-    private long contDisco;
     
     //atributo lista cantante
     private RandomAccessFile listaCantanteRAF;
@@ -270,32 +269,38 @@ public class CantanteDAO implements ICantanteDAO {
     
      @Override
     public void createDisco(Cantante cantante, int codigo, String nombre, int anioDeLanzamiento) {
-        try {
-            long cont = 0;
-            
-            while (cont < listaCantanteRAF.length()) {
-                listaCantanteRAF.seek(cont);
+         try {
+             long cont = 0;
 
-                if (listaCantanteRAF.readInt() == cantante.getCodigo()) {
-                    if (cantante.getNumeroDeSensillos() == 10) {
-                        return;
-                    }
+             while (cont < listaCantanteRAF.length()) {
+                 listaCantanteRAF.seek(cont);
 
-                    cont += (cantante.getCodigo() * 35) + 148;
-                    listaCantanteRAF.seek(cont + cont);
-                    // codigo 4 byte (ContDis) pos 148
-                    listaCantanteRAF.writeInt(codigo);
-                    // nombre 2 byte (ContDisc) pos 152
-                    listaCantanteRAF.writeUTF(this.rellenarBite(nombre, 25));
-                    // anio de lanzamiento 27 byte pos 179
-                    listaCantanteRAF.writeInt(anioDeLanzamiento);
-                    // pos del disco 183
-                }
-                cont += 498;
-            }
-        }catch (IOException iOException) {
-            System.out.println("Erro: "  +  iOException);
-        }
+                 if (listaCantanteRAF.readInt() == cantante.getCodigo()) {
+                     System.out.println("ENTRO EN EL IF");
+                     if (cantante.getNumeroDeSensillos() == 10) {
+                         return;
+                     }
+                     System.out.println("PASO EL MAX DISCO");
+                     
+                     long posicionDisco = cont + 148 + (cantante.getNumeroDeSensillos() * 35);
+                     listaCantanteRAF.seek(posicionDisco);
+
+                     // Código del disco (4 bytes) en posición 148
+                     listaCantanteRAF.writeInt(codigo);
+
+                     // Nombre del disco (25 bytes) en posición 152
+                     listaCantanteRAF.writeUTF(rellenarBite(nombre, 25));
+
+                     // Año de lanzamiento del disco (4 bytes) en posición 179
+                     listaCantanteRAF.writeInt(anioDeLanzamiento);
+
+                     return;
+                 }
+                 cont += 498;
+             }
+         } catch (IOException iOException) {
+             System.out.println("Error: " + iOException);
+         }
     }
 
     @Override
@@ -304,14 +309,14 @@ public class CantanteDAO implements ICantanteDAO {
             long cont = 0;
             while (cont < listaCantanteRAF.length()) {
                 listaCantanteRAF.seek(cont);
-                
-                if (listaCantanteRAF.readInt() == cantante.getCodigo() ) {
+
+                if (listaCantanteRAF.readInt() == cantante.getCodigo()) {
                     long conDisco = cont + 148;
-                    
-                    while(conDisco < (cont + 350)){
+
+                    while (conDisco < (cont + 350)) {
                         listaCantanteRAF.seek(conDisco);
                         int codigoDos = listaCantanteRAF.readInt();
-                        if( codigoDos == codigo){
+                        if (codigoDos == codigo) {
                             listaCantanteRAF.seek(conDisco + 4);
                             String nombre = listaCantanteRAF.readUTF();
                             listaCantanteRAF.seek(conDisco + 31);
@@ -323,9 +328,9 @@ public class CantanteDAO implements ICantanteDAO {
                 }
                 cont += 498;
             }
-        }catch (IOException iOException) {
-            System.out.println("Erro: "  +  iOException);
-        }return null;
+        } catch (IOException iOException) {
+            System.out.println("Erro: " + iOException);
+        } return null;
     }
 
     @Override

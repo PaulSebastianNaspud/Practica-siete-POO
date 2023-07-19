@@ -18,12 +18,13 @@ import ec.edu.ups.practica5joaquinzavala.modelo.Nacionalidad;
  */
 public class Main {
     public static void main(String[] args) {
+        //432 123
         CantanteDAO cantanteDAO = new CantanteDAO();
-        cantanteDAO.create(new Cantante("mat", GeneroMusical.ROCK_METAL, 25, 2, 4, "Paul", "Naspud", 19, 0.25, Nacionalidad.CANADA));
-        Cantante cantante = cantanteDAO.read(4);
+        cantanteDAO.create(new Cantante("mat", GeneroMusical.ROCK_METAL, 25, 2, 2, "Paul", "Naspud", 19, 0.25, Nacionalidad.CANADA));
+        Cantante cantante = cantanteDAO.read(2);
         System.out.println(cantante);
-        cantanteDAO.createDisco(cantante, 123, "Disco", 2022);
-        Disco disco = cantanteDAO.readDisco(cantante, 123);
+        cantanteDAO.createDisco(cantante, 123, "disss", 2023);
+        Disco disco = cantanteDAO.readDisco(cantante, 432);
         System.out.println(disco);
         cantante = cantanteDAO.read(4);
         System.out.println(cantante);
