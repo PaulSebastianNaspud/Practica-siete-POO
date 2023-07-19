@@ -9,6 +9,8 @@ import ec.edu.ups.practica5joaquinzavala.modelo.Cantante;
 import ec.edu.ups.practica5joaquinzavala.modelo.GeneroMusical;
 import ec.edu.ups.practica5joaquinzavala.modelo.Nacionalidad;
 
+
+
 /**
  *
  * @author estem
@@ -16,8 +18,8 @@ import ec.edu.ups.practica5joaquinzavala.modelo.Nacionalidad;
 public class Main {
     public static void main(String[] args) {
         CantanteDAO cantanteDAO = new CantanteDAO();
-        cantanteDAO.create(new Cantante("SuperPul", GeneroMusical.ROCK, 25, 2, 1, "Paul", "Naspud", 19, 0.25, Nacionalidad.CANADA));
-        Cantante cantante = cantanteDAO.read(12);
+        cantanteDAO.create(new Cantante("SuperPul", GeneroMusical.ROCK_METAL, 25, 2, 3, "Paul", "Naspud", 19, 0.25, Nacionalidad.CANADA));
+        Cantante cantante = cantanteDAO.read(3);
         System.out.println(cantante);
         
     }
