@@ -42,6 +42,13 @@ public class CantanteDAO implements ICantanteDAO {
         return obj;
     }
     
+    private long length(){
+        try {
+            return listaCantanteRAF.length();
+        } catch(IOException iOException){
+            return 0;
+        }
+    }
     
 
     //sobrescritura
@@ -84,9 +91,9 @@ public class CantanteDAO implements ICantanteDAO {
 
     @Override
     public Cantante read(int codigo) {
-        try {
-            long cont = 0;
-            while (cont < listaCantanteRAF.length()) {
+        long cont = 0;
+        while (cont < this.length()) {
+            try {
                 listaCantanteRAF.seek(cont);
 
                 int codigoLista = listaCantanteRAF.readInt();
@@ -123,14 +130,14 @@ public class CantanteDAO implements ICantanteDAO {
                     Cantante cantante = new Cantante(nombreArtistico, generoMusical, numeroDeConciertos, numeroDeGiras, codigo, nombre, apellido, edad, salario, nacionalidad);
 
                     long conDisco = cont + 148;
-                    
+
                     while (conDisco < (cont + 350)) {
                         listaCantanteRAF.seek(conDisco);
                         try {
                             int codigoDisco = listaCantanteRAF.readInt();
-                            listaCantanteRAF.seek(conDisco + 4); 
+                            listaCantanteRAF.seek(conDisco + 4);
                             String nombreDisco = listaCantanteRAF.readUTF();
-                            listaCantanteRAF.seek(conDisco + 31); 
+                            listaCantanteRAF.seek(conDisco + 31);
                             int anioDeLanzamiento = listaCantanteRAF.readInt();
                             cantante.agregarDisco(new Disco(codigoDisco, nombreDisco, anioDeLanzamiento));
                             conDisco += 35;
@@ -138,13 +145,18 @@ public class CantanteDAO implements ICantanteDAO {
                         } catch (IOException iOException) {
                             return cantante;
                         }
-                    } return cantante;
-                }cont += 498;    
+                    }
+                    return cantante;
+                            
+                }
+            } catch (IOException iOException) {
+                System.out.println("Error: " + iOException);
             }
-        } catch (IOException iOException) {
-            System.out.println("Cantante");
-        } 
-        
+            finally{
+                cont += 498;
+            }
+        }
+
         return null;
 
     }
@@ -204,29 +216,33 @@ public class CantanteDAO implements ICantanteDAO {
 
     @Override
     public void delete(Cantante obj) {
-        try {
-            long cont = 0;
-            while (cont < listaCantanteRAF.length()) {
+        
+        long cont = 0;
+        while (cont < this.length()) {
+            try {
                 listaCantanteRAF.seek(cont);
-                
+
                 int codigoLista = listaCantanteRAF.readInt();
                 if (codigoLista == obj.getCodigo()) {
                     listaCantanteRAF.writeUTF(this.rellenarBite("", 496));
                     return;
-                };
+                }
+            } catch (IOException iOException) {
+
+            } finally {
                 cont += 498;
             }
-        }catch (IOException iOException) {
-            System.out.println("Error: "  +  iOException);
         }
+        
     }
 
     @Override
     public List<Cantante> findAll() {
         List<Cantante> listaCantanteFindAll = new ArrayList<>();
-        try {
-            long cont = 0;
-            while (cont < listaCantanteRAF.length()) {
+        long cont = 0;
+        
+        while (cont < this.length()) {
+            try {
                 listaCantanteRAF.seek(cont);
 
                 int codigoLista = listaCantanteRAF.readInt();
@@ -258,15 +274,17 @@ public class CantanteDAO implements ICantanteDAO {
 
                 listaCantanteRAF.seek(cont + 140);
                 int numeroDeGiras = listaCantanteRAF.readInt();
-                
+
                 listaCantanteFindAll.add(new Cantante(nombreArtistico, generoMusical, numeroDeConciertos, numeroDeGiras, codigoLista, nombre, apellido, edad, salario, nacionalidad));
-                
+            } catch (IOException iOException) {
+                System.out.println("Error ioe: " + iOException);
+            } catch (Exception exception) {
+                System.out.println("Error gener: " +exception);
+            } finally {
                 cont += 498;
             }
-        }catch (IOException iOException) {
-            System.out.println("Erro: "  +  iOException);
-        }catch(Exception exception){}
-        
+        }
+
         return listaCantanteFindAll;
     }
     
