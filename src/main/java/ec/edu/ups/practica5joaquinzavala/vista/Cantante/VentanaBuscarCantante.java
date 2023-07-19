@@ -395,7 +395,7 @@ public class VentanaBuscarCantante extends javax.swing.JInternalFrame {
             txtConciertos.setText(String.valueOf(cantante.getNumeroDeConciertos()));
             txtGiras.setText(String.valueOf(cantante.getNumeroDeGiras()));
             txtSencillos.setText(String.valueOf(String.valueOf(cantante.getNumeroDeSensillos())));
-            txtSalario.setText(String.valueOf(String.valueOf(cantante.getSalario())));
+            txtSalario.setText(String.valueOf(String.valueOf(cantante.calularSalario())));
         } else {
             JOptionPane.showMessageDialog(this, "El cantante con el codigo " + codigo + " no ha sido registrado");
             limpiarCampos();

@@ -16,8 +16,8 @@ import ec.edu.ups.practica5joaquinzavala.modelo.Nacionalidad;
 public class Main {
     public static void main(String[] args) {
         CantanteDAO cantanteDAO = new CantanteDAO();
-        cantanteDAO.create(new Cantante("Paulito", GeneroMusical.ROCK, 25, 2, 123, "Paul", "Naspud", 19, 0.25, Nacionalidad.CANADA));
-        Cantante cantante = cantanteDAO.read(123);
+        cantanteDAO.create(new Cantante("SuperPul", GeneroMusical.ROCK, 25, 2, 1, "Paul", "Naspud", 19, 0.25, Nacionalidad.CANADA));
+        Cantante cantante = cantanteDAO.read(12);
         System.out.println(cantante);
         
     }

@@ -409,7 +409,7 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
             int numeroGiras = Integer.parseInt(txtGiras.getText());
             Nacionalidad nacionalidad = (Nacionalidad) this.cmbxNacionalidad.getSelectedItem();
             GeneroMusical generoMusical = (GeneroMusical) cmbxGeneroMusical.getSelectedItem();
-            this.cantante = new Cantante(nombreArtistico, generoMusical, numeroSencillos, numeroConciertos, numeroGiras, codigo, nombre, apellido, edad, salario, nacionalidad);
+            this.cantante = new Cantante(nombreArtistico, generoMusical, numeroConciertos, numeroGiras, codigo, nombre, apellido, edad, salario, nacionalidad);
             controladorCantante.actualizarCantante(cantante);
             JOptionPane.showMessageDialog(this, "El cantante se a actualizado: " + cantante.getNombreArtistico());
             limpiarCampos();
