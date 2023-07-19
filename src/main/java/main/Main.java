@@ -23,10 +23,10 @@ public class Main {
         cantanteDAO.create(new Cantante("mat", GeneroMusical.ROCK_METAL, 25, 2, 2, "Paul", "Naspud", 19, 0.25, Nacionalidad.CANADA));
         Cantante cantante = cantanteDAO.read(2);
         System.out.println(cantante);
-        cantanteDAO.createDisco(cantante, 123, "disss", 2023);
-        Disco disco = cantanteDAO.readDisco(cantante, 432);
-        System.out.println(disco);
-        cantante = cantanteDAO.read(4);
+        cantanteDAO.createDisco(cantante, 123, "DiscoUno", 2023);
+        cantante = cantanteDAO.read(2);
+        cantanteDAO.createDisco(cantante, 654, "DiscoDos", 2024);
+        cantante = cantanteDAO.read(2);
         System.out.println(cantante);
         
     }

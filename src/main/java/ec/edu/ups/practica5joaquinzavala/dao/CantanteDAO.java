@@ -123,29 +123,32 @@ public class CantanteDAO implements ICantanteDAO {
                     Cantante cantante = new Cantante(nombreArtistico, generoMusical, numeroDeConciertos, numeroDeGiras, codigo, nombre, apellido, edad, salario, nacionalidad);
 
                     long conDisco = cont + 148;
+                    
                     while (conDisco < (cont + 350)) {
+                        listaCantanteRAF.seek(conDisco);
+                        try {
+                            int codigoDisco = listaCantanteRAF.readInt();
+                            listaCantanteRAF.seek(conDisco + 4); 
+                            String nombreDisco = listaCantanteRAF.readUTF();
+                            listaCantanteRAF.seek(conDisco + 31); 
+                            int anioDeLanzamiento = listaCantanteRAF.readInt();
+                            cantante.agregarDisco(new Disco(codigoDisco, nombreDisco, anioDeLanzamiento));
+                            conDisco += 35;
 
-                        // Verificar si el campo reservado está vacío (valor ASCII cero)
-                        byte firstByte = listaCantanteRAF.readByte();
-                        if (firstByte == 0) {
-                            return cantante; 
+                        } catch (IOException iOException) {
+                            return cantante;
                         }
-                        
-                        int codigoDisco = listaCantanteRAF.readInt();
-                        listaCantanteRAF.seek(conDisco + 5); // Saltar el primer byte vacío
-                        String nombreDisco = listaCantanteRAF.readUTF();
-                        int anioDeLanzamiento = listaCantanteRAF.readInt();
-                        cantante.agregarDisco(new Disco(codigoDisco, nombreDisco, anioDeLanzamiento));
-                        conDisco += 35;
                     } return cantante;
-                }    
+                }cont += 498;    
             }
         } catch (IOException iOException) {
-            System.out.println("Erro: " + iOException);
+            System.out.println("Cantante");
         } 
         
         return null;
+
     }
+
     
     //sobre escritura del metodo para buscar cantante por nombre de disco
     @Override
