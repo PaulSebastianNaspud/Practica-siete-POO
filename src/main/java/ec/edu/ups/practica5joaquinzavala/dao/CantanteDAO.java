@@ -178,14 +178,14 @@ public class CantanteDAO implements ICantanteDAO {
 
     @Override
     public void update(Cantante obj) {
-        try {
-            long cont = 0;
-            while (cont < listaCantanteRAF.length()) {
+        long cont = 0;
+        while (cont < this.length()) {
+            try {
                 listaCantanteRAF.seek(cont);
-                
+
                 int codigoLista = listaCantanteRAF.readInt();
                 if (codigoLista == obj.getCodigo()) {
-                    
+
                     listaCantanteRAF.writeUTF(this.rellenarBite(obj.getNombre(), 25));
                     //apeliido 27 byte pos 31
                     listaCantanteRAF.writeUTF(this.rellenarBite(obj.getApellido(), 25));
@@ -204,13 +204,12 @@ public class CantanteDAO implements ICantanteDAO {
                     //numero de conciertos 4 bity pos 140
                     listaCantanteRAF.writeInt(obj.getNumeroDeConciertos());
                     //numero de sensillos 4 bity pos 144
-                    
-                    
                 }
+            } catch (IOException iOException) {
+                System.out.println("Error: " + iOException);
+            } finally {
                 cont += 498;
             }
-        }catch (IOException iOException) {
-            System.out.println("Error: "  +  iOException);
         }
     }
 
@@ -224,7 +223,7 @@ public class CantanteDAO implements ICantanteDAO {
 
                 int codigoLista = listaCantanteRAF.readInt();
                 if (codigoLista == obj.getCodigo()) {
-                    listaCantanteRAF.writeUTF(this.rellenarBite("", 496));
+                    listaCantanteRAF.writeUTF(this.rellenarBite("", 498));
                     return;
                 }
             } catch (IOException iOException) {
@@ -290,19 +289,17 @@ public class CantanteDAO implements ICantanteDAO {
     
      @Override
     public void createDisco(Cantante cantante, int codigo, String nombre, int anioDeLanzamiento) {
-         try {
-             long cont = 0;
-
-             while (cont < listaCantanteRAF.length()) {
+        long cont = 0;
+        while (cont < this.length()) {
+             try {
                  listaCantanteRAF.seek(cont);
 
                  if (listaCantanteRAF.readInt() == cantante.getCodigo()) {
-                     System.out.println("ENTRO EN EL IF");
+                     
                      if (cantante.getNumeroDeSensillos() == 10) {
                          return;
                      }
-                     System.out.println("PASO EL MAX DISCO");
-                     
+
                      long posicionDisco = cont + 148 + (cantante.getNumeroDeSensillos() * 35);
                      listaCantanteRAF.seek(posicionDisco);
 
@@ -317,86 +314,151 @@ public class CantanteDAO implements ICantanteDAO {
 
                      return;
                  }
+             } catch (IOException iOException) {
+
+             } finally {
                  cont += 498;
              }
-         } catch (IOException iOException) {
-             System.out.println("Error: " + iOException);
          }
+         
     }
 
     @Override
     public Disco readDisco(Cantante cantante, int codigo) {
-        try {
-            long cont = 0;
-            while (cont < listaCantanteRAF.length()) {
+      
+        long cont = 0;
+        while (cont < this.length()) {
+            try {
                 listaCantanteRAF.seek(cont);
 
                 if (listaCantanteRAF.readInt() == cantante.getCodigo()) {
                     long conDisco = cont + 148;
 
                     while (conDisco < (cont + 350)) {
-                        listaCantanteRAF.seek(conDisco);
-                        int codigoDos = listaCantanteRAF.readInt();
-                        if (codigoDos == codigo) {
-                            listaCantanteRAF.seek(conDisco + 4);
-                            String nombre = listaCantanteRAF.readUTF();
-                            listaCantanteRAF.seek(conDisco + 31);
-                            int anioDeLanzamiento = listaCantanteRAF.readInt();
-                            return new Disco(codigoDos, nombre, anioDeLanzamiento);
+
+                        try {
+                            listaCantanteRAF.seek(conDisco);
+                            int codigoDos = listaCantanteRAF.readInt();
+                            if (codigoDos == codigo) {
+                                listaCantanteRAF.seek(conDisco + 4);
+                                String nombre = listaCantanteRAF.readUTF();
+                                listaCantanteRAF.seek(conDisco + 31);
+                                int anioDeLanzamiento = listaCantanteRAF.readInt();
+                                return new Disco(codigoDos, nombre, anioDeLanzamiento);
+                            }
+                        } catch (IOException iOException) {
+                        } finally {
+                            conDisco += 35;
                         }
-                        conDisco += 35;
+
                     }
                 }
+            } catch (IOException iOException) {
+
+            } finally {
                 cont += 498;
             }
-        } catch (IOException iOException) {
-            System.out.println("Erro: " + iOException);
-        } return null;
+        }
+        return null;
     }
 
     @Override
     public void updateDisco(Cantante cantante, int codigo, String nombre, int anioDeLanzamiento) {
-        if (listaCantante.contains(cantante)) {
-            cantante.actualizarDisco(new Disco(codigo, nombre, anioDeLanzamiento));
-            this.update(cantante);
+        long cont = 0;
+        while (cont < this.length()) {
+            try {
+                listaCantanteRAF.seek(cont);
+
+                if (listaCantanteRAF.readInt() == cantante.getCodigo()) {
+                    long conDisco = cont + 148;
+                    while (conDisco < (cont + 350)) {
+
+                        try {
+                            listaCantanteRAF.seek(conDisco);
+                            int codigoDos = listaCantanteRAF.readInt();
+                            if (codigoDos == codigo) {
+                                
+                                listaCantanteRAF.writeUTF(rellenarBite(nombre, 25));
+                                // Año de lanzamiento del disco (4 bytes) en posición 179
+                                listaCantanteRAF.writeInt(anioDeLanzamiento);
+                            }
+                        } catch (IOException iOException) {
+                        } finally {
+                            conDisco += 35;
+                        }
+
+                    }
+                }
+            } catch (IOException iOException) {
+
+            } finally {
+                cont += 498;
+            }
         }
     }
 
     @Override
     public void deleteDisco(Cantante cantante, int codigo) {
-        if (listaCantante.contains(cantante)) {
-            cantante.eliminarDisco(new Disco(codigo));
-            this.update(cantante);
+        long cont = 0;
+        while (cont < this.length()) {
+            try {
+                listaCantanteRAF.seek(cont);
+
+                if (listaCantanteRAF.readInt() == cantante.getCodigo()) {
+                    long conDisco = cont + 148;
+
+                    while (conDisco < (cont + 350)) {
+
+                        try {
+                            listaCantanteRAF.seek(conDisco);
+                            int codigoDos = listaCantanteRAF.readInt();
+                            if (codigoDos == codigo) {
+                                listaCantanteRAF.writeUTF(this.rellenarBite("", 35));
+                                return;
+                            }
+                        } catch (IOException iOException) {
+                        } finally {
+                            conDisco += 35;
+                        }
+
+                    }
+                }
+            } catch (IOException iOException) {
+
+            } finally {
+                cont += 498;
+            }
         }
     }
 
     @Override
     public List<Disco> findAllDisco(Cantante cantante) {
         List<Disco> listaDisco = new ArrayList<>();
-        try {
-            long cont = 0;
-            while (cont < listaCantanteRAF.length()) {
-                listaCantanteRAF.seek(cont);
-                
-                if (listaCantanteRAF.readInt() == cantante.getCodigo() ) {
-                    long cont2 = cont + 148;
-                    while(cont2 < (cont + 350)){
-                        
-                        listaCantanteRAF.seek(cont2);
-                        int codigo = listaCantanteRAF.readInt();
-                        listaCantanteRAF.seek(cont2 + 4);
-                        String nombre = listaCantanteRAF.readUTF().strip();
-                        listaCantanteRAF.seek(cont + 31);
-                        int anioDeLanzamiento = listaCantanteRAF.readInt();
-                        listaDisco.add(new Disco(codigo, nombre, anioDeLanzamiento));
-                        cont2 += 35;
-                    }return listaDisco;
-                    
+
+        long cont = 0;
+        while (cont < this.length()) {
+            try{
+            listaCantanteRAF.seek(cont);
+
+            if (listaCantanteRAF.readInt() == cantante.getCodigo()) {
+                long cont2 = cont + 148;
+                while (cont2 < (cont + 350)) {
+
+                    listaCantanteRAF.seek(cont2);
+                    int codigo = listaCantanteRAF.readInt();
+                    listaCantanteRAF.seek(cont2 + 4);
+                    String nombre = listaCantanteRAF.readUTF().strip();
+                    listaCantanteRAF.seek(cont + 31);
+                    int anioDeLanzamiento = listaCantanteRAF.readInt();
+                    listaDisco.add(new Disco(codigo, nombre, anioDeLanzamiento));
+                    cont2 += 35;
                 }
+                return listaDisco;
+            }
+            }catch(IOException iOException){}
+             finally{
                 cont += 498;
             }
-        }catch (IOException iOException) {
-            System.out.println("Errorr: "  +  iOException);
         }return listaDisco;
     }
     
