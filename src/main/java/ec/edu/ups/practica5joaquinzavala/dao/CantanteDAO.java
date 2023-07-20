@@ -215,7 +215,8 @@ public class CantanteDAO implements ICantanteDAO {
 
                 int codigoLista = listaCantanteRAF.readInt();
                 if (codigoLista == obj.getCodigo()) {
-                    listaCantanteRAF.writeUTF(this.rellenarBite("", 498));
+                    listaCantanteRAF.seek(cont);
+                    listaCantanteRAF.writeUTF(this.rellenarBite("", 496));
                     return;
                 }
             } catch (IOException iOException) {
@@ -271,9 +272,9 @@ public class CantanteDAO implements ICantanteDAO {
                 System.out.println("Error ioe: " + iOException);
             } catch (Exception exception) {
                 System.out.println("Error general: " +exception);
-            } finally {
-                cont += 498;
-            }
+            } 
+            cont += 498;
+            
         }
 
         return listaCantanteFindAll;
@@ -405,7 +406,8 @@ public class CantanteDAO implements ICantanteDAO {
                             listaCantanteRAF.seek(conDisco);
                             int codigoDos = listaCantanteRAF.readInt();
                             if (codigoDos == codigo) {
-                                listaCantanteRAF.writeUTF(this.rellenarBite("", 35));
+                                listaCantanteRAF.seek(conDisco);
+                                listaCantanteRAF.writeUTF(this.rellenarBite("", 33));
                                 return;
                             }
                         } catch (IOException iOException) {
