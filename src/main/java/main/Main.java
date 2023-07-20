@@ -17,13 +17,18 @@ import ec.edu.ups.practica5joaquinzavala.modelo.Nacionalidad;
  */
 public class Main {
     public static void main(String[] args) {
-        //432 123
+        //
         CantanteDAO cantanteDAO = new CantanteDAO();
         cantanteDAO.create(new Cantante("Paul", GeneroMusical.ROCK_METAL, 25, 2, 1, "Paul1", "Naspud1", 19, 0.25, Nacionalidad.CANADA));
         cantanteDAO.create(new Cantante("Sebastian", GeneroMusical.ROCK, 25, 2, 2, "Paul2", "Naspud2", 19, 58.25, Nacionalidad.CANADA));
         cantanteDAO.create(new Cantante("Naspud", GeneroMusical.ROCK_METAL, 25, 2, 3, "Paul3", "Naspud3", 19, 45.25, Nacionalidad.CANADA));
         cantanteDAO.create(new Cantante("Vivar", GeneroMusical.ROCK, 25, 2, 4, "Paul4", "Naspud4", 19, 65.5, Nacionalidad.CANADA));
-        
+        Cantante cantante = cantanteDAO.read(3);
+        cantanteDAO.createDisco(cantante, 9, "BAD_buNNY", 2016);
+        cantante = cantanteDAO.read(3);
+        cantanteDAO.createDisco(cantante, 8, "JOSTIN BEBIEBI", 2203);
+        cantante = cantanteDAO.read(3);
+        cantanteDAO.createDisco(cantante, 7, "MALUMA BBAY", 1233);
         
     }
 }

@@ -130,8 +130,9 @@ public class CantanteDAO implements ICantanteDAO {
                     long conDisco = cont + 148;
 
                     while (conDisco < (cont + 350)) {
-                        listaCantanteRAF.seek(conDisco);
                         try {
+                            
+                            listaCantanteRAF.seek(conDisco);
                             int codigoDisco = listaCantanteRAF.readInt();
                             listaCantanteRAF.seek(conDisco + 4);
                             String nombreDisco = listaCantanteRAF.readUTF();
@@ -331,13 +332,13 @@ public class CantanteDAO implements ICantanteDAO {
 
                         try {
                             listaCantanteRAF.seek(conDisco);
-                            int codigoDos = listaCantanteRAF.readInt();
-                            if (codigoDos == codigo) {
+                            int codigoDis = listaCantanteRAF.readInt();
+                            if (codigoDis == codigo) {
                                 listaCantanteRAF.seek(conDisco + 4);
                                 String nombre = listaCantanteRAF.readUTF();
                                 listaCantanteRAF.seek(conDisco + 31);
                                 int anioDeLanzamiento = listaCantanteRAF.readInt();
-                                return new Disco(codigoDos, nombre, anioDeLanzamiento);
+                                return new Disco(codigoDis, nombre, anioDeLanzamiento);
                             }
                         } catch (IOException iOException) {
                         } finally {
@@ -437,16 +438,16 @@ public class CantanteDAO implements ICantanteDAO {
             if (listaCantanteRAF.readInt() == cantante.getCodigo()) {
                 long cont2 = cont + 148;
                 while (cont2 < (cont + 350)) {
-                    try{
-                    listaCantanteRAF.seek(cont2);
-                    int codigo = listaCantanteRAF.readInt();
-                    listaCantanteRAF.seek(cont2 + 4);
-                    String nombre = listaCantanteRAF.readUTF().strip();
-                    listaCantanteRAF.seek(cont + 31);
-                    int anioDeLanzamiento = listaCantanteRAF.readInt();
-                    listaDisco.add(new Disco(codigo, nombre, anioDeLanzamiento));
-                    }catch(IOException iOException){
-                    }finally{
+                    try {
+                        listaCantanteRAF.seek(cont2);
+                        int codigo = listaCantanteRAF.readInt();
+                        listaCantanteRAF.seek(cont2 + 4);
+                        String nombre = listaCantanteRAF.readUTF().strip();
+                        listaCantanteRAF.seek(cont + 31);
+                        int anioDeLanzamiento = listaCantanteRAF.readInt();
+                        listaDisco.add(new Disco(codigo, nombre, anioDeLanzamiento));
+                    } catch (IOException iOException) {
+                    } finally {
                         cont2 += 35;
                     }
                 }

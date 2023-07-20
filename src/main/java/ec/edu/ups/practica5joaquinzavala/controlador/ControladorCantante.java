@@ -72,7 +72,7 @@ public class ControladorCantante {
         return cantanteDAO.readDisco(this.cantante, codigo);
     }
 
-    public boolean eliminarDisco(Cantante cantante, int codigo, String nombre, int anioDeLanzamiento) {
+    public boolean eliminarDisco(Cantante cantante, int codigo) {
         this.cantante = cantante;
         Disco disco = this.buscarDisco(this.cantante, codigo);
         if (disco != null) {
