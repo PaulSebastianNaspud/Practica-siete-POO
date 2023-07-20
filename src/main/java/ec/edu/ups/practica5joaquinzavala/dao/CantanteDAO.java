@@ -16,11 +16,9 @@ public class CantanteDAO implements ICantanteDAO {
     
     //atributo lista cantante
     private RandomAccessFile listaCantanteRAF;
-    private List<Cantante> listaCantante;
 
     //contructor
     public CantanteDAO() {
-        this.listaCantante = new ArrayList();
         this.listaCantanteRAF = this.instanciarListaCantanteRAF();
         
     }
@@ -143,9 +141,11 @@ public class CantanteDAO implements ICantanteDAO {
                             conDisco += 35;
 
                         } catch (IOException iOException) {
-                            return cantante;
+                        }finally{
+                            conDisco += 35;
                         }
                     }
+                    
                     return cantante;
                             
                 }
@@ -165,14 +165,6 @@ public class CantanteDAO implements ICantanteDAO {
     //sobre escritura del metodo para buscar cantante por nombre de disco
     @Override
     public Cantante buscarPorNombreDeDisco(String valor) {
-        for (Cantante cantante : listaCantante) { //for each de la lista de las personas
-            for (Disco disco : cantante.listarDiscografia()) {
-                //comparar Strings hasta que se cumpla la condicion atraves del get
-                if (disco.getNombre().equals(valor)) {
-                    return cantante; //return de persona
-                }
-            }
-        }
         return null; // si no exite, return null
     }
 
@@ -278,7 +270,7 @@ public class CantanteDAO implements ICantanteDAO {
             } catch (IOException iOException) {
                 System.out.println("Error ioe: " + iOException);
             } catch (Exception exception) {
-                System.out.println("Error gener: " +exception);
+                System.out.println("Error general: " +exception);
             } finally {
                 cont += 498;
             }
@@ -443,7 +435,7 @@ public class CantanteDAO implements ICantanteDAO {
             if (listaCantanteRAF.readInt() == cantante.getCodigo()) {
                 long cont2 = cont + 148;
                 while (cont2 < (cont + 350)) {
-
+                    try{
                     listaCantanteRAF.seek(cont2);
                     int codigo = listaCantanteRAF.readInt();
                     listaCantanteRAF.seek(cont2 + 4);
@@ -451,7 +443,10 @@ public class CantanteDAO implements ICantanteDAO {
                     listaCantanteRAF.seek(cont + 31);
                     int anioDeLanzamiento = listaCantanteRAF.readInt();
                     listaDisco.add(new Disco(codigo, nombre, anioDeLanzamiento));
-                    cont2 += 35;
+                    }catch(IOException iOException){
+                    }finally{
+                        cont2 += 35;
+                    }
                 }
                 return listaDisco;
             }
