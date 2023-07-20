@@ -96,7 +96,7 @@ public class CantanteDAO implements ICantanteDAO {
 
                 int codigoLista = listaCantanteRAF.readInt();
                 if (codigoLista == codigo) {
-
+                    System.out.println("encontro      ");
                     listaCantanteRAF.seek(cont + 4);
                     String nombre = listaCantanteRAF.readUTF().trim();
 
@@ -129,7 +129,7 @@ public class CantanteDAO implements ICantanteDAO {
 
                     long conDisco = cont + 148;
 
-                    while (conDisco < (cont + 350)) {
+                    while (conDisco < (cont + 498)) {
                         try {
                             
                             listaCantanteRAF.seek(conDisco);
@@ -323,17 +323,17 @@ public class CantanteDAO implements ICantanteDAO {
         while (cont < this.length()) {
             try {
                 listaCantanteRAF.seek(cont);
-
                 if (listaCantanteRAF.readInt() == cantante.getCodigo()) {
                     long conDisco = cont + 148;
 
-                    while (conDisco < (cont + 350)) {
+                    while (conDisco < (cont + 498)) {
 
                         try {
                             listaCantanteRAF.seek(conDisco);
                             int codigoDis = listaCantanteRAF.readInt();
+                            
                             if (codigoDis == codigo) {
-                                listaCantanteRAF.seek(conDisco + 4);
+                                listaCantanteRAF.seek(conDisco+4);
                                 String nombre = listaCantanteRAF.readUTF();
                                 listaCantanteRAF.seek(conDisco + 31);
                                 int anioDeLanzamiento = listaCantanteRAF.readInt();
@@ -353,6 +353,7 @@ public class CantanteDAO implements ICantanteDAO {
             }
         }
         return null;
+        
     }
 
     @Override
@@ -364,8 +365,8 @@ public class CantanteDAO implements ICantanteDAO {
 
                 if (listaCantanteRAF.readInt() == cantante.getCodigo()) {
                     long conDisco = cont + 148;
-                    while (conDisco < (cont + 350)) {
-
+                    while (conDisco < (cont + 498)) {
+                        
                         try {
                             listaCantanteRAF.seek(conDisco);
                             int codigoDos = listaCantanteRAF.readInt();
