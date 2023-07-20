@@ -24,14 +24,18 @@ public class Main {
 //        cantanteDAO.create(new Cantante("Naspud", GeneroMusical.ROCK_METAL, 25, 2, 3, "Paul3", "Naspud3", 19, 45.25, Nacionalidad.CANADA));
 //        cantanteDAO.create(new Cantante("Vivar", eneroMusical.ROCK, 25, 2, 4, "Paul4", "Naspud4", 19, 65.5, Nacionalidad.CANADA));
         Cantante cantante = cantanteDAO.read(1);
-        cantanteDAO.createDisco(cantante, 9, "BAD_buNNY", 2016);
-         cantante = cantanteDAO.read(1);
-          System.out.println(cantante);
-         System.out.println(cantanteDAO.readDisco(cantante, 9));
-        //cantante = cantanteDAO.read(3);
-        //cantanteDAO.createDisco(cantante, 8, "JOSTIN BEBIEBI", 2203);
-        //cantante = cantanteDAO.read(3);
-        //cantanteDAO.createDisco(cantante, 7, "MALUMA BBAY", 1233);
+        cantanteDAO.createDisco(cantante, 9, "BAD BUNNY", 2016);
+        cantante = cantanteDAO.read(1);
+        cantanteDAO.createDisco(cantante, 8, "SEBASTIAN NASPUD", 2203);
+        cantante = cantanteDAO.read(1);
+        cantanteDAO.createDisco(cantante, 7, "MALUMA BBAY", 1233);
+        cantante = cantanteDAO.read(1);
+        cantanteDAO.createDisco(cantante, 6, "CAMILA CABELLO", 1233);
+        cantante = cantanteDAO.read(1);
+        cantanteDAO.createDisco(cantante, 5, "HOLA MUNDO", 1233);
+        cantante = cantanteDAO.read(1);
+        System.out.println(cantante);
+        System.out.println(cantanteDAO.readDisco(cantante, 7));
         
     }
 }

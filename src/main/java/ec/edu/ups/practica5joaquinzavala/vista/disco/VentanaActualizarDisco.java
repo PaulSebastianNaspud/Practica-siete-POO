@@ -233,7 +233,7 @@ public class VentanaActualizarDisco extends javax.swing.JInternalFrame {
             int codigoCancion = Integer.parseInt(txtCodigoDisco.getText());
             int anioDeLanzamiento = Integer.valueOf(txtAnioDeLanzamiento.getText());
             String nombreDisco = txtNombreDisco.getText();
-            controladorCantante.actualizarDisco(cantante, codigo, nombreDisco, anioDeLanzamiento);
+            controladorCantante.actualizarDisco(cantante, codigoCancion, nombreDisco, anioDeLanzamiento);
             JOptionPane.showMessageDialog(this, "El disco " + nombreDisco + " a sido actualizado");
             cambiaEstadoDisco(false);
             cambiarEstado(false);
@@ -271,7 +271,8 @@ public class VentanaActualizarDisco extends javax.swing.JInternalFrame {
         int codigo = Integer.parseInt(txtCodigo.getText());
         this.cantante = controladorCantante.buscarCantante(codigo);
         int codigoDisco = Integer.parseInt(txtCodigoDisco.getText());
-        Disco disco = controladorCantante.buscarDisco(cantante, codigo);
+        Disco disco = controladorCantante.buscarDisco(cantante, codigoDisco);
+        
         if (disco != null) {
             txtAnioDeLanzamiento.setText(String.valueOf(disco.getAnioDeLanzamiento()));
             txtNombreDisco.setText(disco.getNombre());

@@ -86,7 +86,9 @@ public class ControladorCantante {
 
     public boolean actualizarDisco(Cantante cantante, int codigo, String nombre, int anioDeLanzamiento) {
         this.cantante = cantante;
+        System.out.println(cantante);
         Disco disco = this.buscarDisco(cantante, codigo);
+        System.out.println(disco);
         if (disco != null) {
             cantanteDAO.updateDisco(this.cantante, codigo, nombre, anioDeLanzamiento);
             cantanteDAO.update(this.cantante);

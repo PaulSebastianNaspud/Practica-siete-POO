@@ -96,7 +96,7 @@ public class CantanteDAO implements ICantanteDAO {
 
                 int codigoLista = listaCantanteRAF.readInt();
                 if (codigoLista == codigo) {
-                    System.out.println("encontro      ");
+                    
                     listaCantanteRAF.seek(cont + 4);
                     String nombre = listaCantanteRAF.readUTF().trim();
 
@@ -362,18 +362,17 @@ public class CantanteDAO implements ICantanteDAO {
         while (cont < this.length()) {
             try {
                 listaCantanteRAF.seek(cont);
-
+                
                 if (listaCantanteRAF.readInt() == cantante.getCodigo()) {
                     long conDisco = cont + 148;
+
                     while (conDisco < (cont + 498)) {
                         
                         try {
                             listaCantanteRAF.seek(conDisco);
-                            int codigoDos = listaCantanteRAF.readInt();
-                            if (codigoDos == codigo) {
-                                
+                            int codigoDisco = listaCantanteRAF.readInt();
+                            if (codigoDisco == codigo) {
                                 listaCantanteRAF.writeUTF(rellenarBite(nombre, 25));
-                                // Año de lanzamiento del disco (4 bytes) en posición 179
                                 listaCantanteRAF.writeInt(anioDeLanzamiento);
                             }
                         } catch (IOException iOException) {
