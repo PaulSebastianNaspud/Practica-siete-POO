@@ -139,7 +139,6 @@ public class CantanteDAO implements ICantanteDAO {
                             listaCantanteRAF.seek(conDisco + 31);
                             int anioDeLanzamiento = listaCantanteRAF.readInt();
                             cantante.agregarDisco(new Disco(codigoDisco, nombreDisco, anioDeLanzamiento));
-                            conDisco += 35;
 
                         } catch (IOException iOException) {
                         }finally{
@@ -443,9 +442,10 @@ public class CantanteDAO implements ICantanteDAO {
                         int codigo = listaCantanteRAF.readInt();
                         listaCantanteRAF.seek(cont2 + 4);
                         String nombre = listaCantanteRAF.readUTF().strip();
-                        listaCantanteRAF.seek(cont + 31);
+                        listaCantanteRAF.seek(cont2 + 31);
                         int anioDeLanzamiento = listaCantanteRAF.readInt();
                         listaDisco.add(new Disco(codigo, nombre, anioDeLanzamiento));
+                        
                     } catch (IOException iOException) {
                     } finally {
                         cont2 += 35;

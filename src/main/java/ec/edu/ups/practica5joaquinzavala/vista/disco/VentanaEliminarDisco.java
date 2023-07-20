@@ -59,6 +59,8 @@ public class VentanaEliminarDisco extends javax.swing.JInternalFrame {
         txtAnioDeLanzamiento = new javax.swing.JTextField();
         btnEleminarDisco = new javax.swing.JButton();
 
+        setClosable(true);
+
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
