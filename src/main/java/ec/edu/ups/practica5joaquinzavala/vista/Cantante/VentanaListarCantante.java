@@ -45,6 +45,7 @@ public class VentanaListarCantante extends javax.swing.JInternalFrame {
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setIconifiable(true);
+        setTitle("Listar Disco");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
                 formInternalFrameActivated(evt);
@@ -118,7 +119,7 @@ public class VentanaListarCantante extends javax.swing.JInternalFrame {
             String apellido = cantante.getApellido();
             String edad = String.valueOf(cantante.getEdad());
             Nacionalidad nacionalidad = cantante.getNacionalidad();
-            String salario = String.valueOf(cantante.getSalario());
+            String salario = String.valueOf(cantante.calularSalario());
             String nombreArtistico = cantante.getNombreArtistico();
             GeneroMusical generoMusical = cantante.getGeneroMusical();
             String numSencillos = String.valueOf(cantante.getNumeroDeSensillos());

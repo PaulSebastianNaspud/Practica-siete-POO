@@ -70,6 +70,24 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setIconifiable(true);
+        setTitle("Acrualizar Disco");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosing(evt);
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -234,12 +252,12 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
                             .addComponent(cmbxNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(43, 43, 43))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(0, 261, Short.MAX_VALUE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(6, 6, 6)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -410,14 +428,20 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
             txtConciertos.setText(String.valueOf(cantante.getNumeroDeConciertos()));
             txtGiras.setText(String.valueOf(cantante.getNumeroDeGiras()));
             txtSalario.setText(String.valueOf(String.valueOf(cantante.getSalario())));
-            cmbxNacionalidad.setSelectedIndex(cantante.getNacionalidad().ordinal());
-            cmbxGeneroMusical.setSelectedIndex(cantante.getGeneroMusical().ordinal());
+            cmbxNacionalidad.setSelectedItem(cantante.getNacionalidad());
+            cmbxGeneroMusical.setSelectedItem(cantante.getGeneroMusical());
             cambiarEstado(true);
         } else {
             JOptionPane.showMessageDialog(this, "El cantante con el codigo: " + codigo + " no se a registrado");
 
         }
     }//GEN-LAST:event_btnBucarActionPerformed
+
+    private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
+        this.setVisible(false);
+        this.limpiarCampos();
+        this.cambiarEstado(false);
+    }//GEN-LAST:event_formInternalFrameClosing
 
     private void llenarComboBox() {
         DefaultComboBoxModel<GeneroMusical> modeloGM = (DefaultComboBoxModel) this.cmbxGeneroMusical.getModel();

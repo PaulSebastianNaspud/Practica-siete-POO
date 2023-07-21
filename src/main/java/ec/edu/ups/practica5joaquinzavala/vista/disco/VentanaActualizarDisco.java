@@ -65,6 +65,24 @@ public class VentanaActualizarDisco extends javax.swing.JInternalFrame {
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setIconifiable(true);
+        setTitle("Actualizar Disco");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosing(evt);
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jPanel5.setBackground(new java.awt.Color(255, 102, 102));
         jPanel5.setEnabled(false);
@@ -282,6 +300,12 @@ public class VentanaActualizarDisco extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "No se ha encotrado el disco");
         }
     }//GEN-LAST:event_btnBuscarDiscoActionPerformed
+
+    private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
+        cambiarEstado(false);
+        cambiaEstadoDisco(false);
+        limpiarCampos();
+    }//GEN-LAST:event_formInternalFrameClosing
 
     private void cambiarEstado(boolean bandera){
         txtCodigo.setEnabled(!bandera);

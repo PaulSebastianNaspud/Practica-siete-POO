@@ -192,10 +192,11 @@ public class CantanteDAO implements ICantanteDAO {
                     //genero Musioal 17 byte pos 119
                     listaCantanteRAF.writeUTF(this.rellenarBite(String.valueOf(obj.getGeneroMusical()), 15));
                     //numero de sensillos 4 bity pos 136
-                    listaCantanteRAF.writeInt(obj.getNumeroDeSensillos());
-                    //numero de conciertos 4 bity pos 140
                     listaCantanteRAF.writeInt(obj.getNumeroDeConciertos());
+                    //numero de sensillos 4 bity pos 140
+                    listaCantanteRAF.writeInt(obj.getNumeroDeGiras());
                     //numero de sensillos 4 bity pos 144
+                    listaCantanteRAF.writeInt(obj.getNumeroDeSensillos());
                 }
             } catch (IOException iOException) {
                 System.out.println("Error: " + iOException);
@@ -266,8 +267,29 @@ public class CantanteDAO implements ICantanteDAO {
 
                 listaCantanteRAF.seek(cont + 140);
                 int numeroDeGiras = listaCantanteRAF.readInt();
+                Cantante cantante = new Cantante(nombreArtistico, generoMusical, numeroDeConciertos, numeroDeGiras, codigoLista, nombre, apellido, edad, salario, nacionalidad);
+                
+                
+                long conDisco = cont + 148;
+                while (conDisco < (cont + 498)) {
+                    try {
 
-                listaCantanteFindAll.add(new Cantante(nombreArtistico, generoMusical, numeroDeConciertos, numeroDeGiras, codigoLista, nombre, apellido, edad, salario, nacionalidad));
+                        listaCantanteRAF.seek(conDisco);
+                        int codigoDisco = listaCantanteRAF.readInt();
+                        listaCantanteRAF.seek(conDisco + 4);
+                        String nombreDisco = listaCantanteRAF.readUTF();
+                        listaCantanteRAF.seek(conDisco + 31);
+                        int anioDeLanzamiento = listaCantanteRAF.readInt();
+                        cantante.agregarDisco(new Disco(codigoDisco, nombreDisco, anioDeLanzamiento));
+
+                    } catch (IOException iOException) {
+                    } finally {
+                        conDisco += 35;
+                    }
+                }
+            
+                
+                listaCantanteFindAll.add(cantante);
             } catch (IOException iOException) {
                 System.out.println("Error ioe: " + iOException);
             } catch (Exception exception) {

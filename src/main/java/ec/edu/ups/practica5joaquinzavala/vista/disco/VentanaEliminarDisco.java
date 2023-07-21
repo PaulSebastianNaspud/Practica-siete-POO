@@ -60,6 +60,26 @@ public class VentanaEliminarDisco extends javax.swing.JInternalFrame {
         btnEleminarDisco = new javax.swing.JButton();
 
         setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        setResizable(true);
+        setTitle("Eliminar Disco");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosing(evt);
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -241,7 +261,7 @@ public class VentanaEliminarDisco extends javax.swing.JInternalFrame {
         int codigo = Integer.parseInt(txtCodigo.getText());
         this.cantante = controladorCantante.buscarCantante(codigo);
         int codigoDisco = Integer.parseInt(txtCodigoDisco.getText());
-        Disco disco = controladorCantante.buscarDisco(cantante, codigo);
+        Disco disco = controladorCantante.buscarDisco(cantante, codigoDisco);
         if (disco != null) {
             txtAnioDeLanzamiento.setText(String.valueOf(disco.getAnioDeLanzamiento()));
             txtNombreDisco.setText(disco.getNombre());
@@ -281,6 +301,12 @@ public class VentanaEliminarDisco extends javax.swing.JInternalFrame {
             this.cambiarEstado(false);
         }
     }//GEN-LAST:event_btnEleminarDiscoActionPerformed
+
+    private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
+        cambiarEstado(false);
+        limpiarCampos();
+        limpiarCamposDisco();
+    }//GEN-LAST:event_formInternalFrameClosing
 
 
     private void cambiarEstado(boolean bandera){

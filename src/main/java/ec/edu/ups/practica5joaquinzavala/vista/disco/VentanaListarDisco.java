@@ -51,6 +51,7 @@ public class VentanaListarDisco extends javax.swing.JInternalFrame {
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setIconifiable(true);
+        setTitle("Listar Disco");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
                 formInternalFrameActivated(evt);
@@ -58,6 +59,7 @@ public class VentanaListarDisco extends javax.swing.JInternalFrame {
             public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosing(evt);
             }
             public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -181,6 +183,13 @@ public class VentanaListarDisco extends javax.swing.JInternalFrame {
         DefaultTableModel modelo = (DefaultTableModel) tblDisco.getModel();
         modelo.setNumRows(0);
     }//GEN-LAST:event_formInternalFrameActivated
+
+    private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
+        limpiarCampos();
+        this.setVisible(false);
+        DefaultTableModel modelo = (DefaultTableModel) tblDisco.getModel();
+        modelo.setNumRows(0);
+    }//GEN-LAST:event_formInternalFrameClosing
 
     private void limpiarCampos(){
         txtCodigo.setText("");
