@@ -11,7 +11,6 @@ import ec.edu.ups.practica5joaquinzavala.modelo.Nacionalidad;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -21,8 +20,6 @@ import java.util.List;
 public class CompositorDAO implements ICompositorDAO {
 
     //contador estatico para el maximo de elementos de la clase
-    private static int cont;
-    private final int MAX_OBJECTCS = 10;
     
     private RandomAccessFile listaCompositorRAF;
     
@@ -63,14 +60,6 @@ public class CompositorDAO implements ICompositorDAO {
     //metodo sobrescrito para buscar un compositor por un titulo de la cancion
     @Override
     public Compositor buscarPorTituloDeCancion(String valor) {
-        for (Compositor compositor : listaCompositor) {  //for each de la lsita personas
-            for (Cancion cancion : compositor.listarCancionesTop100Billaboar()) {
-                //comparar Strings hasta que se cumpla la condicion atraves del get
-                if (cancion.getTitulo().equals(valor)) {
-                    return compositor; //retunr de persona
-                }
-            }
-        }
         return null; // si no existe, return null
     }
 
@@ -170,31 +159,104 @@ public class CompositorDAO implements ICompositorDAO {
 
     @Override
     public void update(Compositor obj) {
-        for (int i = 0; i < listaCompositor.size(); i++) {
-            Compositor compositorsito = listaCompositor.get(i);
-            if (compositorsito.getCodigo() == obj.getCodigo()) {
-                listaCompositor.set(i, obj);
-                break;
+        long cont = 0;
+        while (cont < this.length()) {
+            try {
+                listaCompositorRAF.seek(cont);
+
+                int codigoLista = listaCompositorRAF.readInt();
+                if (codigoLista == obj.getCodigo()) {
+
+                    //nombre 27 byte pos 4
+                    listaCompositorRAF.writeUTF(this.rellenarBite(obj.getNombre(), 25));
+
+                    //apeliido 27 byte pos 31
+                    listaCompositorRAF.writeUTF(this.rellenarBite(obj.getApellido(), 25));
+
+                    //edad 4 bity pos 58
+                    listaCompositorRAF.writeInt(obj.getEdad());
+
+                    //salario 8 byte pos 62
+                    listaCompositorRAF.writeDouble(obj.getSalario());
+
+                    //nacionalidada 22 byte pos 70
+                    listaCompositorRAF.writeUTF(this.rellenarBite(String.valueOf(obj.getNacionalidad()), 20));
+
+                    //numero de composiciones 4 byte pos 92            
+                    listaCompositorRAF.writeInt(obj.getNumeroDeComposiciones());
+                    return;
+                    
+                }
+            } catch (IOException iOException) {
+                System.out.println("Error: " + iOException);
+            } finally {
+                cont += 5896;
             }
         }
     }
 
     @Override
     public void delete(Compositor obj) {
-        Iterator<Compositor> it = listaCompositor.iterator();
-        while (it.hasNext()) {
-            Compositor c = it.next();
-            if (c.getCodigo() == obj.getCodigo()) {
-                it.remove();
-                break;
+        long cont = 0;
+        while (cont < this.length()) {
+            try {
+                listaCompositorRAF.seek(cont);
+
+                int codigoLista = listaCompositorRAF.readInt();
+                if (codigoLista == obj.getCodigo()) {
+                    listaCompositorRAF.seek(cont);
+                    listaCompositorRAF.writeUTF(this.rellenarBite("", 5894));
+                    return;
+                }
+            } catch (IOException iOException) {
+
+            } finally {
+                cont += 5896;
             }
         }
     }
 
     @Override
     public List<Compositor> findAll() {
-        return listaCompositor;
-    }@Override
+        List<Compositor> listaCompositorFindAll = new ArrayList<>();
+        long cont = 0;
+        
+        while (cont < this.length()) {
+            try {
+                listaCompositorRAF.seek(cont);
+
+                int codigo = listaCompositorRAF.readInt();
+
+                String nombre = listaCompositorRAF.readUTF().trim();
+
+                String apellido = listaCompositorRAF.readUTF().trim();
+
+                int edad = listaCompositorRAF.readInt();
+
+                double salario = listaCompositorRAF.readDouble();
+
+                Nacionalidad nacionalidad = Nacionalidad.valueOf((listaCompositorRAF.readUTF().replaceAll("\\s", "")));
+                
+                int numeroDeComposiciones = listaCompositorRAF.readInt();
+                
+                //falta el while de canciones
+                
+                //falta el while de compositores
+                
+                listaCompositorFindAll.add(new Compositor(numeroDeComposiciones, codigo, nombre, apellido, edad, salario, nacionalidad));
+                
+                
+            } catch (IOException iOException) {}
+              catch (Exception exception) {
+            } finally {
+                cont += 5896;
+            }
+        }
+
+        return listaCompositorFindAll;
+    }
+    
+    @Override
     public void createCancion(Compositor compositor, int codigo, String titulo, String letra, double tiempoEnMinutos) {
         if(listaCompositor.contains(compositor)){
             compositor.agregarCancion(new Cancion(codigo, titulo, letra, tiempoEnMinutos));

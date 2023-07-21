@@ -188,6 +188,7 @@ public class CantanteDAO implements ICantanteDAO {
                     listaCantanteRAF.writeInt(obj.getNumeroDeGiras());
                     //numero de sensillos 4 bity pos 144
                     listaCantanteRAF.writeInt(obj.getNumeroDeSensillos());
+                    return;
                 }
             } catch (IOException iOException) {
                 System.out.println("Error: " + iOException);
@@ -217,7 +218,6 @@ public class CantanteDAO implements ICantanteDAO {
                 cont += 498;
             }
         }
-        
     }
 
     @Override
