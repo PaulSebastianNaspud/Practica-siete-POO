@@ -231,32 +231,24 @@ public class CantanteDAO implements ICantanteDAO {
 
                 int codigoLista = listaCantanteRAF.readInt();
 
-                listaCantanteRAF.seek(cont + 4);
                 String nombre = listaCantanteRAF.readUTF().trim();
 
-                listaCantanteRAF.seek(cont + 31);
                 String apellido = listaCantanteRAF.readUTF().trim();
 
-                listaCantanteRAF.seek(cont + 58);
                 int edad = listaCantanteRAF.readInt();
 
-                listaCantanteRAF.seek(cont + 62);
                 double salario = listaCantanteRAF.readDouble();
 
-                listaCantanteRAF.seek(cont + 70);
                 Nacionalidad nacionalidad = Nacionalidad.valueOf((listaCantanteRAF.readUTF().replaceAll("\\s", "")));
 
-                listaCantanteRAF.seek(cont + 92);
                 String nombreArtistico = listaCantanteRAF.readUTF().trim();
 
-                listaCantanteRAF.seek(cont + 119);
                 GeneroMusical generoMusical = GeneroMusical.valueOf(listaCantanteRAF.readUTF().trim().replaceAll("\\s", ""));
 
                 //numero de sensillos se calcula en base de la lista
                 listaCantanteRAF.seek(cont + 136);
                 int numeroDeConciertos = listaCantanteRAF.readInt();
 
-                listaCantanteRAF.seek(cont + 140);
                 int numeroDeGiras = listaCantanteRAF.readInt();
                 Cantante cantante = new Cantante(nombreArtistico, generoMusical, numeroDeConciertos, numeroDeGiras, codigoLista, nombre, apellido, edad, salario, nacionalidad);
                 
@@ -264,12 +256,9 @@ public class CantanteDAO implements ICantanteDAO {
                 long conDisco = cont + 148;
                 while (conDisco < (cont + 498)) {
                     try {
-
                         listaCantanteRAF.seek(conDisco);
                         int codigoDisco = listaCantanteRAF.readInt();
-                        listaCantanteRAF.seek(conDisco + 4);
                         String nombreDisco = listaCantanteRAF.readUTF();
-                        listaCantanteRAF.seek(conDisco + 31);
                         int anioDeLanzamiento = listaCantanteRAF.readInt();
                         cantante.agregarDisco(new Disco(codigoDisco, nombreDisco, anioDeLanzamiento));
 
@@ -344,9 +333,7 @@ public class CantanteDAO implements ICantanteDAO {
                             int codigoDis = listaCantanteRAF.readInt();
                             
                             if (codigoDis == codigo) {
-                                listaCantanteRAF.seek(conDisco+4);
                                 String nombre = listaCantanteRAF.readUTF();
-                                listaCantanteRAF.seek(conDisco + 31);
                                 int anioDeLanzamiento = listaCantanteRAF.readInt();
                                 return new Disco(codigoDis, nombre, anioDeLanzamiento);
                             }
@@ -451,9 +438,7 @@ public class CantanteDAO implements ICantanteDAO {
                     try {
                         listaCantanteRAF.seek(cont2);
                         int codigo = listaCantanteRAF.readInt();
-                        listaCantanteRAF.seek(cont2 + 4);
                         String nombre = listaCantanteRAF.readUTF().strip();
-                        listaCantanteRAF.seek(cont2 + 31);
                         int anioDeLanzamiento = listaCantanteRAF.readInt();
                         listaDisco.add(new Disco(codigo, nombre, anioDeLanzamiento));
                         
