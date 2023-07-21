@@ -105,7 +105,7 @@ public class Cantante extends Persona {
         }
         return null;
     }
-
+    
     //metodos de la clase abstract persona
     @Override
     public double calularSalario() {

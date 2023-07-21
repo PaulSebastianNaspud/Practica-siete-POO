@@ -26,7 +26,7 @@ public class CantanteDAO implements ICantanteDAO {
     
     private RandomAccessFile instanciarListaCantanteRAF(){
         try{
-            return new RandomAccessFile("src/main/resources/ec/edu/ups/practicasiete/fileraf/cantante.paul", "rw");
+            return new RandomAccessFile("src/main/resources/ec/edu/ups/practicasiete/fileraf/cantante.cant", "rw");
         }catch(IOException iOException){
         }return null;
     }
@@ -97,31 +97,22 @@ public class CantanteDAO implements ICantanteDAO {
                 int codigoLista = listaCantanteRAF.readInt();
                 if (codigoLista == codigo) {
                     
-                    listaCantanteRAF.seek(cont + 4);
                     String nombre = listaCantanteRAF.readUTF().trim();
 
-                    listaCantanteRAF.seek(cont + 31);
                     String apellido = listaCantanteRAF.readUTF().trim();
 
-                    listaCantanteRAF.seek(cont + 58);
                     int edad = listaCantanteRAF.readInt();
 
-                    listaCantanteRAF.seek(cont + 62);
                     double salario = listaCantanteRAF.readDouble();
 
-                    listaCantanteRAF.seek(cont + 70);
                     Nacionalidad nacionalidad = Nacionalidad.valueOf((listaCantanteRAF.readUTF().replaceAll("\\s", "")));
 
-                    listaCantanteRAF.seek(cont + 92);
                     String nombreArtistico = listaCantanteRAF.readUTF().trim();
 
-                    listaCantanteRAF.seek(cont + 119);
                     GeneroMusical generoMusical = GeneroMusical.valueOf(listaCantanteRAF.readUTF().trim().replaceAll("\\s", ""));
 
-                    listaCantanteRAF.seek(cont + 136);
                     int numeroDeConciertos = listaCantanteRAF.readInt();
 
-                    listaCantanteRAF.seek(cont + 140);
                     int numeroDeGiras = listaCantanteRAF.readInt();
 
                     //numero de sensillos se calcula en base de la lista
@@ -290,13 +281,11 @@ public class CantanteDAO implements ICantanteDAO {
             
                 
                 listaCantanteFindAll.add(cantante);
-            } catch (IOException iOException) {
-                System.out.println("Error ioe: " + iOException);
-            } catch (Exception exception) {
-                System.out.println("Error general: " +exception);
-            } 
-            cont += 498;
-            
+            } catch (IOException iOException) {}
+              catch (Exception exception) {
+            } finally {
+                cont += 498;
+            }
         }
 
         return listaCantanteFindAll;
@@ -422,7 +411,7 @@ public class CantanteDAO implements ICantanteDAO {
                 if (listaCantanteRAF.readInt() == cantante.getCodigo()) {
                     long conDisco = cont + 148;
 
-                    while (conDisco < (cont + 350)) {
+                    while (conDisco < (cont + 498)) {
 
                         try {
                             listaCantanteRAF.seek(conDisco);

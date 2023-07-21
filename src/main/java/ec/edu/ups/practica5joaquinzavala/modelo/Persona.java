@@ -1,6 +1,3 @@
-
-
-
 package ec.edu.ups.practica5joaquinzavala.modelo;
 
 public abstract class Persona {

@@ -72,6 +72,10 @@ public class Compositor extends Persona {
         }
         return null;
     }
+    
+    public int sizeCancionesTop100Billaboar(){
+        return cancionesTop100Billaboar.size();
+    }
 
     //clientes
     public void agregarCliente(Cantante cliente) {
@@ -104,7 +108,11 @@ public class Compositor extends Persona {
         }
         return null;
     }
-
+    
+    public int sizeCliente(){
+        return clientes.size();
+    }
+    
     //metodo abstract de la herencia
     @Override
     public double calularSalario() {
