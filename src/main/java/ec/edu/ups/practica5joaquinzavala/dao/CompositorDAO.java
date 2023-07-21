@@ -128,22 +128,24 @@ public class CompositorDAO implements ICompositorDAO {
                     int numeroComposiciones = listaCompositorRAF.readInt();
                     
                     //numero de sensillos se calcula en base de la lista
-                    return new Compositor(numeroComposiciones, codigo, nombre, apellido, edad, salario, nacionalidad);
+                    Compositor compositor = new Compositor(numeroComposiciones, codigo, nombre, apellido, edad, salario, nacionalidad);
+                    long conDisco = cont + 96;
 
-                    /*long conDisco = cont + 148;
-
-                    while (conDisco < (cont + 498)) {
+                    while (conDisco < (cont + 916)) {
                         try {
-                            
-                            
-
+                            listaCompositorRAF.seek(conDisco);
+                            int codigoDisco = listaCompositorRAF.readInt();
+                            String tirulo = listaCompositorRAF.readUTF();
+                            String letra = listaCompositorRAF.readUTF();
+                            double duracionEnMinutos = listaCompositorRAF.readDouble();
+                            compositor.agregarCancion(new Cancion(codigoDisco, tirulo, letra, duracionEnMinutos));
                         } catch (IOException iOException) {
                         }finally{
-                            conDisco += 35;
+                            conDisco += 82;
                         }
                     }
                     
-                    return cantante;*/
+                    return compositor;
                             
                 }
             } catch (IOException iOException) {
@@ -258,41 +260,190 @@ public class CompositorDAO implements ICompositorDAO {
     
     @Override
     public void createCancion(Compositor compositor, int codigo, String titulo, String letra, double tiempoEnMinutos) {
-        if(listaCompositor.contains(compositor)){
-            compositor.agregarCancion(new Cancion(codigo, titulo, letra, tiempoEnMinutos));
-            this.update(compositor);
-        }
+        long cont = 0;
+        while (cont < this.length()) {
+             try {
+                 listaCompositorRAF.seek(cont);
+
+                 if (listaCompositorRAF.readInt() == compositor.getCodigo()) {
+                     
+                     if (compositor.sizeCancionesTop100Billaboar() == 10) {
+                         return;
+                     }
+
+                     long posicionCancion = cont + 96 + (compositor.sizeCancionesTop100Billaboar() * 82);
+                     listaCompositorRAF.seek(posicionCancion);
+
+                     // Código del disco (4 bytes) en posición 96
+                     listaCompositorRAF.writeInt(codigo);
+
+                     // titulo de la cancion (20 bytes) en posición 100
+                     listaCompositorRAF.writeUTF(rellenarBite(titulo, 18));
+                     
+                     //letra de la cancion (50 bytes) posicion 120
+                     listaCompositorRAF.writeUTF(rellenarBite(letra, 48));
+
+                     // tiempo en minutos (8  bytes) poscicion 170
+                     listaCompositorRAF.writeDouble(tiempoEnMinutos);
+                     
+                     return;
+                 }
+             } catch (IOException iOException) {
+
+             } finally {
+                 cont += 5896;
+             }
+         }
     }
 
     @Override
     public Cancion readCancion(Compositor compositor, int codigo) {
-        if(listaCompositor.contains(compositor)){
-            return compositor.buscarCancion(codigo);
-        }return null;
+        long cont = 0;
+        while (cont < this.length()) {
+            try {
+                listaCompositorRAF.seek(cont);
+                if (listaCompositorRAF.readInt() == compositor.getCodigo()) {
+                    long conDisco = cont + 96;
+
+                    while (conDisco < (cont + 916)) {
+
+                        try {
+                            listaCompositorRAF.seek(conDisco);
+                            int codigoDis = listaCompositorRAF.readInt();
+                            
+                            if (codigoDis == codigo) {
+                                String titulo = listaCompositorRAF.readUTF();
+                                
+                                String letra = listaCompositorRAF.readUTF();
+                                
+                                double tiempoEnMinutos = listaCompositorRAF.readDouble();
+                                return new Cancion(codigoDis, titulo, letra, tiempoEnMinutos);
+                            }
+                        } catch (IOException iOException) {
+                        } finally {
+                            conDisco += 82;
+                        }
+
+                    }
+                }
+            } catch (IOException iOException) {
+
+            } finally {
+                cont += 5896;
+            }
+        }
+        return null;
     }
 
     @Override
     public void updateCancion(Compositor compositor, int codigo, String titulo, String letra, double tiempoEnMinutos) {
-        if(listaCompositor.contains(compositor)){
-            compositor.actualizarCancion(new Cancion(codigo, titulo, letra, tiempoEnMinutos));
-            this.update(compositor);
+        long cont = 0;
+        while (cont < this.length()) {
+            try {
+                listaCompositorRAF.seek(cont);
+                
+                if (listaCompositorRAF.readInt() == compositor.getCodigo()) {
+                    long conDisco = cont + 96;
+
+                    while (conDisco < (cont + 916)) {
+
+                        try {
+                            listaCompositorRAF.seek(conDisco);
+                            int codigoDis = listaCompositorRAF.readInt();
+
+                            if (codigoDis == codigo) {
+                                
+                                listaCompositorRAF.writeUTF(rellenarBite(titulo, 18));
+
+                                //letra de la cancion (50 bytes) posicion 120
+                                listaCompositorRAF.writeUTF(rellenarBite(letra, 48));
+
+                                // tiempo en minutos (8  bytes) poscicion 170
+                                listaCompositorRAF.writeDouble(tiempoEnMinutos);
+                            }
+                        } catch (IOException iOException) {
+                        } finally {
+                            conDisco += 82;
+                        }
+
+                    }
+                }
+            } catch (IOException iOException) {
+
+            } finally {
+                cont += 5896;
+            }
         }
-        
     }
 
     @Override
     public void deleteCancion(Compositor compositor, int codigo) {
-        if(listaCompositor.contains(compositor)){
-            compositor.eliminarCacion(new Cancion(codigo));
-            this.update(compositor);
+        long cont = 0;
+        while (cont < this.length()) {
+            try {
+                listaCompositorRAF.seek(cont);
+
+                if (listaCompositorRAF.readInt() == compositor.getCodigo()) {
+                    long conDisco = cont + 96;
+
+                    while (conDisco < (cont + 916)) {
+
+                        try {
+                            listaCompositorRAF.seek(conDisco);
+                            int codigoDos = listaCompositorRAF.readInt();
+                            if (codigoDos == codigo) {
+                                listaCompositorRAF.seek(conDisco);
+                                listaCompositorRAF.writeUTF(this.rellenarBite("", 80));
+                                return;
+                            }
+                        } catch (IOException iOException) {
+                        } finally {
+                            conDisco += 82;
+                        }
+
+                    }
+                }
+            } catch (IOException iOException) {
+
+            } finally {
+                cont += 5896;
+            }
         }
     }
 
     @Override
     public List<Cancion> findAllCanciones(Compositor compositor) {
-        if(listaCompositor.contains(compositor)){
-            return compositor.listarCancionesTop100Billaboar();
-        }return null;
+        List<Cancion> listaCancion = new ArrayList<>();
+
+        long cont = 0;
+        while (cont < this.length()) {
+            try{
+            listaCompositorRAF.seek(cont);
+
+            if (listaCompositorRAF.readInt() == compositor.getCodigo()) {
+                long cont2 = cont + 96;
+                while (cont2 < (cont + 916)) {
+                    try {
+                        listaCompositorRAF.seek(cont2);
+                        int codigo = listaCompositorRAF.readInt();
+                        String titulo = listaCompositorRAF.readUTF();
+                        String letra = listaCompositorRAF.readUTF();
+                        double tiempoEnMinutos = listaCompositorRAF.readDouble();
+                        listaCancion.add(new Cancion(codigo, titulo, letra, tiempoEnMinutos));
+                        
+                    } catch (IOException iOException) {
+                    } finally {
+                        cont2 += 82;
+                    }
+                }
+                return listaCancion;
+            }
+            }catch(IOException iOException){}
+             finally{
+                cont += 5896;
+            }
+        }return listaCancion;
     }
+    
     
 }

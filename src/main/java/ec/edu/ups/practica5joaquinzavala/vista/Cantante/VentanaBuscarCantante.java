@@ -404,14 +404,15 @@ public class VentanaBuscarCantante extends javax.swing.JInternalFrame {
         int codigo = Integer.parseInt(txtCodigo.getText());
         this.cantante = controladorCantante.buscarCantante(codigo);
         if (cantante != null) {
-            txtApellido.setText(cantante.getApellido());
+            txtApellido.setText(cantante.getApellido().replaceAll("\\s", ""));
             txtEdad.setText(String.valueOf(cantante.getEdad()));
             txtGeneroMuscical.setText(cantante.getGeneroMusical().toString());
             txtNacionalidad.setText(cantante.getNacionalidad().toString());
-            txtNombre.setText(cantante.getNombre());
-            txtNombreArtistico.setText(cantante.getNombreArtistico());
+            txtNombre.setText(cantante.getNombre().replaceAll("\\s", ""));
+            txtNombreArtistico.setText(cantante.getNombreArtistico().replaceAll("\\s", ""));
             txtConciertos.setText(String.valueOf(cantante.getNumeroDeConciertos()));
             txtGiras.setText(String.valueOf(cantante.getNumeroDeGiras()));
+            
             txtSencillos.setText(String.valueOf(String.valueOf(cantante.getNumeroDeSensillos())));
             txtSalario.setText(String.valueOf(String.valueOf(cantante.calularSalario())));
         } else {

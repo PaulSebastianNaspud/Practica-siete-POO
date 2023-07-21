@@ -259,8 +259,8 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
         int codigo = Integer.parseInt(txtCodigo.getText());
         this.compositor = controladorCompositor.buscarCompositor(codigo);
         if (compositor != null) {
-            txtApellido.setText(compositor.getApellido());
-            txtNombre.setText(compositor.getNombre());
+            txtApellido.setText(compositor.getApellido().replaceAll("\\s", ""));
+            txtNombre.setText(compositor.getNombre().replaceAll("\\s", ""));
             cambiarEstado(true);
         }else{
             JOptionPane.showMessageDialog(this, "No se encontrado compositor");
@@ -313,8 +313,8 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
         Cancion cancion = controladorCompositor.buscarCancion(compositor, codigoCancion);
         if (cancion != null) {
             txtTiempoEnMinutos.setText(String.valueOf(cancion.getTiempoEnMinutos()));
-            txtTitulo.setText(cancion.getTitulo());
-            txtLetra.setText(cancion.getLetra());
+            txtTitulo.setText(cancion.getTitulo().replaceAll("\\s", ""));
+            txtLetra.setText(cancion.getLetra().replaceAll("\\s", ""));
             cambiarEstadoDatosCancion(true);
         } else {
             JOptionPane.showMessageDialog(this, "No se encontrado la cancion");

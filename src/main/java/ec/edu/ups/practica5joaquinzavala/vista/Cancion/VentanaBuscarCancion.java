@@ -61,7 +61,9 @@ public class VentanaBuscarCancion extends javax.swing.JInternalFrame {
         txtLetra = new javax.swing.JTextField();
 
         setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setIconifiable(true);
+        setResizable(true);
         setTitle("Buscar Cancion");
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -99,12 +101,12 @@ public class VentanaBuscarCancion extends javax.swing.JInternalFrame {
         txtCodigo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         jPanel6.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 138, 295, -1));
 
+        txtNombre.setEditable(false);
         txtNombre.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtNombre.setEnabled(false);
         jPanel6.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 189, 295, -1));
 
+        txtApellido.setEditable(false);
         txtApellido.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtApellido.setEnabled(false);
         jPanel6.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 240, 295, -1));
 
         btnBuscarCompositor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/search.png"))); // NOI18N
@@ -155,12 +157,12 @@ public class VentanaBuscarCancion extends javax.swing.JInternalFrame {
         txtCodigoCancion.setEnabled(false);
         jPanel5.add(txtCodigoCancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 295, -1));
 
+        txtTitulo.setEditable(false);
         txtTitulo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtTitulo.setEnabled(false);
         jPanel5.add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 295, -1));
 
+        txtTiempoEnMinutos.setEditable(false);
         txtTiempoEnMinutos.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtTiempoEnMinutos.setEnabled(false);
         jPanel5.add(txtTiempoEnMinutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 295, -1));
 
         btnBuscarCancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/search.png"))); // NOI18N
@@ -194,8 +196,8 @@ public class VentanaBuscarCancion extends javax.swing.JInternalFrame {
         jLabelLetra1.setText("Letra");
         jPanel5.add(jLabelLetra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 114, 45));
 
+        txtLetra.setEditable(false);
         txtLetra.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtLetra.setEnabled(false);
         jPanel5.add(txtLetra, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 295, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -254,8 +256,8 @@ public class VentanaBuscarCancion extends javax.swing.JInternalFrame {
         Cancion cancion = controladorCompositor.buscarCancion(compositor, codigoCancion);
         if (cancion != null) {
             txtTiempoEnMinutos.setText(String.valueOf(cancion.getTiempoEnMinutos()));
-            txtTitulo.setText(cancion.getTitulo());
-            txtLetra.setText(cancion.getLetra());
+            txtTitulo.setText(cancion.getTitulo().replaceAll("\\s", ""));
+            txtLetra.setText(cancion.getLetra().replaceAll("\\s", ""));
             cambiarEstado(false);
         } else {
             JOptionPane.showMessageDialog(this, "No se encontrado la cancion");
