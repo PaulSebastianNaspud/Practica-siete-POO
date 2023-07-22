@@ -1,6 +1,7 @@
 package ec.edu.ups.practica5joaquinzavala.idao;
 
 import ec.edu.ups.practica5joaquinzavala.modelo.Cancion;
+import ec.edu.ups.practica5joaquinzavala.modelo.Cantante;
 import ec.edu.ups.practica5joaquinzavala.modelo.Compositor;
 import java.util.List;
 
@@ -19,4 +20,10 @@ public interface ICompositorDAO {
     public void updateCancion(Compositor compositor, int codigo, String titulo, String letra, double tiempoEnMinutos);
     public void deleteCancion(Compositor compositor, int codigo);
     public List<Cancion> findAllCanciones(Compositor compositor);
+    
+    public void createCilente(Compositor compositor, Cantante obj);
+    public Cantante readCliente(Compositor compositor, int codigo);
+    public void updateCliente(Compositor compositor, Cantante obj);
+    public void deleteCliente(Compositor compositor, int codigo);
+    public List<Cantante> findAllCliente(Cantante cantante);
 }
