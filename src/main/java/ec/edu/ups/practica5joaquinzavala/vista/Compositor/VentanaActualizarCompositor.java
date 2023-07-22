@@ -116,12 +116,18 @@ public class VentanaActualizarCompositor extends javax.swing.JInternalFrame {
         jLabel9.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
         jLabel9.setText("Edad");
 
+        txtCodigo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
+        txtNombre.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtNombre.setEnabled(false);
 
+        txtApellido.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtApellido.setEnabled(false);
 
+        txtEdad.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtEdad.setEnabled(false);
 
+        txtSalario.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtSalario.setEnabled(false);
 
         btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/revert.png"))); // NOI18N
@@ -290,7 +296,7 @@ public class VentanaActualizarCompositor extends javax.swing.JInternalFrame {
             
             txtEdad.setText(String.valueOf(compositor.getEdad()));
             cmbxNacionalidad.setSelectedItem(compositor.getNacionalidad());
-            txtSalario.setText(String.valueOf(compositor.getSalario()));
+            txtSalario.setText(String.valueOf(compositor.calularSalario()));
             txtNumComposiciones.setText(String.valueOf(compositor.getNumeroDeComposiciones()));
             this.cambiarEstado(true);
         } else {

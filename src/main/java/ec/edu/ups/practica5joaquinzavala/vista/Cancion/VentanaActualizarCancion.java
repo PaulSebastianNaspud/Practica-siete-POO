@@ -58,30 +58,13 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
         jLabelLetra1 = new javax.swing.JLabel();
-        txtLetra = new javax.swing.JTextField();
         btnBuscarCancion = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtLetra = new javax.swing.JTextArea();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setIconifiable(true);
-        setTitle("Actualizar Cancion");
-        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
-            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
-                formInternalFrameClosing(evt);
-            }
-            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
-            }
-            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
-            }
-        });
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -158,7 +141,7 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
         jLabelTiempoEnMinutos.setBackground(new java.awt.Color(204, 204, 255));
         jLabelTiempoEnMinutos.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
         jLabelTiempoEnMinutos.setText("TiempoEnMinutos");
-        jPanel5.add(jLabelTiempoEnMinutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 200, 45));
+        jPanel5.add(jLabelTiempoEnMinutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 200, 45));
 
         jLabelTituloCancion.setBackground(new java.awt.Color(204, 204, 255));
         jLabelTituloCancion.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
@@ -172,15 +155,15 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
 
         txtCodigoCancion.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtCodigoCancion.setEnabled(false);
-        jPanel5.add(txtCodigoCancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 295, -1));
+        jPanel5.add(txtCodigoCancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 100, -1));
 
         txtTitulo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtTitulo.setEnabled(false);
-        jPanel5.add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 295, -1));
+        jPanel5.add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 170, -1));
 
         txtTiempoEnMinutos.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtTiempoEnMinutos.setEnabled(false);
-        jPanel5.add(txtTiempoEnMinutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 295, -1));
+        jPanel5.add(txtTiempoEnMinutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 170, -1));
 
         btnActualizarCancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/revert.png"))); // NOI18N
         btnActualizarCancion.setText("Guardar");
@@ -190,13 +173,13 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
                 btnActualizarCancionActionPerformed(evt);
             }
         });
-        jPanel5.add(btnActualizarCancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, -1, -1));
+        jPanel5.add(btnActualizarCancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/updateCD.png"))); // NOI18N
-        jLabel1.setText("ActualizarDisco");
-        jLabel1.setToolTipText("");
+        jLabel1.setText("Actuzalir una cancion");
+        jLabel1.setToolTipText("Actulizar cancion");
         jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 465, -1));
 
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.png"))); // NOI18N
@@ -206,16 +189,12 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
-        jPanel5.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, -1, -1));
+        jPanel5.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, -1, -1));
 
         jLabelLetra1.setBackground(new java.awt.Color(204, 204, 255));
         jLabelLetra1.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
         jLabelLetra1.setText("Letra");
-        jPanel5.add(jLabelLetra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 114, 45));
-
-        txtLetra.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtLetra.setEnabled(false);
-        jPanel5.add(txtLetra, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 295, -1));
+        jPanel5.add(jLabelLetra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 114, 45));
 
         btnBuscarCancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/search.png"))); // NOI18N
         btnBuscarCancion.setEnabled(false);
@@ -224,7 +203,14 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
                 btnBuscarCancionActionPerformed(evt);
             }
         });
-        jPanel5.add(btnBuscarCancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 90, -1, -1));
+        jPanel5.add(btnBuscarCancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, -1, -1));
+
+        txtLetra.setColumns(20);
+        txtLetra.setRows(5);
+        txtLetra.setEnabled(false);
+        jScrollPane1.setViewportView(txtLetra);
+
+        jPanel5.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, -1, 170));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -331,22 +317,14 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
         Cancion cancion = controladorCompositor.buscarCancion(compositor, codigoCancion);
         if (cancion != null) {
             txtTiempoEnMinutos.setText(String.valueOf(cancion.getTiempoEnMinutos()));
-            txtTitulo.setText(cancion.getTitulo().replaceAll("\\s", ""));
-            txtLetra.setText(cancion.getLetra().replaceAll("\\s", ""));
+            txtTitulo.setText(cancion.getTitulo());
+            txtLetra.setText(cancion.getLetra());
             cambiarEstadoDatosCancion(true);
         } else {
             JOptionPane.showMessageDialog(this, "No se encontrado la cancion");
             this.limipiarCamposCancion();
         }
     }//GEN-LAST:event_btnBuscarCancionActionPerformed
-
-    private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
-        this.setVisible(false);
-        this.limipiarCampos();
-        this.limipiarCamposCancion();
-        this.cambiarEstado(false);
-        this.cambiarEstadoDatosCancion(false);
-    }//GEN-LAST:event_formInternalFrameClosing
 
     private void cambiarEstado(boolean bandera){
         txtCodigo.setEnabled(!bandera);
@@ -395,10 +373,11 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtCodigoCancion;
-    private javax.swing.JTextField txtLetra;
+    private javax.swing.JTextArea txtLetra;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtTiempoEnMinutos;
     private javax.swing.JTextField txtTitulo;

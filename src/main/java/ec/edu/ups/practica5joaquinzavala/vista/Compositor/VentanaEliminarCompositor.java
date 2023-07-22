@@ -92,11 +92,11 @@ public class VentanaEliminarCompositor extends javax.swing.JInternalFrame {
 
         txtCodigo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
+        txtNombre.setEditable(false);
         txtNombre.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtNombre.setEnabled(false);
 
+        txtApellido.setEditable(false);
         txtApellido.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtApellido.setEnabled(false);
 
         btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/button_cancel.png"))); // NOI18N
         btnAceptar.setText("Aceptar");

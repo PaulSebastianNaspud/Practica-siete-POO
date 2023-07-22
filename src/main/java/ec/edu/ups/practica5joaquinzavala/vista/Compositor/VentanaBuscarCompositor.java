@@ -116,17 +116,17 @@ public class VentanaBuscarCompositor extends javax.swing.JInternalFrame {
 
         txtCodigo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
+        txtNombre.setEditable(false);
         txtNombre.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtNombre.setEnabled(false);
 
+        txtApellido.setEditable(false);
         txtApellido.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtApellido.setEnabled(false);
 
+        txtEdad.setEditable(false);
         txtEdad.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtEdad.setEnabled(false);
 
+        txtSalario.setEditable(false);
         txtSalario.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtSalario.setEnabled(false);
 
         btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/search.png"))); // NOI18N
         btnAceptar.setText("Buscar");
@@ -136,8 +136,8 @@ public class VentanaBuscarCompositor extends javax.swing.JInternalFrame {
             }
         });
 
+        txtNacionalidad.setEditable(false);
         txtNacionalidad.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtNacionalidad.setEnabled(false);
         txtNacionalidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNacionalidadActionPerformed(evt);
@@ -154,8 +154,8 @@ public class VentanaBuscarCompositor extends javax.swing.JInternalFrame {
         jLabel1.setText("Buscar un compositor");
         jLabel1.setToolTipText("");
 
+        txtNumComposiciones.setEditable(false);
         txtNumComposiciones.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtNumComposiciones.setEnabled(false);
         txtNumComposiciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNumComposicionesActionPerformed(evt);
@@ -292,7 +292,7 @@ public class VentanaBuscarCompositor extends javax.swing.JInternalFrame {
             
             txtEdad.setText(String.valueOf(compositor.getEdad()));
             txtNacionalidad.setText(compositor.getNacionalidad().toString());
-            txtSalario.setText(String.valueOf(compositor.getSalario()));
+            txtSalario.setText(String.valueOf(compositor.calularSalario()));
             txtNumComposiciones.setText(String.valueOf(compositor.getNumeroDeComposiciones()));
             
             
