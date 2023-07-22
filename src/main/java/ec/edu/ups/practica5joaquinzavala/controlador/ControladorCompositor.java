@@ -62,9 +62,8 @@ public class ControladorCompositor {
     public void agregarCliente(Compositor compositor, Cantante cantante) {
         this.compositor = compositor;
         this.cantante = cantante;
-
-        this.compositor.agregarCliente(this.cantante);
-        compositorDAO.update(this.compositor);
+        compositorDAO.createCilente(this.compositor, this.cantante);
+        
     }
 
     public void eliminarCliente(Compositor compositor, Cantante cantante) {
