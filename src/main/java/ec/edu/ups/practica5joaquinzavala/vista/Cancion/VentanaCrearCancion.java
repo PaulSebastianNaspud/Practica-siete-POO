@@ -62,6 +62,23 @@ public class VentanaCrearCancion extends javax.swing.JInternalFrame {
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setIconifiable(true);
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosing(evt);
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel5.setBackground(new java.awt.Color(153, 153, 255));
@@ -273,6 +290,13 @@ public class VentanaCrearCancion extends javax.swing.JInternalFrame {
         cambiarEstado(false);
         limipiarCampos();
     }//GEN-LAST:event_btnCancelar1ActionPerformed
+
+    private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
+        this.setVisible(false);
+        this.limipiarCampos();
+        this.limipiarCamposCancion();
+        this.cambiarEstado(false);
+    }//GEN-LAST:event_formInternalFrameClosing
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

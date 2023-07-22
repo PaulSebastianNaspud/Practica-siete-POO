@@ -49,6 +49,23 @@ public class VentanaListarCancion extends javax.swing.JInternalFrame {
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setIconifiable(true);
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosing(evt);
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jPanel6.setBackground(new java.awt.Color(0, 153, 153));
         jPanel6.setEnabled(false);
@@ -113,6 +130,7 @@ public class VentanaListarCancion extends javax.swing.JInternalFrame {
                 "Codigo", "Titulo", "Letra", "Duracion"
             }
         ));
+        tblCancion.setEnabled(false);
         jScrollPane1.setViewportView(tblCancion);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -155,6 +173,13 @@ public class VentanaListarCancion extends javax.swing.JInternalFrame {
         DefaultTableModel modelo = (DefaultTableModel) tblCancion.getModel();
         modelo.setNumRows(0);
     }//GEN-LAST:event_btnCancelar1ActionPerformed
+
+    private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
+        limipiarCampos();
+        this.setVisible(false);
+        DefaultTableModel modelo = (DefaultTableModel) tblCancion.getModel();
+        modelo.setNumRows(0);
+    }//GEN-LAST:event_formInternalFrameClosing
 
     private void limipiarCampos(){
         txtCodigo.setText("");

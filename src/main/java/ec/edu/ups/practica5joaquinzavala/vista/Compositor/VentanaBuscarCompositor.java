@@ -56,6 +56,24 @@ public class VentanaBuscarCompositor extends javax.swing.JInternalFrame {
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setIconifiable(true);
+        setTitle("Buscar Compositor");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosing(evt);
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -269,8 +287,9 @@ public class VentanaBuscarCompositor extends javax.swing.JInternalFrame {
         int codigo = Integer.parseInt(txtCodigo.getText());
         compositor = controladorCompositor.buscarCompositor(codigo);
         if (compositor != null) {
-            txtApellido.setText(compositor.getApellido());
-            txtNombre.setText(compositor.getNombre());
+            txtApellido.setText(compositor.getApellido().replaceAll("\\s", ""));
+            txtNombre.setText(compositor.getNombre().replaceAll("\\s", ""));
+            
             txtEdad.setText(String.valueOf(compositor.getEdad()));
             txtNacionalidad.setText(compositor.getNacionalidad().toString());
             txtSalario.setText(String.valueOf(compositor.getSalario()));
@@ -282,6 +301,11 @@ public class VentanaBuscarCompositor extends javax.swing.JInternalFrame {
             limipiarCampos();
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
+        this.setVisible(false);
+        this.limipiarCampos();
+    }//GEN-LAST:event_formInternalFrameClosing
 
     private void limipiarCampos(){
         txtCodigo.setText("");

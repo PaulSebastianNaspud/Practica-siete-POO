@@ -61,7 +61,25 @@ public class VentanaActualizarCompositor extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        setTitle("Actuzalizar Compositor");
         setMaximumSize(new java.awt.Dimension(128, 36));
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosing(evt);
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -267,15 +285,16 @@ public class VentanaActualizarCompositor extends javax.swing.JInternalFrame {
         int codigo = Integer.parseInt(txtCodigo.getText());
         compositor = controladorCompositor.buscarCompositor(codigo);
         if (compositor != null) {
-            txtApellido.setText(compositor.getApellido());
-            txtNombre.setText(compositor.getNombre());
+            txtApellido.setText(compositor.getApellido().replaceAll("\\s", ""));
+            txtNombre.setText(compositor.getNombre().replaceAll("\\s", ""));
+            
             txtEdad.setText(String.valueOf(compositor.getEdad()));
-            cmbxNacionalidad.setSelectedIndex(compositor.getNacionalidad().ordinal());
+            cmbxNacionalidad.setSelectedItem(compositor.getNacionalidad());
             txtSalario.setText(String.valueOf(compositor.getSalario()));
             txtNumComposiciones.setText(String.valueOf(compositor.getNumeroDeComposiciones()));
             this.cambiarEstado(true);
         } else {
-            JOptionPane.showMessageDialog(this, "El compositor no ha sido registrado!");
+            JOptionPane.showMessageDialog(this, "El compositor no ha sido registrado");
             this.limipiarCampos();
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
@@ -298,6 +317,11 @@ public class VentanaActualizarCompositor extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios de rellenar");
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
+        this.setVisible(false);
+        this.limipiarCampos();
+    }//GEN-LAST:event_formInternalFrameClosing
 
     private boolean isEmptyCampos(){
         if (txtCodigo.getText().isEmpty() || txtApellido.getText().isEmpty() || txtNombre.getText().isEmpty() || txtEdad.getText().isEmpty() || txtSalario.getText().isEmpty() || txtNumComposiciones.getText().isEmpty()) {

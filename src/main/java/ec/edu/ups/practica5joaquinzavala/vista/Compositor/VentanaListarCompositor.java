@@ -116,6 +116,9 @@ public class VentanaListarCompositor extends javax.swing.JInternalFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.setVisible(false);
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        modelo.setNumRows(0);
+        jTable1.setModel(modelo);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void formInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameActivated

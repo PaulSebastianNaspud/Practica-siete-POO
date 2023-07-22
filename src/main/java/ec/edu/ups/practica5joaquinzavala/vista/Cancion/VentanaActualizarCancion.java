@@ -64,6 +64,24 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setIconifiable(true);
+        setTitle("Actualizar Cancion");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameClosing(evt);
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -321,6 +339,14 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
             this.limipiarCamposCancion();
         }
     }//GEN-LAST:event_btnBuscarCancionActionPerformed
+
+    private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
+        this.setVisible(false);
+        this.limipiarCampos();
+        this.limipiarCamposCancion();
+        this.cambiarEstado(false);
+        this.cambiarEstadoDatosCancion(false);
+    }//GEN-LAST:event_formInternalFrameClosing
 
     private void cambiarEstado(boolean bandera){
         txtCodigo.setEnabled(!bandera);
