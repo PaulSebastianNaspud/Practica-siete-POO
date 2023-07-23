@@ -20,9 +20,10 @@ import ec.edu.ups.practica5joaquinzavala.modelo.Nacionalidad;
 public class Main {
     public static void main(String[] args) {
         
-        CompositorDAO compositorDAO = new CompositorDAO();
-        compositorDAO.create(new Compositor(1, 1, "Paul", "Naspud1", 123, 123.25, Nacionalidad.CANADA));
-        new CantanteDAO().create(new Cantante("PaulCantante", GeneroMusical.ROCK, 19, 20, 21, "Luigi", "Apellifo", 19, 22, Nacionalidad.CANADA));
+        //CompositorDAO compositorDAO = new CompositorDAO();
+        //compositorDAO.create(new Compositor(1, 1, "Paul", "Naspud1", 123, 123.25, Nacionalidad.CANADA));
+        new CantanteDAO().create(new Cantante("Nuevo cliente", GeneroMusical.ROCK, 19, 20, 3, "Wario", "SIIIM", 19, 100000, Nacionalidad.ECUADOR));
+        //new CantanteDAO().create(new Cantante("SebastianDos", GeneroMusical.ROCK, 100, 101, 2, "Mario", "POOOL", 20, 102, Nacionalidad.PARAGUAY));
         
         
         

@@ -4,25 +4,21 @@
  */
 package ec.edu.ups.practica5joaquinzavala.vista.cliente;
 
-import ec.edu.ups.practica5joaquinzavala.controlador.ControladorCantante;
 import ec.edu.ups.practica5joaquinzavala.controlador.ControladorCompositor;
 import ec.edu.ups.practica5joaquinzavala.modelo.Cantante;
 import ec.edu.ups.practica5joaquinzavala.modelo.Compositor;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 
 
-public class VentanaCrearCliente extends javax.swing.JInternalFrame {
+public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
     private Compositor  compositor;
     private Cantante cantante;
     private ControladorCompositor controladorCompositor;
-    private ControladorCantante controladorCantante;
     
-    public VentanaCrearCliente(ControladorCompositor controladorCompositor,ControladorCantante controladorCantante ) {
+    public VentanaBuscarCliente(ControladorCompositor controladorCompositor) {
         initComponents();
         this.controladorCompositor = controladorCompositor;
-        this.controladorCantante = controladorCantante;
     }
 
     /**
@@ -74,13 +70,12 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
         btnCancelar = new javax.swing.JButton();
         txtNacionalidad = new javax.swing.JTextField();
         txtGeneroMuscical = new javax.swing.JTextField();
-        btnGuardar = new javax.swing.JButton();
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder("Agregar Cliente"));
+        setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setIconifiable(true);
-        setTitle("Agregar cliente");
+        setTitle("Buscar Cliente");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -134,7 +129,7 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setText("Agregar Cliente");
+        jLabel3.setText("Buscar Cliente");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 14, 191, -1));
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 36, -1, 190));
 
@@ -307,66 +302,54 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
         txtGeneroMuscical.setToolTipText("Introduce tu cantidad de sencillos");
         txtGeneroMuscical.setEnabled(false);
 
-        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/revert.png"))); // NOI18N
-        btnGuardar.setText("Guardar");
-        btnGuardar.setEnabled(false);
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtGiras, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSencillos, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtApellidoCantante, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNombreCantante, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(33, 33, 33)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel17)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNombreArtistico, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnCancelar)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtGiras, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtSencillos, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtApellidoCantante, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtNombreCantante, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(33, 33, 33)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtConciertos, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtGeneroMuscical, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtNombreArtistico, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtConciertos, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtGeneroMuscical, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(59, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnGuardar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCancelar)
-                .addGap(168, 168, 168))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -403,11 +386,9 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
                     .addComponent(txtGiras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancelar)
-                    .addComponent(btnGuardar))
-                .addGap(43, 43, 43))
+                .addGap(34, 34, 34)
+                .addComponent(btnCancelar)
+                .addGap(40, 40, 40))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -492,8 +473,13 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtApellidoActionPerformed
 
     private void btnBuscarCantanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCantanteActionPerformed
-        int codigo = Integer.parseInt(txtCodigoCantante.getText());
-        this.cantante = controladorCantante.buscarCantante(codigo);
+        int codigoCantane = Integer.parseInt(txtCodigoCantante.getText());
+        int codigoCompositor = Integer.parseInt(txtCodigo.getText());
+        
+        this.compositor = controladorCompositor.buscarCompositor(codigoCompositor);
+        
+        this.cantante = controladorCompositor.buscarCliente(compositor, codigoCantane);
+        
         if (cantante != null) {
             txtApellidoCantante.setText(cantante.getApellido());
             txtEdad.setText(String.valueOf(cantante.getEdad()));
@@ -506,18 +492,14 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
 
             txtSencillos.setText(String.valueOf(String.valueOf(cantante.getNumeroDeSensillos())));
             txtSalario.setText(String.valueOf(String.valueOf(cantante.calularSalario())));
-            this.txtCodigoCantante.setEnabled(false);
-            this.btnGuardar.setEnabled(true);
-            this.btnBuscarCantante.setEnabled(false);
         } else {
-            JOptionPane.showMessageDialog(this, "El cantante con el codigo " + codigo + " no ha sido registrado");
+            JOptionPane.showMessageDialog(this, "El cantante con el codigo " + codigoCantane + " no ha sido registrado");
             limipiarCamposCantante();
         }
     }//GEN-LAST:event_btnBuscarCantanteActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         this.cambiarEstado(false);
-        this.btnGuardar.setEnabled(false);
         this.limipiarCamposCantante();
         this.limipiarCampos();
     }//GEN-LAST:event_btnCancelarActionPerformed
@@ -525,19 +507,6 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
     private void txtNacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNacionalidadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNacionalidadActionPerformed
-
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        int codigo = Integer.parseInt(txtCodigo.getText());
-        this.compositor = controladorCompositor.buscarCompositor(codigo);
-        int codigoCantante = Integer.parseInt(txtCodigoCantante.getText());
-        this.cantante = controladorCantante.buscarCantante(codigoCantante);
-        this.controladorCompositor.agregarCliente(compositor, cantante);
-        this.limipiarCamposCantante();
-        this.limipiarCampos();
-        this.cambiarEstado(false);
-        this.btnGuardar.setEnabled(false);
-        JOptionPane.showMessageDialog(this, "El cliente " + cantante.getNombre() + " se a agregado a la lista de cliente de " + compositor.getNombre());
-    }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
         // TODO add your handling code here:
@@ -557,7 +526,6 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnBuscarCompositor;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnCancelarTotal;
-    private javax.swing.JButton btnGuardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

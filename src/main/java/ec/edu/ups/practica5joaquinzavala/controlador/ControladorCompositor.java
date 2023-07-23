@@ -84,7 +84,7 @@ public class ControladorCompositor {
     }
 
     public Cantante buscarCliente(Compositor compositor, int codigo) {
-        return compositor.buscarCliente(codigo);
+        return compositorDAO.readCliente(compositor, codigo);
     }
 
     //metodos para canciones
