@@ -10,6 +10,7 @@ import ec.edu.ups.practica5joaquinzavala.modelo.Cantante;
 import ec.edu.ups.practica5joaquinzavala.modelo.Compositor;
 import ec.edu.ups.practica5joaquinzavala.modelo.GeneroMusical;
 import ec.edu.ups.practica5joaquinzavala.modelo.Nacionalidad;
+import java.util.List;
 
 
 
@@ -20,12 +21,22 @@ import ec.edu.ups.practica5joaquinzavala.modelo.Nacionalidad;
 public class Main {
     public static void main(String[] args) {
         
-        //CompositorDAO compositorDAO = new CompositorDAO();
-        //compositorDAO.create(new Compositor(1, 1, "Paul", "Naspud1", 123, 123.25, Nacionalidad.CANADA));
-        new CantanteDAO().create(new Cantante("Nuevo cliente", GeneroMusical.ROCK, 19, 20, 3, "Wario", "SIIIM", 19, 100000, Nacionalidad.ECUADOR));
-        //new CantanteDAO().create(new Cantante("SebastianDos", GeneroMusical.ROCK, 100, 101, 2, "Mario", "POOOL", 20, 102, Nacionalidad.PARAGUAY));
+        CompositorDAO compositorDAO = new CompositorDAO();
+        compositorDAO.create(new Compositor(1, 1, "Paul", "Naspud1", 123, 123.25, Nacionalidad.CANADA));
+        compositorDAO.create(new Compositor(1, 2, "Paul", "Naspud1", 123, 123.25, Nacionalidad.CANADA));
+        compositorDAO.create(new Compositor(1, 3, "Paul", "Naspud1", 123, 123.25, Nacionalidad.CANADA));
+        compositorDAO.create(new Compositor(1, 4, "Paul", "Naspud1", 123, 123.25, Nacionalidad.CANADA));
+
+        Compositor compositor = compositorDAO.read(1);
+        compositorDAO.createCilente(compositor,new Cantante("Nuevo cliente", GeneroMusical.ROCK, 19, 20, 33, "Wario", "SIIIM", 19, 4, Nacionalidad.ECUADOR));
+        compositor = compositorDAO.read(1);
+        compositorDAO.createCilente(compositor,new Cantante("Nuevo cliente2", GeneroMusical.ROCK_METAL, 20, 21, 3, "Wario2", "SIIIM", 19, 3, Nacionalidad.ESPANIA));
+        compositor = compositorDAO.read(1);
+        compositorDAO.createCilente(compositor,new Cantante("Nuevo cliente3", GeneroMusical.REGUETON, 121, 2002, 3, "Wario3", "SIIIM", 20, 2, Nacionalidad.COLOMBIA));
         
         
         
+        List<Compositor> listaCompositor = compositorDAO.findAll();
+        listaCompositor.forEach(t -> System.out.println(t));
     }
 }

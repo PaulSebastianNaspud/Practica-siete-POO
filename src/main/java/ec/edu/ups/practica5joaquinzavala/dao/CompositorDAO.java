@@ -24,13 +24,9 @@ public class CompositorDAO implements ICompositorDAO {
     //contador estatico para el maximo de elementos de la clase
     
     private RandomAccessFile listaCompositorRAF;
-    
-    // atributo lista compositor
-    List<Compositor> listaCompositor;
 
     //constructor
     public CompositorDAO() {
-        this.listaCompositor = new ArrayList();
         this.listaCompositorRAF = this.instanciarListaCompositorRAF();
     }
     
@@ -637,7 +633,6 @@ public class CompositorDAO implements ICompositorDAO {
                     }
                 }
             } catch (IOException iOException) {
-                System.out.println("EXCEPCION UNO");
             } finally {
                 cont += 5896;
             }
@@ -647,12 +642,90 @@ public class CompositorDAO implements ICompositorDAO {
 
     @Override
     public void deleteCliente(Compositor compositor, int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        long cont = 0;
+        while (cont < this.length()) {
+            try {
+                listaCompositorRAF.seek(cont);
+                if (listaCompositorRAF.readInt() == compositor.getCodigo()) {
+                    long conCliente = cont + 916;
+
+                    while (conCliente < (cont + 5896)) {
+
+                        try {
+                            listaCompositorRAF.seek(conCliente);
+
+                            int codigoLista = listaCompositorRAF.readInt();
+                            if (codigoLista == codigo) {
+                                listaCompositorRAF.seek(conCliente);
+                                listaCompositorRAF.writeUTF(this.rellenarBite("", 496));
+                            }
+
+                        } catch (IOException iOException) {
+                        } finally {
+                            conCliente += 498;
+                        }
+
+                    }
+                }
+            } catch (IOException iOException) {
+                System.out.println("EXCEPCION UNO");
+            } finally {
+                cont += 5896;
+            }
+        }
     }
 
     @Override
-    public List<Cantante> findAllCliente(Cantante cantante) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<Cantante> findAllCliente(Compositor compositor) {
+        List<Cantante> listaFindAllCliente = new ArrayList<>();
+        long cont = 0;
+        while (cont < this.length()) {
+            try {
+                listaCompositorRAF.seek(cont);
+                if (listaCompositorRAF.readInt() == compositor.getCodigo()) {
+                    long conCliente = cont + 916;
+
+                    while (conCliente < (cont + 5896)) {
+
+                        try {
+                            listaCompositorRAF.seek(conCliente);
+
+                            int codigoLista = listaCompositorRAF.readInt();
+
+                            String nombre = listaCompositorRAF.readUTF().trim();
+
+                            String apellido = listaCompositorRAF.readUTF().trim();
+
+                            int edad = listaCompositorRAF.readInt();
+
+                            double salario = listaCompositorRAF.readDouble();
+
+                            Nacionalidad nacionalidad = Nacionalidad.valueOf((listaCompositorRAF.readUTF().replaceAll("\\s", "")));
+
+                            String nombreArtistico = listaCompositorRAF.readUTF().trim();
+
+                            GeneroMusical generoMusical = GeneroMusical.valueOf(listaCompositorRAF.readUTF().trim().replaceAll("\\s", ""));
+
+                            int numeroDeConciertos = listaCompositorRAF.readInt();
+
+                            int numeroDeGiras = listaCompositorRAF.readInt();
+                            
+                            listaFindAllCliente.add(new Cantante(nombreArtistico, generoMusical, numeroDeConciertos, numeroDeGiras, codigoLista, nombre, apellido, edad, salario, nacionalidad));
+
+
+                        } catch (IOException iOException) {
+                        } finally {
+                            conCliente += 498;
+                        }
+
+                    }
+                }
+            } catch (IOException iOException) {
+            } finally {
+                cont += 5896;
+            }
+        }
+        return listaFindAllCliente;
     }
     
     

@@ -69,12 +69,11 @@ public class ControladorCompositor {
     public void eliminarCliente(Compositor compositor, Cantante cantante) {
         this.compositor = compositor;
         this.cantante = cantante;
-        this.compositor.eliminarCliente(this.cantante);
-        compositorDAO.update(this.compositor);
+        this.compositorDAO.deleteCliente(this.compositor, this.cantante.getCodigo());
     }
 
     public List<Cantante> listarClientes(Compositor compositor) {
-        return compositor.listarClente();
+        return compositorDAO.findAllCliente(compositor);
     }
 
     public void actualizarCliente(Compositor compositor, Cantante obj) {

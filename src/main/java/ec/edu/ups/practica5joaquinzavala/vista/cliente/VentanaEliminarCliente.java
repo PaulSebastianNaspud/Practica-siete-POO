@@ -11,12 +11,12 @@ import javax.swing.JOptionPane;
 
 
 
-public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
+public class VentanaEliminarCliente extends javax.swing.JInternalFrame {
     private Compositor  compositor;
     private Cantante cantante;
     private ControladorCompositor controladorCompositor;
     
-    public VentanaBuscarCliente(ControladorCompositor controladorCompositor) {
+    public VentanaEliminarCliente(ControladorCompositor controladorCompositor) {
         initComponents();
         this.controladorCompositor = controladorCompositor;
     }
@@ -70,8 +70,9 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
         btnCancelar = new javax.swing.JButton();
         txtNacionalidad = new javax.swing.JTextField();
         txtGeneroMuscical = new javax.swing.JTextField();
+        btnEliminar = new javax.swing.JButton();
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder("Buscar Cliente"));
+        setBorder(javax.swing.BorderFactory.createTitledBorder("Eliminar Cliente"));
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setIconifiable(true);
@@ -128,7 +129,7 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setText("Buscar Cliente");
+        jLabel3.setText("Eliminar Cliente");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 14, 191, -1));
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 36, -1, 190));
 
@@ -301,15 +302,23 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
         txtGeneroMuscical.setToolTipText("Introduce tu cantidad de sencillos");
         txtGeneroMuscical.setEnabled(false);
 
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/button_cancel.png"))); // NOI18N
+        btnEliminar.setText("Elminar");
+        btnEliminar.setEnabled(false);
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnCancelar)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel6Layout.createSequentialGroup()
@@ -331,10 +340,6 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
                         .addGap(33, 33, 33)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(jLabel17)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtNombreArtistico, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -347,7 +352,18 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtConciertos, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtGeneroMuscical, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(txtGeneroMuscical, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(288, 288, 288)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnEliminar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCancelar)
+                        .addGap(77, 77, 77)))
                 .addContainerGap(59, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -386,7 +402,9 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
-                .addComponent(btnCancelar)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCancelar)
+                    .addComponent(btnEliminar))
                 .addGap(40, 40, 40))
         );
 
@@ -438,6 +456,7 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
         txtCodigo.setEnabled(!bandera);
         btnBuscarCantante.setEnabled(bandera);
         txtCodigoCantante.setEnabled(bandera);
+        btnEliminar.setEnabled(bandera);
     }
     
     
@@ -492,6 +511,7 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
 
             txtSencillos.setText(String.valueOf(String.valueOf(cantante.getNumeroDeSensillos())));
             txtSalario.setText(String.valueOf(String.valueOf(cantante.calularSalario())));
+            
         } else {
             JOptionPane.showMessageDialog(this, "El cantante con el codigo " + codigoCantane + " no ha sido registrado");
             limipiarCamposCantante();
@@ -520,12 +540,40 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        int codigo = Integer.parseInt(txtCodigo.getText());
+        this.compositor = controladorCompositor.buscarCompositor(codigo);
+        if (!txtCodigoCantante.getText().isEmpty()) {
+            int codigoCantante = Integer.parseInt(txtCodigoCantante.getText());
+            this.cantante = controladorCompositor.buscarCliente(compositor, codigoCantante);
+        }
+        if(cantante == null || compositor == null){
+            JOptionPane.showMessageDialog(this, "No se a encontrado el cliente");
+            return;
+        }
+        
+        
+        
+        int respuesta = JOptionPane.showConfirmDialog(this, "¿Quieres elimar de la lista a: " + cantante.getNombre()+"?");
+        if (respuesta == JOptionPane.YES_OPTION) {
+            controladorCompositor.eliminarCliente(compositor, cantante);
+            JOptionPane.showMessageDialog(this, "El cliente ha sido eliminado");
+            
+        } else {
+            JOptionPane.showMessageDialog(this, "El compositor no ha sido eliminado");
+        }
+        this.limipiarCampos();
+        this.limipiarCamposCantante();
+        this.cambiarEstado(false);
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarCantante;
     private javax.swing.JButton btnBuscarCompositor;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnCancelarTotal;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

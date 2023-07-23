@@ -25,5 +25,5 @@ public interface ICompositorDAO {
     public Cantante readCliente(Compositor compositor, int codigo);
     public void updateCliente(Compositor compositor, Cantante obj);
     public void deleteCliente(Compositor compositor, int codigo);
-    public List<Cantante> findAllCliente(Cantante cantante);
+    public List<Cantante> findAllCliente(Compositor obj);
 }

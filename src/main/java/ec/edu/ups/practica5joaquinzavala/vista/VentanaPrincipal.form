@@ -4,6 +4,14 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="menuBar">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="41" green="3f" red="3c" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder/>
+          </Border>
+        </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[400, 32000]"/>
         </Property>
@@ -16,6 +24,9 @@
             </Property>
             <Property name="mnemonic" type="int" value="102"/>
             <Property name="text" type="java.lang.String" value="Cantante"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Default Cursor"/>
+            </Property>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="itemMenuCrearCantante">
@@ -208,6 +219,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemRegistrarCompositor">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/agregar-usuario-menu.png"/>
+                </Property>
                 <Property name="mnemonic" type="int" value="116"/>
                 <Property name="text" type="java.lang.String" value="Registrar compositor"/>
               </Properties>
@@ -217,6 +231,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemBuscarCompositor">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/busac-menu.png"/>
+                </Property>
                 <Property name="mnemonic" type="int" value="121"/>
                 <Property name="text" type="java.lang.String" value="Buscar compositor"/>
               </Properties>
@@ -226,6 +243,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemActualizarCompositor">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/actualizar-menu.png"/>
+                </Property>
                 <Property name="mnemonic" type="int" value="112"/>
                 <Property name="text" type="java.lang.String" value="Actualizar compositor"/>
               </Properties>
@@ -235,6 +255,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemEliminarCompositor">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/EliminarMenu.png"/>
+                </Property>
                 <Property name="mnemonic" type="int" value="100"/>
                 <Property name="text" type="java.lang.String" value="Eliminar compositor"/>
               </Properties>
@@ -244,6 +267,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemListarCompositor">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/listar-menu.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Listar compositores"/>
               </Properties>
               <Events>
@@ -252,11 +278,17 @@
             </MenuItem>
             <Menu class="javax.swing.JMenu" name="jMenu2">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/menuDos-menu.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Cancion"/>
               </Properties>
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="menuItemRegistrarCancion">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/imagenes/listarDisco-menu.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Registrar cancion"/>
                   </Properties>
                   <Events>
@@ -265,6 +297,9 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuItemBuscarCancion">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/imagenes/dsicoBuscarmenu.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Buscar cancion"/>
                   </Properties>
                   <Events>
@@ -273,6 +308,9 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuItemActualizarCancion">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/imagenes/disco-menu.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Actualizar cancion"/>
                   </Properties>
                   <Events>
@@ -281,6 +319,9 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuItemEliminarCancion">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/imagenes/discoElimnarMenu.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Eliminar cancion"/>
                   </Properties>
                   <Events>
@@ -289,6 +330,9 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuItemListarCancion">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/imagenes/discorafia-menu.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Listar cancion"/>
                   </Properties>
                   <Events>
@@ -299,11 +343,17 @@
             </Menu>
             <Menu class="javax.swing.JMenu" name="jMenu6">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/menuDos-menu.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Cliente"/>
               </Properties>
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="menuItemRegistrarCliente">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/imagenes/agregar-usuario-menu.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Registar Cliente"/>
                   </Properties>
                   <Events>
@@ -312,6 +362,9 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuItemBuscarCliente">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/imagenes/busac-menu.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Buscar Cliente"/>
                   </Properties>
                   <Events>
@@ -320,10 +373,35 @@
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="menuItemActulalizarCliente">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/imagenes/actualizar-menu.png"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Actualizar Cliente"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemActulalizarClienteActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuItemEliminarCliente">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/imagenes/EliminarMenu.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Eliminar Cliente"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemEliminarClienteActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuItemListarCliente">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/imagenes/listar-menu.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Eliminar Cliente"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemListarClienteActionPerformed"/>
                   </Events>
                 </MenuItem>
               </SubComponents>
@@ -340,6 +418,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemRegistrarCancion1">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/listarDisco-menu.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Registrar cancion"/>
               </Properties>
               <Events>
@@ -348,6 +429,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemBuscarCancion1">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/dsicoBuscarmenu.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Buscar cancion"/>
               </Properties>
               <Events>
@@ -356,6 +440,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemActualizarCancion1">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/disco-menu.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Actualizar cancion"/>
               </Properties>
               <Events>
@@ -364,6 +451,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemEliminarCancion1">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/discoElimnarMenu.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Eliminar cancion"/>
               </Properties>
               <Events>
@@ -372,6 +462,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemListarCancion1">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/discorafia-menu.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Listar cancion"/>
               </Properties>
               <Events>
@@ -382,11 +475,17 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuItemRegistrarCliente1">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/imagenes/menuDos-menu.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Cliente"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemRegistrarCliente2">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/agregar-usuario-menu.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Registar Cliente"/>
               </Properties>
               <Events>
@@ -395,6 +494,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemBuscarCliente2">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/busac-menu.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Buscar Cliente"/>
               </Properties>
               <Events>
@@ -403,10 +505,24 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemActulalizarCliente1">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/actualizar-menu.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Actualizar Cliente"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemActulalizarCliente1ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuItemEliminarCliente1">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/imagenes/EliminarMenu.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Eliminar Cliente"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemEliminarCliente1ActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -437,11 +553,14 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="Mi Aplicaion"/>
-    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-    </Property>
     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
       <Color id="Default Cursor"/>
+    </Property>
+    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="41" green="3f" red="3c" type="rgb"/>
+    </Property>
+    <Property name="iconImages" type="java.util.List" editor="org.netbeans.modules.form.ComponentChooserEditor">
+      <ComponentRef name="null"/>
     </Property>
   </Properties>
   <SyntheticProperties>
@@ -477,44 +596,25 @@
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="0" type="rgb"/>
+          <Color blue="33" green="33" red="33" type="rgb"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="41" green="3f" red="3c" type="rgb"/>
         </Property>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="desktopPane" alignment="0" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="902" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="desktopPane" alignment="0" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="517" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
-      <SubComponents>
-        <Container class="javax.swing.JDesktopPane" name="desktopPane">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="33" type="rgb"/>
-            </Property>
-          </Properties>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="793" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="502" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-        </Container>
-      </SubComponents>
     </Container>
   </SubComponents>
 </Form>

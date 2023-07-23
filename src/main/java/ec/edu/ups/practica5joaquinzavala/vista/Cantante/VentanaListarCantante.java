@@ -80,6 +80,8 @@ public class VentanaListarCantante extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblCantante.setSelectionBackground(new java.awt.Color(60, 63, 65));
+        tblCantante.setSelectionForeground(new java.awt.Color(60, 63, 65));
         tblCantante.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblCantanteMouseClicked(evt);
