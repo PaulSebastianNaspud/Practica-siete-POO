@@ -590,8 +590,59 @@ public class CompositorDAO implements ICompositorDAO {
     }
 
     @Override
-    public void updateCliente(Compositor compositor, Cantante cantante) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void updateCliente(Compositor compositor, Cantante obj) {
+        long cont = 0;
+        while (cont < this.length()) {
+            try {
+                listaCompositorRAF.seek(cont);
+                if (listaCompositorRAF.readInt() == compositor.getCodigo()) {
+                    long conCliente = cont + 916;
+
+                    while (conCliente < (cont + 5896)) {
+
+                        try {
+                            listaCompositorRAF.seek(conCliente);
+
+                            int codigoLista = listaCompositorRAF.readInt();
+                            if (codigoLista == obj.getCodigo()) {
+
+                                listaCompositorRAF.writeUTF(this.rellenarBite(obj.getNombre(), 25));
+
+                                listaCompositorRAF.writeUTF(this.rellenarBite(obj.getApellido(), 25));
+
+                                listaCompositorRAF.writeInt(obj.getEdad());
+
+                                listaCompositorRAF.writeDouble(obj.getSalario());
+
+                                listaCompositorRAF.writeUTF(this.rellenarBite(String.valueOf(obj.getNacionalidad()), 20));
+
+                                listaCompositorRAF.writeUTF(rellenarBite(obj.getNombreArtistico(), 25));
+
+                                listaCompositorRAF.writeUTF(this.rellenarBite(String.valueOf(obj.getGeneroMusical()), 15));
+
+                                listaCompositorRAF.writeInt(obj.getNumeroDeConciertos());
+
+                                listaCompositorRAF.writeInt(obj.getNumeroDeGiras());
+
+                                listaCompositorRAF.writeInt(obj.getNumeroDeSensillos());
+
+                            }
+
+                        } catch (IOException iOException) {
+                            System.out.println("EXCEPCION DOS");
+                        } finally {
+                            conCliente += 498;
+                        }
+
+                    }
+                }
+            } catch (IOException iOException) {
+                System.out.println("EXCEPCION UNO");
+            } finally {
+                cont += 5896;
+            }
+        }
+        
     }
 
     @Override

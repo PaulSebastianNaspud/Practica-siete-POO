@@ -388,6 +388,7 @@ public class VentanaActualizarCantante extends javax.swing.JInternalFrame {
         if (isEmpty()) {
             int codigo = Integer.parseInt(txtCodigo.getText());
             this.cantante = controladorCantante.buscarCantante(codigo);
+            
             String nombre = txtNombre.getText();
             String apellido = txtApellido.getText();
             int edad = Integer.parseInt(txtEdad.getText());

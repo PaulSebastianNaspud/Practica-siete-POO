@@ -465,6 +465,7 @@ public class VentanaBuscarCliente extends javax.swing.JInternalFrame {
     private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
         this.setVisible(false);
         this.limipiarCampos();
+        this.limipiarCamposCantante();
         this.cambiarEstado(false);
     }//GEN-LAST:event_formInternalFrameClosing
 

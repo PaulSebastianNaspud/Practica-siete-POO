@@ -77,10 +77,9 @@ public class ControladorCompositor {
         return compositor.listarClente();
     }
 
-    public void actualizarCliente(Compositor compositor, Cantante cantanteAnterior, Cantante cantanteNuevo) {
+    public void actualizarCliente(Compositor compositor, Cantante obj) {
         this.compositor = compositor;
-        this.eliminarCliente(this.compositor, cantanteAnterior);
-        this.agregarCliente(this.compositor, cantanteNuevo);
+        this.compositorDAO.updateCliente(this.compositor, obj);
     }
 
     public Cantante buscarCliente(Compositor compositor, int codigo) {
