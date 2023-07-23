@@ -36,7 +36,7 @@ public class ControladorCompositor {
     }
 
     public Compositor buscarCompositorPorCancion(String tituloDeLaCancion) {
-        return this.compositor = compositorDAO.buscarPorTituloDeCancion(tituloDeLaCancion);
+        return compositorDAO.buscarPorTituloDeCancion(tituloDeLaCancion);
     }
 
     public void actualizarCompositor(Compositor compositor) {
@@ -89,7 +89,7 @@ public class ControladorCompositor {
     public void agregarCancion(Compositor compositor, int codigo, String titulo, String letra, double tiempoEnMinutos) {
         this.compositor = compositor;
         compositorDAO.createCancion(this.compositor, codigo, titulo, letra, tiempoEnMinutos);
-        compositorDAO.update(this.compositor);
+        
     }
 
     public Cancion buscarCancion(Compositor compositor, int codigo) {
@@ -102,7 +102,6 @@ public class ControladorCompositor {
         Cancion cancion = this.buscarCancion(this.compositor, codigo);
         if (cancion != null) {
             compositorDAO.deleteCancion(this.compositor, codigo);
-            compositorDAO.update(this.compositor);
         } 
 
     }
@@ -112,7 +111,6 @@ public class ControladorCompositor {
         Cancion cancion = this.buscarCancion(compositor, codigo);
         if (cancion != null) {
             compositorDAO.updateCancion(this.compositor, codigo, titulo, letra, tiempoEnMinutos);
-            compositorDAO.update(this.compositor);
         }
     }
 

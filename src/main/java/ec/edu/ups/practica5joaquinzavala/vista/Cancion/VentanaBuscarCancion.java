@@ -276,8 +276,8 @@ public class VentanaBuscarCancion extends javax.swing.JInternalFrame {
         Cancion cancion = controladorCompositor.buscarCancion(compositor, codigoCancion);
         if (cancion != null) {
             txtTiempoEnMinutos.setText(String.valueOf(cancion.getTiempoEnMinutos()));
-            txtTitulo.setText(cancion.getTitulo().replaceAll("\\s", ""));
-            txtLetra.setText(cancion.getLetra().replaceAll("\\s", ""));
+            txtTitulo.setText(cancion.getTitulo());
+            txtLetra.setText(cancion.getLetra());
             cambiarEstado(false);
         } else {
             JOptionPane.showMessageDialog(this, "No se encontrado la cancion");

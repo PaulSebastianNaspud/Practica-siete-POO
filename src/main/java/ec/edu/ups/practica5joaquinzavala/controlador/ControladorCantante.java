@@ -64,7 +64,6 @@ public class ControladorCantante {
     public void ingresarDisco(Cantante cantante, int codigo, String nombre, int anioDeLanzamiento) {
         this.cantante = cantante;
         cantanteDAO.createDisco(this.cantante, codigo, nombre, anioDeLanzamiento);
-        cantanteDAO.update(this.cantante);
     }
 
     public Disco buscarDisco(Cantante cantante, int codigo) {
@@ -77,7 +76,6 @@ public class ControladorCantante {
         Disco disco = this.buscarDisco(this.cantante, codigo);
         if (disco != null) {
             cantanteDAO.deleteDisco(this.cantante, codigo);
-            cantanteDAO.update(this.cantante);
             return true;
         } else {
             return false;
@@ -91,7 +89,6 @@ public class ControladorCantante {
         System.out.println(disco);
         if (disco != null) {
             cantanteDAO.updateDisco(this.cantante, codigo, nombre, anioDeLanzamiento);
-            cantanteDAO.update(this.cantante);
             return true;
         } else {
             return false;

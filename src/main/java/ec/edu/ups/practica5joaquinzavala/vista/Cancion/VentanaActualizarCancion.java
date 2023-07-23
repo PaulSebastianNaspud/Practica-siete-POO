@@ -263,8 +263,8 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
         int codigo = Integer.parseInt(txtCodigo.getText());
         this.compositor = controladorCompositor.buscarCompositor(codigo);
         if (compositor != null) {
-            txtApellido.setText(compositor.getApellido().replaceAll("\\s", ""));
-            txtNombre.setText(compositor.getNombre().replaceAll("\\s", ""));
+            txtApellido.setText(compositor.getApellido());
+            txtNombre.setText(compositor.getNombre());
             cambiarEstado(true);
         }else{
             JOptionPane.showMessageDialog(this, "No se encontrado compositor");

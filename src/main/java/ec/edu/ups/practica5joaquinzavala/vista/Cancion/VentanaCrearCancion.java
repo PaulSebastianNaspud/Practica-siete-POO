@@ -41,7 +41,8 @@ public class VentanaCrearCancion extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
         jLabelLetra1 = new javax.swing.JLabel();
-        txtLetra = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtLetra = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -88,29 +89,29 @@ public class VentanaCrearCancion extends javax.swing.JInternalFrame {
         jLabelTiempoEnMinutos.setBackground(new java.awt.Color(204, 204, 255));
         jLabelTiempoEnMinutos.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
         jLabelTiempoEnMinutos.setText("TiempoEnMinutos");
-        jPanel5.add(jLabelTiempoEnMinutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 200, 45));
+        jPanel5.add(jLabelTiempoEnMinutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 200, 45));
 
         jLabelTituloCancion.setBackground(new java.awt.Color(204, 204, 255));
         jLabelTituloCancion.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
         jLabelTituloCancion.setText("Titulo");
-        jPanel5.add(jLabelTituloCancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 114, 45));
+        jPanel5.add(jLabelTituloCancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 114, 45));
 
         jLabelCodigoCancion.setBackground(new java.awt.Color(204, 204, 255));
         jLabelCodigoCancion.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
         jLabelCodigoCancion.setText("Codigo");
-        jPanel5.add(jLabelCodigoCancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 114, 45));
+        jPanel5.add(jLabelCodigoCancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 114, 45));
 
         txtCodigoCancion.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtCodigoCancion.setEnabled(false);
-        jPanel5.add(txtCodigoCancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 295, -1));
+        jPanel5.add(txtCodigoCancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 110, -1));
 
         txtTitulo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtTitulo.setEnabled(false);
-        jPanel5.add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 295, -1));
+        jPanel5.add(txtTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 140, -1));
 
         txtTiempoEnMinutos.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtTiempoEnMinutos.setEnabled(false);
-        jPanel5.add(txtTiempoEnMinutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 295, -1));
+        jPanel5.add(txtTiempoEnMinutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 140, -1));
 
         btnRegistrarCancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cd_Guardar.png"))); // NOI18N
         btnRegistrarCancion.setText("Registrar");
@@ -120,7 +121,7 @@ public class VentanaCrearCancion extends javax.swing.JInternalFrame {
                 btnRegistrarCancionActionPerformed(evt);
             }
         });
-        jPanel5.add(btnRegistrarCancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, -1, -1));
+        jPanel5.add(btnRegistrarCancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -136,16 +137,19 @@ public class VentanaCrearCancion extends javax.swing.JInternalFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
-        jPanel5.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, -1, -1));
+        jPanel5.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, -1, -1));
 
         jLabelLetra1.setBackground(new java.awt.Color(204, 204, 255));
         jLabelLetra1.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
         jLabelLetra1.setText("Letra");
-        jPanel5.add(jLabelLetra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 114, 45));
+        jPanel5.add(jLabelLetra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, 114, 45));
 
-        txtLetra.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtLetra.setColumns(20);
+        txtLetra.setRows(5);
         txtLetra.setEnabled(false);
-        jPanel5.add(txtLetra, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 295, -1));
+        jScrollPane1.setViewportView(txtLetra);
+
+        jPanel5.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(404, 150, 220, 160));
 
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 660, 350));
 
@@ -320,10 +324,11 @@ public class VentanaCrearCancion extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtCodigoCancion;
-    private javax.swing.JTextField txtLetra;
+    private javax.swing.JTextArea txtLetra;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtTiempoEnMinutos;
     private javax.swing.JTextField txtTitulo;
