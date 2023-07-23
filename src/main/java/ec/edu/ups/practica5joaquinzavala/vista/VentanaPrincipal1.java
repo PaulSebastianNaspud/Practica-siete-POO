@@ -23,6 +23,7 @@ import ec.edu.ups.practica5joaquinzavala.vista.Compositor.VentanaBuscarComposito
 import ec.edu.ups.practica5joaquinzavala.vista.Compositor.VentanaCrearCompositor;
 import ec.edu.ups.practica5joaquinzavala.vista.Compositor.VentanaEliminarCompositor;
 import ec.edu.ups.practica5joaquinzavala.vista.Compositor.VentanaListarCompositor;
+import ec.edu.ups.practica5joaquinzavala.vista.cliente.VentanaCrearCliente;
 import ec.edu.ups.practica5joaquinzavala.vista.disco.VentanaActualizarDisco;
 import ec.edu.ups.practica5joaquinzavala.vista.disco.VentanaBuscarDisco;
 import ec.edu.ups.practica5joaquinzavala.vista.disco.VentanaCrearDisco;
@@ -61,6 +62,7 @@ public class VentanaPrincipal1 extends javax.swing.JFrame {
     private VentanaEliminarCancion ventanaEliminarCancion;
     private VentanaListarCancion ventanaListarCancion;
     
+    private VentanaCrearCliente ventanaCrearCliente;
 
     private ControladorCantante controladorCantante;
     private ControladorCompositor controladorCompositor;
@@ -117,6 +119,8 @@ public class VentanaPrincipal1 extends javax.swing.JFrame {
         menuItemActualizarCancion = new javax.swing.JMenuItem();
         menuItemEliminarCancion = new javax.swing.JMenuItem();
         menuItemListarCancion = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+        menuItemRegistrarCliente = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         itemMenuRegistrarDisco1 = new javax.swing.JMenuItem();
         menuItemBuscarDisco1 = new javax.swing.JMenuItem();
@@ -129,6 +133,8 @@ public class VentanaPrincipal1 extends javax.swing.JFrame {
         menuItemActualizarCancion1 = new javax.swing.JMenuItem();
         menuItemEliminarCancion1 = new javax.swing.JMenuItem();
         menuItemListarCancion1 = new javax.swing.JMenuItem();
+        menuItemRegistrarCliente1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
@@ -349,6 +355,18 @@ public class VentanaPrincipal1 extends javax.swing.JFrame {
 
         editMenu.add(jMenu2);
 
+        jMenu6.setText("Cliente");
+
+        menuItemRegistrarCliente.setText("Registar Cliente");
+        menuItemRegistrarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemRegistrarClienteActionPerformed(evt);
+            }
+        });
+        jMenu6.add(menuItemRegistrarCliente);
+
+        editMenu.add(jMenu6);
+
         menuBar.add(editMenu);
 
         jMenu3.setText("Disco");
@@ -438,6 +456,18 @@ public class VentanaPrincipal1 extends javax.swing.JFrame {
         jMenu4.add(menuItemListarCancion1);
 
         menuBar.add(jMenu4);
+
+        menuItemRegistrarCliente1.setText("Cliente");
+
+        jMenuItem1.setText("Registar Cliente");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        menuItemRegistrarCliente1.add(jMenuItem1);
+
+        menuBar.add(menuItemRegistrarCliente1);
 
         helpMenu.setMnemonic('h');
         helpMenu.setText("Help");
@@ -668,6 +698,18 @@ public class VentanaPrincipal1 extends javax.swing.JFrame {
         this.menuItemListarCancionActionPerformed(evt);
     }//GEN-LAST:event_menuItemListarCancion1ActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        this.menuItemRegistrarClienteActionPerformed(evt);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void menuItemRegistrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRegistrarClienteActionPerformed
+        if(ventanaCrearCliente ==null){
+            ventanaCrearCliente= new VentanaCrearCliente(controladorCompositor, controladorCantante);
+            desktopPane.add(ventanaCrearCliente);
+        }
+        ventanaCrearCliente.setVisible(true);
+    }//GEN-LAST:event_menuItemRegistrarClienteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -723,6 +765,8 @@ public class VentanaPrincipal1 extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem menuItemActualizarCancion;
@@ -749,6 +793,8 @@ public class VentanaPrincipal1 extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuItemListarDisco1;
     private javax.swing.JMenuItem menuItemRegistrarCancion;
     private javax.swing.JMenuItem menuItemRegistrarCancion1;
+    private javax.swing.JMenuItem menuItemRegistrarCliente;
+    private javax.swing.JMenu menuItemRegistrarCliente1;
     private javax.swing.JMenuItem menuItemRegistrarCompositor;
     // End of variables declaration//GEN-END:variables
 

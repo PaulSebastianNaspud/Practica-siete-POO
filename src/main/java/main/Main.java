@@ -22,42 +22,7 @@ public class Main {
         
         CompositorDAO compositorDAO = new CompositorDAO();
         compositorDAO.create(new Compositor(1, 1, "Paul", "Naspud1", 123, 123.25, Nacionalidad.CANADA));
-        Compositor compositor = compositorDAO.read(1);
-        compositorDAO.createCilente(compositor ,new Cantante("PaulArtisico", GeneroMusical.ROCK, 22, 19, 97, "Sebastian", "VivarBunny", 19, 2000, Nacionalidad.CANADA));
-        compositor = compositorDAO.read(1);
-        compositorDAO.createCilente(compositor ,new Cantante("DosPaul", GeneroMusical.ROCK_METAL, 12, 21, 2, "Seboso", "BUNNYBAS", 21, 1000, Nacionalidad.ECUADOR));
-        compositor = compositorDAO.read(1);
-        compositorDAO.createCilente(compositor ,new Cantante("DosPaul", GeneroMusical.ROCK_METAL, 12, 21, 2, "Seboso", "BUNNYBAS", 21, 1000, Nacionalidad.ECUADOR));
-        compositor = compositorDAO.read(1);
-        compositorDAO.createCilente(compositor ,new Cantante("DosPaul", GeneroMusical.ROCK_METAL, 12, 21, 2, "Seboso", "BUNNYBAS", 21, 1000, Nacionalidad.ECUADOR));
-        compositor = compositorDAO.read(1);
-        compositorDAO.createCilente(compositor ,new Cantante("DosPaul", GeneroMusical.ROCK_METAL, 12, 21, 2, "Seboso", "BUNNYBAS", 21, 1000, Nacionalidad.ECUADOR));
-        compositor = compositorDAO.read(1);
-        compositorDAO.createCilente(compositor ,new Cantante("DosPaul", GeneroMusical.ROCK_METAL, 12, 21, 2, "Seboso", "BUNNYBAS", 21, 1000, Nacionalidad.ECUADOR));
-        compositor = compositorDAO.read(1);
-        compositorDAO.createCilente(compositor ,new Cantante("DosPaul", GeneroMusical.ROCK_METAL, 12, 21, 2, "Seboso", "BUNNYBAS", 21, 1000, Nacionalidad.ECUADOR));
-        compositor = compositorDAO.read(1);
-        compositorDAO.createCilente(compositor ,new Cantante("DosPaul", GeneroMusical.ROCK_METAL, 12, 21, 2, "Seboso", "BUNNYBAS", 21, 1000, Nacionalidad.ECUADOR));
-        compositor = compositorDAO.read(1);
-        compositorDAO.createCilente(compositor ,new Cantante("DosPaul", GeneroMusical.ROCK_METAL, 12, 21, 2, "Seboso", "BUNNYBAS", 21, 1000, Nacionalidad.ECUADOR));
-        compositor = compositorDAO.read(1);
-        compositorDAO.createCilente(compositor ,new Cantante("DosPaul", GeneroMusical.ROCK_METAL, 12, 21, 2, "Seboso", "BUNNYBAS", 21, 1000, Nacionalidad.ECUADOR));
-        compositor = compositorDAO.read(1);
-        compositorDAO.createCilente(compositor ,new Cantante("DosPaul", GeneroMusical.ROCK_METAL, 12, 21, 2, "Seboso", "BUNNYBAS", 21, 1000, Nacionalidad.ECUADOR));
-        compositor = compositorDAO.read(1);
-        compositorDAO.createCilente(compositor ,new Cantante("DosPaul", GeneroMusical.ROCK_METAL, 12, 21, 2, "Seboso", "BUNNYBAS", 21, 1000, Nacionalidad.ECUADOR));
-        compositor = compositorDAO.read(1);
-        compositorDAO.createCilente(compositor ,new Cantante("DosPaul", GeneroMusical.ROCK_METAL, 12, 21, 2, "Seboso", "BUNNYBAS", 21, 1000, Nacionalidad.ECUADOR));
-        compositor = compositorDAO.read(1);
-        compositorDAO.createCilente(compositor ,new Cantante("DosPaul", GeneroMusical.ROCK_METAL, 12, 21, 2, "Seboso", "BUNNYBAS", 21, 1000, Nacionalidad.ECUADOR));
-        compositor = compositorDAO.read(1);
-        compositorDAO.createCilente(compositor ,new Cantante("DosPaul", GeneroMusical.ROCK_METAL, 12, 21, 2, "Seboso", "BUNNYBAS", 21, 1000, Nacionalidad.ECUADOR));
-        compositor = compositorDAO.read(1);
-        compositorDAO.createCilente(compositor ,new Cantante("DosPaul", GeneroMusical.ROCK_METAL, 12, 21, 2, "Seboso", "BUNNYBAS", 21, 1000, Nacionalidad.ECUADOR));
-        compositor = compositorDAO.read(1);
-        compositorDAO.createCilente(compositor ,new Cantante("DosPaul", GeneroMusical.ROCK_METAL, 12, 21, 2, "Seboso", "BUNNYBAS", 21, 1000, Nacionalidad.ECUADOR));
-        compositor = compositorDAO.read(1);
-        System.out.println(compositor.sizeCliente());
+        new CantanteDAO().create(new Cantante("PaulCantante", GeneroMusical.ROCK, 19, 20, 21, "Luigi", "Apellifo", 19, 22, Nacionalidad.CANADA));
         
         
         

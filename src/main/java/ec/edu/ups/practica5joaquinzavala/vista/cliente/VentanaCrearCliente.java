@@ -5,21 +5,24 @@
 package ec.edu.ups.practica5joaquinzavala.vista.cliente;
 
 import ec.edu.ups.practica5joaquinzavala.controlador.ControladorCantante;
-import ec.edu.ups.practica5joaquinzavala.vista.Cancion.*;
 import ec.edu.ups.practica5joaquinzavala.controlador.ControladorCompositor;
+import ec.edu.ups.practica5joaquinzavala.modelo.Cantante;
 import ec.edu.ups.practica5joaquinzavala.modelo.Compositor;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
 
 
 public class VentanaCrearCliente extends javax.swing.JInternalFrame {
     private Compositor  compositor;
+    private Cantante cantante;
     private ControladorCompositor controladorCompositor;
     private ControladorCantante controladorCantante;
     
     public VentanaCrearCliente(ControladorCompositor controladorCompositor,ControladorCantante controladorCantante ) {
         initComponents();
         this.controladorCompositor = controladorCompositor;
-        this.controladorCantante = this.controladorCantante;
+        this.controladorCantante = controladorCantante;
     }
 
     /**
@@ -34,21 +37,21 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabelCodigoCancion = new javax.swing.JLabel();
         txtCodigoCantante = new javax.swing.JTextField();
-        btnAceptar = new javax.swing.JButton();
+        btnBuscarCantante = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        txtCodigoCompositor = new javax.swing.JTextField();
+        txtCodigo = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         txtApellido = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         btnBuscarCompositor = new javax.swing.JButton();
-        btnCancelar1 = new javax.swing.JButton();
+        btnCancelarTotal = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -95,7 +98,6 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
             public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
             }
         });
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel5.setBackground(java.awt.Color.lightGray);
         jPanel5.setForeground(new java.awt.Color(60, 63, 65));
@@ -110,16 +112,17 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
         jPanel5.add(jLabelCodigoCancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 114, 45));
 
         txtCodigoCantante.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtCodigoCantante.setEnabled(false);
         jPanel5.add(txtCodigoCantante, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 295, -1));
 
-        btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/search.png"))); // NOI18N
-        btnAceptar.setEnabled(false);
-        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscarCantante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/search.png"))); // NOI18N
+        btnBuscarCantante.setEnabled(false);
+        btnBuscarCantante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAceptarActionPerformed(evt);
+                btnBuscarCantanteActionPerformed(evt);
             }
         });
-        jPanel5.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, -1, -1));
+        jPanel5.add(btnBuscarCantante, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -127,8 +130,6 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
         jLabel1.setText("   Buscar un cantante");
         jLabel1.setToolTipText("");
         jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 480, -1));
-
-        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 610, 150));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -145,8 +146,13 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
         jLabel14.setText("Codigo");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 114, 45));
 
-        txtCodigoCompositor.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jPanel2.add(txtCodigoCompositor, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 295, -1));
+        txtCodigo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodigoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 295, -1));
 
         jLabel13.setBackground(new java.awt.Color(204, 204, 255));
         jLabel13.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
@@ -155,6 +161,11 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
 
         txtNombre.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtNombre.setEnabled(false);
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
         jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 295, -1));
 
         jLabel12.setBackground(new java.awt.Color(204, 204, 255));
@@ -187,16 +198,14 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
         });
         jPanel2.add(btnBuscarCompositor, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 550, -1, -1));
 
-        btnCancelar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.png"))); // NOI18N
-        btnCancelar1.setText("Cancelar");
-        btnCancelar1.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelarTotal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.png"))); // NOI18N
+        btnCancelarTotal.setText("Cancelar");
+        btnCancelarTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelar1ActionPerformed(evt);
+                btnCancelarTotalActionPerformed(evt);
             }
         });
-        jPanel2.add(btnCancelar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 550, -1, -1));
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 620));
+        jPanel2.add(btnCancelarTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 550, -1, -1));
 
         jPanel6.setBackground(new java.awt.Color(102, 153, 255));
 
@@ -314,10 +323,6 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNombreCantante, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -330,7 +335,11 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
                             .addComponent(txtGiras, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtSencillos, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtApellidoCantante, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtApellidoCantante, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtNombreCantante, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(33, 33, 33)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
@@ -401,94 +410,116 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
                 .addGap(43, 43, 43))
         );
 
-        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 610, 470));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private boolean validarCamposCancion() {
-        if (txtTitulo.getText().isEmpty() || txtCodigoCancion.getText().isEmpty() || txtLetra.getText().isEmpty() || txtTiempoEnMinutos.getText().isEmpty()) {
-            return false;
-        } return true;
-    }
     
-    private void limipiarCamposCancion(){
-        txtCodigoCancion.setText("");
-        txtLetra.setText("");
-        txtTiempoEnMinutos.setText("");
-        txtTitulo.setText("");
+    
+    private void limipiarCamposCantante(){
+        txtCodigoCantante.setText("");
+        txtNombreCantante.setText("");
+        txtApellidoCantante.setText("");
+        txtNombreArtistico.setText("");
+        txtEdad.setText("");
+        txtSencillos.setText("");
+        txtGeneroMuscical.setText("");
+        txtSalario.setText("");
+        txtGiras.setText("");
+        txtConciertos.setText("");
+        txtNacionalidad.setText("");
     }
     private void limipiarCampos(){
-        txtCodigo.setText("");
-        txtApellido.setText("");
         txtNombre.setText("");
+        txtApellido.setText("");
+        txtCodigo.setText("");
     }
     
     private void cambiarEstado(boolean bandera){
+        btnBuscarCompositor.setEnabled(!bandera);
         txtCodigo.setEnabled(!bandera);
-        txtCodigoCancion.setEnabled(bandera);
-        txtLetra.setEnabled(bandera);
-        txtTiempoEnMinutos.setEnabled(bandera);
-        txtTitulo.setEnabled(bandera);
-        btnRegistrarCancion.setEnabled(bandera);
+        btnBuscarCantante.setEnabled(bandera);
+        txtCodigoCantante.setEnabled(bandera);
     }
     
     
     private void btnBuscarCompositorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCompositorActionPerformed
         
-        int codigo = Integer.parseInt();
+        int codigo = Integer.parseInt(txtCodigo.getText());
         this.compositor = controladorCompositor.buscarCompositor(codigo);
         if (compositor != null) {
             txtApellido.setText(compositor.getApellido());
             txtNombre.setText(compositor.getNombre());
             cambiarEstado(true);
+        }else{
+            JOptionPane.showMessageDialog(this, "El compositor aun no ha sido registrado");
         }
     }//GEN-LAST:event_btnBuscarCompositorActionPerformed
 
-    private void btnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar1ActionPerformed
+    private void btnCancelarTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarTotalActionPerformed
+        this.setVisible(false);
         cambiarEstado(false);
         limipiarCampos();
-    }//GEN-LAST:event_btnCancelar1ActionPerformed
+        limipiarCamposCantante();
+    }//GEN-LAST:event_btnCancelarTotalActionPerformed
 
     private void formInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameClosing
         this.setVisible(false);
         this.limipiarCampos();
-        this.limipiarCamposCancion();
         this.cambiarEstado(false);
     }//GEN-LAST:event_formInternalFrameClosing
 
     private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed
-    }        // TODO add your handling code here:
+          // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidoActionPerformed
 
-    private void txtGirasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGirasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtGirasActionPerformed
-
-    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-        int codigo = Integer.parseInt(txtCodigo.getText());
+    private void btnBuscarCantanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCantanteActionPerformed
+        int codigo = Integer.parseInt(txtCodigoCantante.getText());
         this.cantante = controladorCantante.buscarCantante(codigo);
         if (cantante != null) {
-            txtApellido.setText(cantante.getApellido().replaceAll("\\s", ""));
+            txtApellidoCantante.setText(cantante.getApellido());
             txtEdad.setText(String.valueOf(cantante.getEdad()));
             txtGeneroMuscical.setText(cantante.getGeneroMusical().toString());
             txtNacionalidad.setText(cantante.getNacionalidad().toString());
-            txtNombre.setText(cantante.getNombre().replaceAll("\\s", ""));
-            txtNombreArtistico.setText(cantante.getNombreArtistico().replaceAll("\\s", ""));
+            txtNombreCantante.setText(cantante.getNombre());
+            txtNombreArtistico.setText(cantante.getNombreArtistico());
             txtConciertos.setText(String.valueOf(cantante.getNumeroDeConciertos()));
             txtGiras.setText(String.valueOf(cantante.getNumeroDeGiras()));
 
             txtSencillos.setText(String.valueOf(String.valueOf(cantante.getNumeroDeSensillos())));
             txtSalario.setText(String.valueOf(String.valueOf(cantante.calularSalario())));
+            this.txtCodigoCantante.setEnabled(false);
+            this.btnGuardar.setEnabled(true);
+            this.btnBuscarCantante.setEnabled(false);
         } else {
             JOptionPane.showMessageDialog(this, "El cantante con el codigo " + codigo + " no ha sido registrado");
-            limpiarCampos();
+            limipiarCamposCantante();
         }
-    }//GEN-LAST:event_btnAceptarActionPerformed
+    }//GEN-LAST:event_btnBuscarCantanteActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        this.setVisible(false);
-        this.limpiarCampos();
+        this.cambiarEstado(false);
+        this.btnGuardar.setEnabled(false);
+        this.limipiarCamposCantante();
+        this.limipiarCampos();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void txtNacionalidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNacionalidadActionPerformed
@@ -496,34 +527,36 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtNacionalidadActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        if (isEmpty()) {
-            int codigo = Integer.parseInt(txtCodigo.getText());
-            this.cantante = controladorCantante.buscarCantante(codigo);
-            String nombre = txtNombre.getText();
-            String apellido = txtApellido.getText();
-            int edad = Integer.parseInt(txtEdad.getText());
-            double salario = Double.parseDouble(txtSalario.getText());
-            String nombreArtistico = txtNombreArtistico.getText();
-            int numeroConciertos = Integer.parseInt(txtConciertos.getText());
-            int numeroGiras = Integer.parseInt(txtGiras.getText());
-            Nacionalidad nacionalidad = (Nacionalidad) this.cmbxNacionalidad.getSelectedItem();
-            GeneroMusical generoMusical = (GeneroMusical) cmbxGeneroMusical.getSelectedItem();
-            this.cantante = new Cantante(nombreArtistico, generoMusical, numeroConciertos, numeroGiras, codigo, nombre, apellido, edad, salario, nacionalidad);
-            controladorCantante.actualizarCantante(cantante);
-            JOptionPane.showMessageDialog(this, "El cantante se a actualizado: " + cantante.getNombreArtistico());
-            limpiarCampos();
-            cambiarEstado(false);
-        } else {
-            JOptionPane.showMessageDialog(this, "Debe llenar todos los campos");
-        }
+        int codigo = Integer.parseInt(txtCodigo.getText());
+        this.compositor = controladorCompositor.buscarCompositor(codigo);
+        int codigoCantante = Integer.parseInt(txtCodigoCantante.getText());
+        this.cantante = controladorCantante.buscarCantante(codigoCantante);
+        this.controladorCompositor.agregarCliente(compositor, cantante);
+        this.limipiarCamposCantante();
+        this.limipiarCampos();
+        this.cambiarEstado(false);
+        this.btnGuardar.setEnabled(false);
+        JOptionPane.showMessageDialog(this, "El cliente " + cantante.getNombre() + " se a agregado a la lista de cliente de " + compositor.getNombre());
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodigoActionPerformed
+
+    private void txtGirasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGirasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtGirasActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton btnBuscarCantante;
     private javax.swing.JButton btnBuscarCompositor;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnCancelar1;
+    private javax.swing.JButton btnCancelarTotal;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -549,8 +582,8 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtApellidoCantante;
+    private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtCodigoCantante;
-    private javax.swing.JTextField txtCodigoCompositor;
     private javax.swing.JTextField txtConciertos;
     private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtGeneroMuscical;
@@ -562,4 +595,5 @@ public class VentanaCrearCliente extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtSalario;
     private javax.swing.JTextField txtSencillos;
     // End of variables declaration//GEN-END:variables
+
 }
