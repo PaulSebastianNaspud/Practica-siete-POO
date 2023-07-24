@@ -105,6 +105,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         menuCantante = new javax.swing.JMenu();
         menuItemRcan = new javax.swing.JMenuItem();
@@ -168,15 +169,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setForeground(new java.awt.Color(60, 63, 65));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/8724a4c4e98891b44c2bedbbf710423a-icono-de-reproductor-de-discos-de-musica.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 902, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 403, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 517, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         menuBar.setBackground(new java.awt.Color(60, 63, 65));
@@ -598,6 +603,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuIdiomar.setMnemonic('h');
         menuIdiomar.setText("Idioma");
 
+        menuItemEspaniol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ecuador.png"))); // NOI18N
         menuItemEspaniol.setMnemonic('c');
         menuItemEspaniol.setText("Español");
         menuItemEspaniol.addActionListener(new java.awt.event.ActionListener() {
@@ -607,6 +613,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         menuIdiomar.add(menuItemEspaniol);
 
+        menuItemIngles.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/estados-unidos-de-america.png"))); // NOI18N
         menuItemIngles.setMnemonic('a');
         menuItemIngles.setText("Ingles");
         menuItemIngles.addActionListener(new java.awt.event.ActionListener() {
@@ -616,6 +623,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         menuIdiomar.add(menuItemIngles);
 
+        menuItemFrances.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/francia.png"))); // NOI18N
         menuItemFrances.setMnemonic('a');
         menuItemFrances.setText("Frances");
         menuItemFrances.addActionListener(new java.awt.event.ActionListener() {
@@ -727,6 +735,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaCrearDisco = new VentanaCrearDisco(controladorCantante);
             jPanel1.add(ventanaCrearDisco);
         }
+        ventanaCrearDisco.cambiarIdioma(localizacion);
         ventanaCrearDisco.setVisible(true);
     }//GEN-LAST:event_menuItemRdiscoActionPerformed
 
@@ -735,6 +744,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaBuscarDisco= new VentanaBuscarDisco(controladorCantante);
             jPanel1.add(ventanaBuscarDisco);
         }
+        ventanaBuscarDisco.cambiarIdioma(localizacion);
         ventanaBuscarDisco.setVisible(true);
     }//GEN-LAST:event_menuItemBdiscoActionPerformed
 
@@ -743,6 +753,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaActualizarDisco= new VentanaActualizarDisco(controladorCantante);
             jPanel1.add(ventanaActualizarDisco);
         }
+        ventanaActualizarDisco.cambiarIdioma(localizacion);
         ventanaActualizarDisco.setVisible(true);
     }//GEN-LAST:event_menuItemAdiscoActionPerformed
 
@@ -751,6 +762,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaEliminarDisco= new VentanaEliminarDisco(controladorCantante);
             jPanel1.add(ventanaEliminarDisco);
         }
+        ventanaEliminarDisco.cambiarIdioma(localizacion);
         ventanaEliminarDisco.setVisible(true);
     }//GEN-LAST:event_menuItemEdiscoActionPerformed
 
@@ -835,6 +847,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaCrearCliente= new VentanaCrearCliente(controladorCompositor, controladorCantante);
             jPanel1.add(ventanaCrearCliente);
         }
+        ventanaCrearCliente.cambiarIdioma(localizacion);
         ventanaCrearCliente.setVisible(true);
     }//GEN-LAST:event_menuItemRClienteActionPerformed
 
@@ -888,7 +901,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         if(ventanaEliminarCliente ==null){
             ventanaEliminarCliente= new VentanaEliminarCliente(controladorCompositor);
             jPanel1.add(ventanaEliminarCliente);
-        }
+        }ventanaEliminarCliente.cambiarIdioma(localizacion);
         ventanaEliminarCliente.setVisible(true);
     }//GEN-LAST:event_menuItemEClienteActionPerformed
 
@@ -1034,6 +1047,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuCancion;
