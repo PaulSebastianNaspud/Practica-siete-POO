@@ -107,52 +107,54 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         menuBar = new javax.swing.JMenuBar();
         menuCantante = new javax.swing.JMenu();
-        itemMenuCrearCantante = new javax.swing.JMenuItem();
-        itemMenuVerCantante = new javax.swing.JMenuItem();
-        menuItemActualizarCantante = new javax.swing.JMenuItem();
-        menuItemListarCantante = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        itemMenuRegistrarDisco = new javax.swing.JMenuItem();
-        menuItemBuscarDisco = new javax.swing.JMenuItem();
-        menuItemActualizarDisco = new javax.swing.JMenuItem();
-        menuItemEliminarDisco = new javax.swing.JMenuItem();
-        menuItemListarDisco = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        itemMenuRegistrarDisco2 = new javax.swing.JMenuItem();
-        menuItemBuscarDisco2 = new javax.swing.JMenuItem();
-        menuItemActualizarDisco2 = new javax.swing.JMenuItem();
-        menuItemEliminarDisco2 = new javax.swing.JMenuItem();
-        menuItemListarDisco2 = new javax.swing.JMenuItem();
-        editMenu = new javax.swing.JMenu();
-        menuItemRegistrarCompositor = new javax.swing.JMenuItem();
-        menuItemBuscarCompositor = new javax.swing.JMenuItem();
-        menuItemActualizarCompositor = new javax.swing.JMenuItem();
-        menuItemEliminarCompositor = new javax.swing.JMenuItem();
-        menuItemListarCompositor = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        menuItemRegistrarCancion = new javax.swing.JMenuItem();
-        menuItemBuscarCancion = new javax.swing.JMenuItem();
-        menuItemActualizarCancion = new javax.swing.JMenuItem();
-        menuItemEliminarCancion = new javax.swing.JMenuItem();
-        menuItemListarCancion = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
-        menuItemRegistrarCliente = new javax.swing.JMenuItem();
-        menuItemBuscarCliente = new javax.swing.JMenuItem();
-        menuItemActulalizarCliente = new javax.swing.JMenuItem();
-        menuItemEliminarCliente = new javax.swing.JMenuItem();
-        menuItemListarCliente = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        menuItemRegistrarCancion1 = new javax.swing.JMenuItem();
-        menuItemBuscarCancion1 = new javax.swing.JMenuItem();
-        menuItemActualizarCancion1 = new javax.swing.JMenuItem();
-        menuItemEliminarCancion1 = new javax.swing.JMenuItem();
-        menuItemListarCancion1 = new javax.swing.JMenuItem();
-        menuItemRegistrarCliente1 = new javax.swing.JMenu();
-        menuItemRegistrarCliente2 = new javax.swing.JMenuItem();
-        menuItemBuscarCliente2 = new javax.swing.JMenuItem();
-        menuItemActulalizarCliente1 = new javax.swing.JMenuItem();
-        menuItemEliminarCliente1 = new javax.swing.JMenuItem();
-        helpMenu = new javax.swing.JMenu();
+        menuItemRcan = new javax.swing.JMenuItem();
+        menuItemBcan = new javax.swing.JMenuItem();
+        menuItemAcan = new javax.swing.JMenuItem();
+        menuItemEcan = new javax.swing.JMenuItem();
+        menuItemLcan = new javax.swing.JMenuItem();
+        menuDisco2 = new javax.swing.JMenu();
+        menuItemRdisco = new javax.swing.JMenuItem();
+        menuItemBdisco = new javax.swing.JMenuItem();
+        menuItemAdisco = new javax.swing.JMenuItem();
+        menuItemEdisco = new javax.swing.JMenuItem();
+        menuItemLdisco = new javax.swing.JMenuItem();
+        menuDisco = new javax.swing.JMenu();
+        menuItemRdisco2 = new javax.swing.JMenuItem();
+        menuItemBdisco2 = new javax.swing.JMenuItem();
+        menuItemAdisco2 = new javax.swing.JMenuItem();
+        menuItemEdisco2 = new javax.swing.JMenuItem();
+        menuItemLdisco2 = new javax.swing.JMenuItem();
+        menuCompositor = new javax.swing.JMenu();
+        menuItemRCompositor = new javax.swing.JMenuItem();
+        menuItemBCompositor = new javax.swing.JMenuItem();
+        menuItemACompositor = new javax.swing.JMenuItem();
+        menuItemECompositor = new javax.swing.JMenuItem();
+        menuItemLCompositor = new javax.swing.JMenuItem();
+        menuCancion1 = new javax.swing.JMenu();
+        menuItemRCancion = new javax.swing.JMenuItem();
+        menuItemBCancion = new javax.swing.JMenuItem();
+        menuItemACancion = new javax.swing.JMenuItem();
+        menuItemECancion = new javax.swing.JMenuItem();
+        menuItemLCancion = new javax.swing.JMenuItem();
+        menuCliente2 = new javax.swing.JMenu();
+        menuItemRCliente = new javax.swing.JMenuItem();
+        menuItemBCliente = new javax.swing.JMenuItem();
+        menuItemACliente = new javax.swing.JMenuItem();
+        menuItemECliente = new javax.swing.JMenuItem();
+        menuItemLCliente = new javax.swing.JMenuItem();
+        menuCancion = new javax.swing.JMenu();
+        menuItemRCancion2 = new javax.swing.JMenuItem();
+        menuItemBCancion2 = new javax.swing.JMenuItem();
+        menuItemACancion2 = new javax.swing.JMenuItem();
+        menuItemECancion2 = new javax.swing.JMenuItem();
+        menuItemLCancion2 = new javax.swing.JMenuItem();
+        menuCliente = new javax.swing.JMenu();
+        menuItemRCliente2 = new javax.swing.JMenuItem();
+        menuItemBCliente2 = new javax.swing.JMenuItem();
+        menuItemACliente2 = new javax.swing.JMenuItem();
+        menuItemECliente2 = new javax.swing.JMenuItem();
+        menuItemLCliente2 = new javax.swing.JMenuItem();
+        menuIdiomar = new javax.swing.JMenu();
         menuItemEspaniol = new javax.swing.JMenuItem();
         menuItemIngles = new javax.swing.JMenuItem();
         menuItemFrances = new javax.swing.JMenuItem();
@@ -186,396 +188,415 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuCantante.setText("Cantante");
         menuCantante.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        itemMenuCrearCantante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar-usuario-menu.png"))); // NOI18N
-        itemMenuCrearCantante.setMnemonic('o');
-        itemMenuCrearCantante.setText("Registrar cantante");
-        itemMenuCrearCantante.addActionListener(new java.awt.event.ActionListener() {
+        menuItemRcan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar-usuario-menu.png"))); // NOI18N
+        menuItemRcan.setMnemonic('o');
+        menuItemRcan.setText("Registrar cantante");
+        menuItemRcan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemMenuCrearCantanteActionPerformed(evt);
+                menuItemRcanActionPerformed(evt);
             }
         });
-        menuCantante.add(itemMenuCrearCantante);
+        menuCantante.add(menuItemRcan);
 
-        itemMenuVerCantante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busac-menu.png"))); // NOI18N
-        itemMenuVerCantante.setMnemonic('s');
-        itemMenuVerCantante.setText("Buscar cantante");
-        itemMenuVerCantante.addActionListener(new java.awt.event.ActionListener() {
+        menuItemBcan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busac-menu.png"))); // NOI18N
+        menuItemBcan.setMnemonic('s');
+        menuItemBcan.setText("Buscar cantante");
+        menuItemBcan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemMenuVerCantanteActionPerformed(evt);
+                menuItemBcanActionPerformed(evt);
             }
         });
-        menuCantante.add(itemMenuVerCantante);
+        menuCantante.add(menuItemBcan);
 
-        menuItemActualizarCantante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/actualizar-menu.png"))); // NOI18N
-        menuItemActualizarCantante.setMnemonic('a');
-        menuItemActualizarCantante.setText("Actualizar cantante");
-        menuItemActualizarCantante.addActionListener(new java.awt.event.ActionListener() {
+        menuItemAcan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/actualizar-menu.png"))); // NOI18N
+        menuItemAcan.setMnemonic('a');
+        menuItemAcan.setText("Actualizar cantante");
+        menuItemAcan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemActualizarCantanteActionPerformed(evt);
+                menuItemAcanActionPerformed(evt);
             }
         });
-        menuCantante.add(menuItemActualizarCantante);
+        menuCantante.add(menuItemAcan);
 
-        menuItemListarCantante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/listar-menu.png"))); // NOI18N
-        menuItemListarCantante.setText("Listar cantante");
-        menuItemListarCantante.addActionListener(new java.awt.event.ActionListener() {
+        menuItemEcan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/EliminarMenu.png"))); // NOI18N
+        menuItemEcan.setMnemonic('a');
+        menuItemEcan.setText("Eliminar cantante");
+        menuItemEcan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemListarCantanteActionPerformed(evt);
+                menuItemEcanActionPerformed(evt);
             }
         });
-        menuCantante.add(menuItemListarCantante);
+        menuCantante.add(menuItemEcan);
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menuDos-menu.png"))); // NOI18N
-        jMenu1.setText("Disco");
-
-        itemMenuRegistrarDisco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/listarDisco-menu.png"))); // NOI18N
-        itemMenuRegistrarDisco.setText("Registrar disco");
-        itemMenuRegistrarDisco.addActionListener(new java.awt.event.ActionListener() {
+        menuItemLcan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/listar-menu.png"))); // NOI18N
+        menuItemLcan.setText("Listar cantante");
+        menuItemLcan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemMenuRegistrarDiscoActionPerformed(evt);
+                menuItemLcanActionPerformed(evt);
             }
         });
-        jMenu1.add(itemMenuRegistrarDisco);
+        menuCantante.add(menuItemLcan);
 
-        menuItemBuscarDisco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/dsicoBuscarmenu.png"))); // NOI18N
-        menuItemBuscarDisco.setText("Buscar disco");
-        menuItemBuscarDisco.addActionListener(new java.awt.event.ActionListener() {
+        menuDisco2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menuDos-menu.png"))); // NOI18N
+        menuDisco2.setText("Disco");
+
+        menuItemRdisco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/listarDisco-menu.png"))); // NOI18N
+        menuItemRdisco.setText("Registrar disco");
+        menuItemRdisco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemBuscarDiscoActionPerformed(evt);
+                menuItemRdiscoActionPerformed(evt);
             }
         });
-        jMenu1.add(menuItemBuscarDisco);
+        menuDisco2.add(menuItemRdisco);
 
-        menuItemActualizarDisco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/disco-menu.png"))); // NOI18N
-        menuItemActualizarDisco.setText("Actualizar disco");
-        menuItemActualizarDisco.addActionListener(new java.awt.event.ActionListener() {
+        menuItemBdisco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/dsicoBuscarmenu.png"))); // NOI18N
+        menuItemBdisco.setText("Buscar disco");
+        menuItemBdisco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemActualizarDiscoActionPerformed(evt);
+                menuItemBdiscoActionPerformed(evt);
             }
         });
-        jMenu1.add(menuItemActualizarDisco);
+        menuDisco2.add(menuItemBdisco);
 
-        menuItemEliminarDisco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/discoElimnarMenu.png"))); // NOI18N
-        menuItemEliminarDisco.setText("Eliminar disco");
-        menuItemEliminarDisco.addActionListener(new java.awt.event.ActionListener() {
+        menuItemAdisco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/disco-menu.png"))); // NOI18N
+        menuItemAdisco.setText("Actualizar disco");
+        menuItemAdisco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemEliminarDiscoActionPerformed(evt);
+                menuItemAdiscoActionPerformed(evt);
             }
         });
-        jMenu1.add(menuItemEliminarDisco);
+        menuDisco2.add(menuItemAdisco);
 
-        menuItemListarDisco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/discorafia-menu.png"))); // NOI18N
-        menuItemListarDisco.setText("Listar disco");
-        menuItemListarDisco.addActionListener(new java.awt.event.ActionListener() {
+        menuItemEdisco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/discoElimnarMenu.png"))); // NOI18N
+        menuItemEdisco.setText("Eliminar disco");
+        menuItemEdisco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemListarDiscoActionPerformed(evt);
+                menuItemEdiscoActionPerformed(evt);
             }
         });
-        jMenu1.add(menuItemListarDisco);
+        menuDisco2.add(menuItemEdisco);
 
-        menuCantante.add(jMenu1);
+        menuItemLdisco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/discorafia-menu.png"))); // NOI18N
+        menuItemLdisco.setText("Listar disco");
+        menuItemLdisco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemLdiscoActionPerformed(evt);
+            }
+        });
+        menuDisco2.add(menuItemLdisco);
+
+        menuCantante.add(menuDisco2);
 
         menuBar.add(menuCantante);
 
-        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menuDos-menu.png"))); // NOI18N
-        jMenu5.setText("Disco");
+        menuDisco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menuDos-menu.png"))); // NOI18N
+        menuDisco.setText("Disco");
 
-        itemMenuRegistrarDisco2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/listarDisco-menu.png"))); // NOI18N
-        itemMenuRegistrarDisco2.setText("Registrar disco");
-        itemMenuRegistrarDisco2.addActionListener(new java.awt.event.ActionListener() {
+        menuItemRdisco2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/listarDisco-menu.png"))); // NOI18N
+        menuItemRdisco2.setText("Registrar disco");
+        menuItemRdisco2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemMenuRegistrarDisco2ActionPerformed(evt);
+                menuItemRdisco2ActionPerformed(evt);
             }
         });
-        jMenu5.add(itemMenuRegistrarDisco2);
+        menuDisco.add(menuItemRdisco2);
 
-        menuItemBuscarDisco2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/dsicoBuscarmenu.png"))); // NOI18N
-        menuItemBuscarDisco2.setText("Buscar disco");
-        menuItemBuscarDisco2.addActionListener(new java.awt.event.ActionListener() {
+        menuItemBdisco2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/dsicoBuscarmenu.png"))); // NOI18N
+        menuItemBdisco2.setText("Buscar disco");
+        menuItemBdisco2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemBuscarDisco2ActionPerformed(evt);
+                menuItemBdisco2ActionPerformed(evt);
             }
         });
-        jMenu5.add(menuItemBuscarDisco2);
+        menuDisco.add(menuItemBdisco2);
 
-        menuItemActualizarDisco2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/disco-menu.png"))); // NOI18N
-        menuItemActualizarDisco2.setText("Actualizar disco");
-        menuItemActualizarDisco2.addActionListener(new java.awt.event.ActionListener() {
+        menuItemAdisco2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/disco-menu.png"))); // NOI18N
+        menuItemAdisco2.setText("Actualizar disco");
+        menuItemAdisco2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemActualizarDisco2ActionPerformed(evt);
+                menuItemAdisco2ActionPerformed(evt);
             }
         });
-        jMenu5.add(menuItemActualizarDisco2);
+        menuDisco.add(menuItemAdisco2);
 
-        menuItemEliminarDisco2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/discoElimnarMenu.png"))); // NOI18N
-        menuItemEliminarDisco2.setText("Eliminar disco");
-        menuItemEliminarDisco2.addActionListener(new java.awt.event.ActionListener() {
+        menuItemEdisco2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/discoElimnarMenu.png"))); // NOI18N
+        menuItemEdisco2.setText("Eliminar disco");
+        menuItemEdisco2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemEliminarDisco2ActionPerformed(evt);
+                menuItemEdisco2ActionPerformed(evt);
             }
         });
-        jMenu5.add(menuItemEliminarDisco2);
+        menuDisco.add(menuItemEdisco2);
 
-        menuItemListarDisco2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/discorafia-menu.png"))); // NOI18N
-        menuItemListarDisco2.setText("Listar disco");
-        menuItemListarDisco2.addActionListener(new java.awt.event.ActionListener() {
+        menuItemLdisco2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/discorafia-menu.png"))); // NOI18N
+        menuItemLdisco2.setText("Listar disco");
+        menuItemLdisco2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemListarDisco2ActionPerformed(evt);
+                menuItemLdisco2ActionPerformed(evt);
             }
         });
-        jMenu5.add(menuItemListarDisco2);
+        menuDisco.add(menuItemLdisco2);
 
-        menuBar.add(jMenu5);
+        menuBar.add(menuDisco);
 
-        editMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menuDos-menu.png"))); // NOI18N
-        editMenu.setMnemonic('e');
-        editMenu.setText("Compositor");
+        menuCompositor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menuDos-menu.png"))); // NOI18N
+        menuCompositor.setMnemonic('e');
+        menuCompositor.setText("Compositor");
 
-        menuItemRegistrarCompositor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar-usuario-menu.png"))); // NOI18N
-        menuItemRegistrarCompositor.setMnemonic('t');
-        menuItemRegistrarCompositor.setText("Registrar compositor");
-        menuItemRegistrarCompositor.addActionListener(new java.awt.event.ActionListener() {
+        menuItemRCompositor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar-usuario-menu.png"))); // NOI18N
+        menuItemRCompositor.setMnemonic('t');
+        menuItemRCompositor.setText("Registrar compositor");
+        menuItemRCompositor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemRegistrarCompositorActionPerformed(evt);
+                menuItemRCompositorActionPerformed(evt);
             }
         });
-        editMenu.add(menuItemRegistrarCompositor);
+        menuCompositor.add(menuItemRCompositor);
 
-        menuItemBuscarCompositor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busac-menu.png"))); // NOI18N
-        menuItemBuscarCompositor.setMnemonic('y');
-        menuItemBuscarCompositor.setText("Buscar compositor");
-        menuItemBuscarCompositor.addActionListener(new java.awt.event.ActionListener() {
+        menuItemBCompositor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busac-menu.png"))); // NOI18N
+        menuItemBCompositor.setMnemonic('y');
+        menuItemBCompositor.setText("Buscar compositor");
+        menuItemBCompositor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemBuscarCompositorActionPerformed(evt);
+                menuItemBCompositorActionPerformed(evt);
             }
         });
-        editMenu.add(menuItemBuscarCompositor);
+        menuCompositor.add(menuItemBCompositor);
 
-        menuItemActualizarCompositor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/actualizar-menu.png"))); // NOI18N
-        menuItemActualizarCompositor.setMnemonic('p');
-        menuItemActualizarCompositor.setText("Actualizar compositor");
-        menuItemActualizarCompositor.addActionListener(new java.awt.event.ActionListener() {
+        menuItemACompositor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/actualizar-menu.png"))); // NOI18N
+        menuItemACompositor.setMnemonic('p');
+        menuItemACompositor.setText("Actualizar compositor");
+        menuItemACompositor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemActualizarCompositorActionPerformed(evt);
+                menuItemACompositorActionPerformed(evt);
             }
         });
-        editMenu.add(menuItemActualizarCompositor);
+        menuCompositor.add(menuItemACompositor);
 
-        menuItemEliminarCompositor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/EliminarMenu.png"))); // NOI18N
-        menuItemEliminarCompositor.setMnemonic('d');
-        menuItemEliminarCompositor.setText("Eliminar compositor");
-        menuItemEliminarCompositor.addActionListener(new java.awt.event.ActionListener() {
+        menuItemECompositor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/EliminarMenu.png"))); // NOI18N
+        menuItemECompositor.setMnemonic('d');
+        menuItemECompositor.setText("Eliminar compositor");
+        menuItemECompositor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemEliminarCompositorActionPerformed(evt);
+                menuItemECompositorActionPerformed(evt);
             }
         });
-        editMenu.add(menuItemEliminarCompositor);
+        menuCompositor.add(menuItemECompositor);
 
-        menuItemListarCompositor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/listar-menu.png"))); // NOI18N
-        menuItemListarCompositor.setText("Listar compositores");
-        menuItemListarCompositor.addActionListener(new java.awt.event.ActionListener() {
+        menuItemLCompositor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/listar-menu.png"))); // NOI18N
+        menuItemLCompositor.setText("Listar compositores");
+        menuItemLCompositor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemListarCompositorActionPerformed(evt);
+                menuItemLCompositorActionPerformed(evt);
             }
         });
-        editMenu.add(menuItemListarCompositor);
+        menuCompositor.add(menuItemLCompositor);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menuDos-menu.png"))); // NOI18N
-        jMenu2.setText("Cancion");
+        menuCancion1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menuDos-menu.png"))); // NOI18N
+        menuCancion1.setText("Cancion");
 
-        menuItemRegistrarCancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/listarDisco-menu.png"))); // NOI18N
-        menuItemRegistrarCancion.setText("Registrar cancion");
-        menuItemRegistrarCancion.addActionListener(new java.awt.event.ActionListener() {
+        menuItemRCancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/listarDisco-menu.png"))); // NOI18N
+        menuItemRCancion.setText("Registrar cancion");
+        menuItemRCancion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemRegistrarCancionActionPerformed(evt);
+                menuItemRCancionActionPerformed(evt);
             }
         });
-        jMenu2.add(menuItemRegistrarCancion);
+        menuCancion1.add(menuItemRCancion);
 
-        menuItemBuscarCancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/dsicoBuscarmenu.png"))); // NOI18N
-        menuItemBuscarCancion.setText("Buscar cancion");
-        menuItemBuscarCancion.addActionListener(new java.awt.event.ActionListener() {
+        menuItemBCancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/dsicoBuscarmenu.png"))); // NOI18N
+        menuItemBCancion.setText("Buscar cancion");
+        menuItemBCancion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemBuscarCancionActionPerformed(evt);
+                menuItemBCancionActionPerformed(evt);
             }
         });
-        jMenu2.add(menuItemBuscarCancion);
+        menuCancion1.add(menuItemBCancion);
 
-        menuItemActualizarCancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/disco-menu.png"))); // NOI18N
-        menuItemActualizarCancion.setText("Actualizar cancion");
-        menuItemActualizarCancion.addActionListener(new java.awt.event.ActionListener() {
+        menuItemACancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/disco-menu.png"))); // NOI18N
+        menuItemACancion.setText("Actualizar cancion");
+        menuItemACancion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemActualizarCancionActionPerformed(evt);
+                menuItemACancionActionPerformed(evt);
             }
         });
-        jMenu2.add(menuItemActualizarCancion);
+        menuCancion1.add(menuItemACancion);
 
-        menuItemEliminarCancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/discoElimnarMenu.png"))); // NOI18N
-        menuItemEliminarCancion.setText("Eliminar cancion");
-        menuItemEliminarCancion.addActionListener(new java.awt.event.ActionListener() {
+        menuItemECancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/discoElimnarMenu.png"))); // NOI18N
+        menuItemECancion.setText("Eliminar cancion");
+        menuItemECancion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemEliminarCancionActionPerformed(evt);
+                menuItemECancionActionPerformed(evt);
             }
         });
-        jMenu2.add(menuItemEliminarCancion);
+        menuCancion1.add(menuItemECancion);
 
-        menuItemListarCancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/discorafia-menu.png"))); // NOI18N
-        menuItemListarCancion.setText("Listar cancion");
-        menuItemListarCancion.addActionListener(new java.awt.event.ActionListener() {
+        menuItemLCancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/discorafia-menu.png"))); // NOI18N
+        menuItemLCancion.setText("Listar cancion");
+        menuItemLCancion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemListarCancionActionPerformed(evt);
+                menuItemLCancionActionPerformed(evt);
             }
         });
-        jMenu2.add(menuItemListarCancion);
+        menuCancion1.add(menuItemLCancion);
 
-        editMenu.add(jMenu2);
+        menuCompositor.add(menuCancion1);
 
-        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menuDos-menu.png"))); // NOI18N
-        jMenu6.setText("Cliente");
+        menuCliente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menuDos-menu.png"))); // NOI18N
+        menuCliente2.setText("Cliente");
 
-        menuItemRegistrarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar-usuario-menu.png"))); // NOI18N
-        menuItemRegistrarCliente.setText("Registar Cliente");
-        menuItemRegistrarCliente.addActionListener(new java.awt.event.ActionListener() {
+        menuItemRCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar-usuario-menu.png"))); // NOI18N
+        menuItemRCliente.setText("Registar Cliente");
+        menuItemRCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemRegistrarClienteActionPerformed(evt);
+                menuItemRClienteActionPerformed(evt);
             }
         });
-        jMenu6.add(menuItemRegistrarCliente);
+        menuCliente2.add(menuItemRCliente);
 
-        menuItemBuscarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busac-menu.png"))); // NOI18N
-        menuItemBuscarCliente.setText("Buscar Cliente");
-        menuItemBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
+        menuItemBCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busac-menu.png"))); // NOI18N
+        menuItemBCliente.setText("Buscar Cliente");
+        menuItemBCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemBuscarClienteActionPerformed(evt);
+                menuItemBClienteActionPerformed(evt);
             }
         });
-        jMenu6.add(menuItemBuscarCliente);
+        menuCliente2.add(menuItemBCliente);
 
-        menuItemActulalizarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/actualizar-menu.png"))); // NOI18N
-        menuItemActulalizarCliente.setText("Actualizar Cliente");
-        menuItemActulalizarCliente.addActionListener(new java.awt.event.ActionListener() {
+        menuItemACliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/actualizar-menu.png"))); // NOI18N
+        menuItemACliente.setText("Actualizar Cliente");
+        menuItemACliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemActulalizarClienteActionPerformed(evt);
+                menuItemAClienteActionPerformed(evt);
             }
         });
-        jMenu6.add(menuItemActulalizarCliente);
+        menuCliente2.add(menuItemACliente);
 
-        menuItemEliminarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/EliminarMenu.png"))); // NOI18N
-        menuItemEliminarCliente.setText("Eliminar Cliente");
-        menuItemEliminarCliente.addActionListener(new java.awt.event.ActionListener() {
+        menuItemECliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/EliminarMenu.png"))); // NOI18N
+        menuItemECliente.setText("Eliminar Cliente");
+        menuItemECliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemEliminarClienteActionPerformed(evt);
+                menuItemEClienteActionPerformed(evt);
             }
         });
-        jMenu6.add(menuItemEliminarCliente);
+        menuCliente2.add(menuItemECliente);
 
-        menuItemListarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/listar-menu.png"))); // NOI18N
-        menuItemListarCliente.setText("Eliminar Cliente");
-        menuItemListarCliente.addActionListener(new java.awt.event.ActionListener() {
+        menuItemLCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/listar-menu.png"))); // NOI18N
+        menuItemLCliente.setText("Listar Cliente");
+        menuItemLCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemListarClienteActionPerformed(evt);
+                menuItemLClienteActionPerformed(evt);
             }
         });
-        jMenu6.add(menuItemListarCliente);
+        menuCliente2.add(menuItemLCliente);
 
-        editMenu.add(jMenu6);
+        menuCompositor.add(menuCliente2);
 
-        menuBar.add(editMenu);
+        menuBar.add(menuCompositor);
 
-        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menuDos-menu.png"))); // NOI18N
-        jMenu4.setText("Cancion");
+        menuCancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menuDos-menu.png"))); // NOI18N
+        menuCancion.setText("Cancion");
 
-        menuItemRegistrarCancion1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/listarDisco-menu.png"))); // NOI18N
-        menuItemRegistrarCancion1.setText("Registrar cancion");
-        menuItemRegistrarCancion1.addActionListener(new java.awt.event.ActionListener() {
+        menuItemRCancion2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/listarDisco-menu.png"))); // NOI18N
+        menuItemRCancion2.setText("Registrar cancion");
+        menuItemRCancion2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemRegistrarCancion1ActionPerformed(evt);
+                menuItemRCancion2ActionPerformed(evt);
             }
         });
-        jMenu4.add(menuItemRegistrarCancion1);
+        menuCancion.add(menuItemRCancion2);
 
-        menuItemBuscarCancion1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/dsicoBuscarmenu.png"))); // NOI18N
-        menuItemBuscarCancion1.setText("Buscar cancion");
-        menuItemBuscarCancion1.addActionListener(new java.awt.event.ActionListener() {
+        menuItemBCancion2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/dsicoBuscarmenu.png"))); // NOI18N
+        menuItemBCancion2.setText("Buscar cancion");
+        menuItemBCancion2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemBuscarCancion1ActionPerformed(evt);
+                menuItemBCancion2ActionPerformed(evt);
             }
         });
-        jMenu4.add(menuItemBuscarCancion1);
+        menuCancion.add(menuItemBCancion2);
 
-        menuItemActualizarCancion1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/disco-menu.png"))); // NOI18N
-        menuItemActualizarCancion1.setText("Actualizar cancion");
-        menuItemActualizarCancion1.addActionListener(new java.awt.event.ActionListener() {
+        menuItemACancion2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/disco-menu.png"))); // NOI18N
+        menuItemACancion2.setText("Actualizar cancion");
+        menuItemACancion2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemActualizarCancion1ActionPerformed(evt);
+                menuItemACancion2ActionPerformed(evt);
             }
         });
-        jMenu4.add(menuItemActualizarCancion1);
+        menuCancion.add(menuItemACancion2);
 
-        menuItemEliminarCancion1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/discoElimnarMenu.png"))); // NOI18N
-        menuItemEliminarCancion1.setText("Eliminar cancion");
-        menuItemEliminarCancion1.addActionListener(new java.awt.event.ActionListener() {
+        menuItemECancion2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/discoElimnarMenu.png"))); // NOI18N
+        menuItemECancion2.setText("Eliminar cancion");
+        menuItemECancion2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemEliminarCancion1ActionPerformed(evt);
+                menuItemECancion2ActionPerformed(evt);
             }
         });
-        jMenu4.add(menuItemEliminarCancion1);
+        menuCancion.add(menuItemECancion2);
 
-        menuItemListarCancion1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/discorafia-menu.png"))); // NOI18N
-        menuItemListarCancion1.setText("Listar cancion");
-        menuItemListarCancion1.addActionListener(new java.awt.event.ActionListener() {
+        menuItemLCancion2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/discorafia-menu.png"))); // NOI18N
+        menuItemLCancion2.setText("Listar cancion");
+        menuItemLCancion2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemListarCancion1ActionPerformed(evt);
+                menuItemLCancion2ActionPerformed(evt);
             }
         });
-        jMenu4.add(menuItemListarCancion1);
+        menuCancion.add(menuItemLCancion2);
 
-        menuBar.add(jMenu4);
+        menuBar.add(menuCancion);
 
-        menuItemRegistrarCliente1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menuDos-menu.png"))); // NOI18N
-        menuItemRegistrarCliente1.setText("Cliente");
+        menuCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menuDos-menu.png"))); // NOI18N
+        menuCliente.setText("Cliente");
 
-        menuItemRegistrarCliente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar-usuario-menu.png"))); // NOI18N
-        menuItemRegistrarCliente2.setText("Registar Cliente");
-        menuItemRegistrarCliente2.addActionListener(new java.awt.event.ActionListener() {
+        menuItemRCliente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar-usuario-menu.png"))); // NOI18N
+        menuItemRCliente2.setText("Registar Cliente");
+        menuItemRCliente2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemRegistrarCliente2ActionPerformed(evt);
+                menuItemRCliente2ActionPerformed(evt);
             }
         });
-        menuItemRegistrarCliente1.add(menuItemRegistrarCliente2);
+        menuCliente.add(menuItemRCliente2);
 
-        menuItemBuscarCliente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busac-menu.png"))); // NOI18N
-        menuItemBuscarCliente2.setText("Buscar Cliente");
-        menuItemBuscarCliente2.addActionListener(new java.awt.event.ActionListener() {
+        menuItemBCliente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busac-menu.png"))); // NOI18N
+        menuItemBCliente2.setText("Buscar Cliente");
+        menuItemBCliente2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemBuscarCliente2ActionPerformed(evt);
+                menuItemBCliente2ActionPerformed(evt);
             }
         });
-        menuItemRegistrarCliente1.add(menuItemBuscarCliente2);
+        menuCliente.add(menuItemBCliente2);
 
-        menuItemActulalizarCliente1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/actualizar-menu.png"))); // NOI18N
-        menuItemActulalizarCliente1.setText("Actualizar Cliente");
-        menuItemActulalizarCliente1.addActionListener(new java.awt.event.ActionListener() {
+        menuItemACliente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/actualizar-menu.png"))); // NOI18N
+        menuItemACliente2.setText("Actualizar Cliente");
+        menuItemACliente2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemActulalizarCliente1ActionPerformed(evt);
+                menuItemACliente2ActionPerformed(evt);
             }
         });
-        menuItemRegistrarCliente1.add(menuItemActulalizarCliente1);
+        menuCliente.add(menuItemACliente2);
 
-        menuItemEliminarCliente1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/EliminarMenu.png"))); // NOI18N
-        menuItemEliminarCliente1.setText("Eliminar Cliente");
-        menuItemEliminarCliente1.addActionListener(new java.awt.event.ActionListener() {
+        menuItemECliente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/EliminarMenu.png"))); // NOI18N
+        menuItemECliente2.setText("Eliminar Cliente");
+        menuItemECliente2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemEliminarCliente1ActionPerformed(evt);
+                menuItemECliente2ActionPerformed(evt);
             }
         });
-        menuItemRegistrarCliente1.add(menuItemEliminarCliente1);
+        menuCliente.add(menuItemECliente2);
 
-        menuBar.add(menuItemRegistrarCliente1);
+        menuItemLCliente2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/listar-menu.png"))); // NOI18N
+        menuItemLCliente2.setText("Listar Cliente");
+        menuItemLCliente2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemLCliente2ActionPerformed(evt);
+            }
+        });
+        menuCliente.add(menuItemLCliente2);
 
-        helpMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menuDos-menu.png"))); // NOI18N
-        helpMenu.setMnemonic('h');
-        helpMenu.setText("Idioma");
+        menuBar.add(menuCliente);
+
+        menuIdiomar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menuDos-menu.png"))); // NOI18N
+        menuIdiomar.setMnemonic('h');
+        menuIdiomar.setText("Idioma");
 
         menuItemEspaniol.setMnemonic('c');
         menuItemEspaniol.setText("Español");
@@ -584,7 +605,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 menuItemEspaniolActionPerformed(evt);
             }
         });
-        helpMenu.add(menuItemEspaniol);
+        menuIdiomar.add(menuItemEspaniol);
 
         menuItemIngles.setMnemonic('a');
         menuItemIngles.setText("Ingles");
@@ -593,7 +614,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 menuItemInglesActionPerformed(evt);
             }
         });
-        helpMenu.add(menuItemIngles);
+        menuIdiomar.add(menuItemIngles);
 
         menuItemFrances.setMnemonic('a');
         menuItemFrances.setText("Frances");
@@ -602,9 +623,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 menuItemFrancesActionPerformed(evt);
             }
         });
-        helpMenu.add(menuItemFrances);
+        menuIdiomar.add(menuItemFrances);
 
-        menuBar.add(helpMenu);
+        menuBar.add(menuIdiomar);
 
         setJMenuBar(menuBar);
 
@@ -622,253 +643,266 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void itemMenuCrearCantanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuCrearCantanteActionPerformed
+    private void menuItemRcanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRcanActionPerformed
         if (ventanaCrearCantante == null) {
             ventanaCrearCantante = new VentanaCrearCantante(controladorCantante);
             jPanel1.add(ventanaCrearCantante);
         }
+        ventanaCrearCantante.cambiarIdioma(localizacion);
         ventanaCrearCantante.setVisible(true);
-    }//GEN-LAST:event_itemMenuCrearCantanteActionPerformed
+    }//GEN-LAST:event_menuItemRcanActionPerformed
 
-    private void itemMenuVerCantanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuVerCantanteActionPerformed
+    private void menuItemBcanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBcanActionPerformed
         if (ventanaBuscarCantante == null) {
             ventanaBuscarCantante = new VentanaBuscarCantante(controladorCantante);
             jPanel1.add(ventanaBuscarCantante);
         }
+        ventanaBuscarCantante.cambiarIdioma(localizacion);
         ventanaBuscarCantante.setVisible(true);
-    }//GEN-LAST:event_itemMenuVerCantanteActionPerformed
+    }//GEN-LAST:event_menuItemBcanActionPerformed
 
-    private void menuItemActualizarCantanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemActualizarCantanteActionPerformed
+    private void menuItemAcanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAcanActionPerformed
          if (ventanaActualizarCantante == null) {
             ventanaActualizarCantante = new VentanaActualizarCantante(controladorCantante);
             jPanel1.add(ventanaActualizarCantante);
         }
+         ventanaActualizarCantante.cambiarIdioma(localizacion);
         ventanaActualizarCantante.setVisible(true);
-    }//GEN-LAST:event_menuItemActualizarCantanteActionPerformed
+    }//GEN-LAST:event_menuItemAcanActionPerformed
 
-    private void menuItemListarCantanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarCantanteActionPerformed
+    private void menuItemLcanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemLcanActionPerformed
         if (ventanaListarCantante == null) {
             ventanaListarCantante = new VentanaListarCantante(controladorCantante);
             jPanel1.add(ventanaListarCantante);
         }
         ventanaListarCantante.setVisible(true);
-    }//GEN-LAST:event_menuItemListarCantanteActionPerformed
+    }//GEN-LAST:event_menuItemLcanActionPerformed
 
-    private void menuItemRegistrarCompositorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRegistrarCompositorActionPerformed
+    private void menuItemRCompositorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRCompositorActionPerformed
         if (ventanaCrearCompositor == null) {
             ventanaCrearCompositor = new VentanaCrearCompositor(controladorCompositor);
             jPanel1.add(ventanaCrearCompositor);
         }
+        ventanaCrearCompositor.cambiarIdioma(localizacion);
         ventanaCrearCompositor.setVisible(true);
-    }//GEN-LAST:event_menuItemRegistrarCompositorActionPerformed
+    }//GEN-LAST:event_menuItemRCompositorActionPerformed
 
-    private void menuItemBuscarCompositorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBuscarCompositorActionPerformed
+    private void menuItemBCompositorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBCompositorActionPerformed
         if (ventanaBuscarCompositor == null) {
             ventanaBuscarCompositor = new VentanaBuscarCompositor(controladorCompositor);
             jPanel1.add(ventanaBuscarCompositor);
         }
+        ventanaBuscarCompositor.cambiarIdioma(localizacion);
         ventanaBuscarCompositor.setVisible(true);
-    }//GEN-LAST:event_menuItemBuscarCompositorActionPerformed
+    }//GEN-LAST:event_menuItemBCompositorActionPerformed
 
-    private void menuItemActualizarCompositorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemActualizarCompositorActionPerformed
+    private void menuItemACompositorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemACompositorActionPerformed
         if (ventanaActualizarCompositor == null) {
             ventanaActualizarCompositor = new VentanaActualizarCompositor(controladorCompositor);
             jPanel1.add(ventanaActualizarCompositor);
         }
+        ventanaActualizarCompositor.cambiarIdioma(localizacion);
         ventanaActualizarCompositor.setVisible(true);
-    }//GEN-LAST:event_menuItemActualizarCompositorActionPerformed
+    }//GEN-LAST:event_menuItemACompositorActionPerformed
 
-    private void menuItemEliminarCompositorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEliminarCompositorActionPerformed
+    private void menuItemECompositorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemECompositorActionPerformed
         if (ventanaEliminarCompositor == null) {
             ventanaEliminarCompositor = new VentanaEliminarCompositor(controladorCompositor);
             jPanel1.add(ventanaEliminarCompositor);
         }
+        ventanaEliminarCompositor.cambiarIdioma(localizacion);
         ventanaEliminarCompositor.setVisible(true);
-    }//GEN-LAST:event_menuItemEliminarCompositorActionPerformed
+    }//GEN-LAST:event_menuItemECompositorActionPerformed
 
-    private void menuItemListarCompositorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarCompositorActionPerformed
+    private void menuItemLCompositorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemLCompositorActionPerformed
         if(ventanaListarCompositor==null){
             ventanaListarCompositor= new VentanaListarCompositor(controladorCompositor);
             jPanel1.add(ventanaListarCompositor);
         }
         ventanaListarCompositor.setVisible(true);
-    }//GEN-LAST:event_menuItemListarCompositorActionPerformed
+    }//GEN-LAST:event_menuItemLCompositorActionPerformed
 
-    private void itemMenuRegistrarDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuRegistrarDiscoActionPerformed
+    private void menuItemRdiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRdiscoActionPerformed
         if (ventanaCrearDisco == null) {
             ventanaCrearDisco = new VentanaCrearDisco(controladorCantante);
             jPanel1.add(ventanaCrearDisco);
         }
         ventanaCrearDisco.setVisible(true);
-    }//GEN-LAST:event_itemMenuRegistrarDiscoActionPerformed
+    }//GEN-LAST:event_menuItemRdiscoActionPerformed
 
-    private void menuItemBuscarDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBuscarDiscoActionPerformed
+    private void menuItemBdiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBdiscoActionPerformed
         if (ventanaBuscarDisco == null) {
             ventanaBuscarDisco= new VentanaBuscarDisco(controladorCantante);
             jPanel1.add(ventanaBuscarDisco);
         }
         ventanaBuscarDisco.setVisible(true);
-    }//GEN-LAST:event_menuItemBuscarDiscoActionPerformed
+    }//GEN-LAST:event_menuItemBdiscoActionPerformed
 
-    private void menuItemActualizarDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemActualizarDiscoActionPerformed
+    private void menuItemAdiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAdiscoActionPerformed
         if (ventanaActualizarDisco == null) {
             ventanaActualizarDisco= new VentanaActualizarDisco(controladorCantante);
             jPanel1.add(ventanaActualizarDisco);
         }
         ventanaActualizarDisco.setVisible(true);
-    }//GEN-LAST:event_menuItemActualizarDiscoActionPerformed
+    }//GEN-LAST:event_menuItemAdiscoActionPerformed
 
-    private void menuItemEliminarDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEliminarDiscoActionPerformed
+    private void menuItemEdiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEdiscoActionPerformed
         if (ventanaEliminarDisco == null) {
             ventanaEliminarDisco= new VentanaEliminarDisco(controladorCantante);
             jPanel1.add(ventanaEliminarDisco);
         }
         ventanaEliminarDisco.setVisible(true);
-    }//GEN-LAST:event_menuItemEliminarDiscoActionPerformed
+    }//GEN-LAST:event_menuItemEdiscoActionPerformed
 
-    private void menuItemListarDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarDiscoActionPerformed
+    private void menuItemLdiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemLdiscoActionPerformed
         if (ventanaListarDisco == null) {
             ventanaListarDisco= new VentanaListarDisco(controladorCantante);
             jPanel1.add(ventanaListarDisco);
         }
         ventanaListarDisco.setVisible(true);
-    }//GEN-LAST:event_menuItemListarDiscoActionPerformed
+    }//GEN-LAST:event_menuItemLdiscoActionPerformed
 
-    private void menuItemRegistrarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRegistrarCancionActionPerformed
+    private void menuItemRCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRCancionActionPerformed
         if(ventanaCrearCancion==null){
             ventanaCrearCancion= new VentanaCrearCancion(controladorCompositor);
             jPanel1.add(ventanaCrearCancion);
         }
+        ventanaCrearCancion.cambiarIdioma(localizacion);
         ventanaCrearCancion.setVisible(true);
-    }//GEN-LAST:event_menuItemRegistrarCancionActionPerformed
+    }//GEN-LAST:event_menuItemRCancionActionPerformed
 
-    private void menuItemBuscarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBuscarCancionActionPerformed
+    private void menuItemBCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBCancionActionPerformed
         if(ventanaBuscarCancion==null){
             ventanaBuscarCancion= new VentanaBuscarCancion(controladorCompositor);
             jPanel1.add(ventanaBuscarCancion);
         }
+        ventanaBuscarCancion.cambiarIdioma(localizacion);
         ventanaBuscarCancion.setVisible(true);
-    }//GEN-LAST:event_menuItemBuscarCancionActionPerformed
+    }//GEN-LAST:event_menuItemBCancionActionPerformed
 
-    private void menuItemActualizarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemActualizarCancionActionPerformed
+    private void menuItemACancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemACancionActionPerformed
         if(ventanaActualizarCancion==null){
             ventanaActualizarCancion= new VentanaActualizarCancion(controladorCompositor);
             jPanel1.add(ventanaActualizarCancion);
         }
+        ventanaActualizarCancion.cambiarIdioma(localizacion);
         ventanaActualizarCancion.setVisible(true);
-    }//GEN-LAST:event_menuItemActualizarCancionActionPerformed
+    }//GEN-LAST:event_menuItemACancionActionPerformed
 
-    private void menuItemEliminarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEliminarCancionActionPerformed
+    private void menuItemECancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemECancionActionPerformed
         if(ventanaEliminarCancion==null){
             ventanaEliminarCancion= new VentanaEliminarCancion(controladorCompositor);
             jPanel1.add(ventanaEliminarCancion);
         }
+        ventanaEliminarCancion.cambiarIdioma(localizacion);
         ventanaEliminarCancion.setVisible(true);
-    }//GEN-LAST:event_menuItemEliminarCancionActionPerformed
+    }//GEN-LAST:event_menuItemECancionActionPerformed
 
-    private void menuItemListarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarCancionActionPerformed
+    private void menuItemLCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemLCancionActionPerformed
        if(ventanaListarCancion==null){
             ventanaListarCancion= new VentanaListarCancion(controladorCompositor);
             jPanel1.add(ventanaListarCancion);
         }
         ventanaListarCancion.setVisible(true);
-    }//GEN-LAST:event_menuItemListarCancionActionPerformed
+    }//GEN-LAST:event_menuItemLCancionActionPerformed
 
-    private void menuItemRegistrarCancion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRegistrarCancion1ActionPerformed
-        this.menuItemRegistrarCancionActionPerformed(evt);
-    }//GEN-LAST:event_menuItemRegistrarCancion1ActionPerformed
+    private void menuItemRCancion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRCancion2ActionPerformed
+        this.menuItemRCancionActionPerformed(evt);
+    }//GEN-LAST:event_menuItemRCancion2ActionPerformed
 
-    private void menuItemBuscarCancion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBuscarCancion1ActionPerformed
-        this.menuItemBuscarCancionActionPerformed(evt);
-    }//GEN-LAST:event_menuItemBuscarCancion1ActionPerformed
+    private void menuItemBCancion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBCancion2ActionPerformed
+        this.menuItemBCancionActionPerformed(evt);
+    }//GEN-LAST:event_menuItemBCancion2ActionPerformed
 
-    private void menuItemActualizarCancion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemActualizarCancion1ActionPerformed
-        this.menuItemActualizarCancionActionPerformed(evt);
-    }//GEN-LAST:event_menuItemActualizarCancion1ActionPerformed
+    private void menuItemACancion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemACancion2ActionPerformed
+        this.menuItemACancionActionPerformed(evt);
+    }//GEN-LAST:event_menuItemACancion2ActionPerformed
 
-    private void menuItemEliminarCancion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEliminarCancion1ActionPerformed
-        this.menuItemEliminarCancionActionPerformed(evt);
-    }//GEN-LAST:event_menuItemEliminarCancion1ActionPerformed
+    private void menuItemECancion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemECancion2ActionPerformed
+        this.menuItemECancionActionPerformed(evt);
+    }//GEN-LAST:event_menuItemECancion2ActionPerformed
 
-    private void menuItemListarCancion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarCancion1ActionPerformed
-        this.menuItemListarCancionActionPerformed(evt);
-    }//GEN-LAST:event_menuItemListarCancion1ActionPerformed
+    private void menuItemLCancion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemLCancion2ActionPerformed
+        this.menuItemLCancionActionPerformed(evt);
+    }//GEN-LAST:event_menuItemLCancion2ActionPerformed
 
-    private void menuItemRegistrarCliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRegistrarCliente2ActionPerformed
-        this.menuItemRegistrarClienteActionPerformed(evt);
-    }//GEN-LAST:event_menuItemRegistrarCliente2ActionPerformed
+    private void menuItemRCliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRCliente2ActionPerformed
+        this.menuItemRClienteActionPerformed(evt);
+    }//GEN-LAST:event_menuItemRCliente2ActionPerformed
 
-    private void menuItemRegistrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRegistrarClienteActionPerformed
+    private void menuItemRClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRClienteActionPerformed
         if(ventanaCrearCliente ==null){
             ventanaCrearCliente= new VentanaCrearCliente(controladorCompositor, controladorCantante);
             jPanel1.add(ventanaCrearCliente);
         }
         ventanaCrearCliente.setVisible(true);
-    }//GEN-LAST:event_menuItemRegistrarClienteActionPerformed
+    }//GEN-LAST:event_menuItemRClienteActionPerformed
 
-    private void menuItemBuscarCliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBuscarCliente2ActionPerformed
-        this.menuItemBuscarClienteActionPerformed(evt);
-    }//GEN-LAST:event_menuItemBuscarCliente2ActionPerformed
+    private void menuItemBCliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBCliente2ActionPerformed
+        this.menuItemBClienteActionPerformed(evt);
+    }//GEN-LAST:event_menuItemBCliente2ActionPerformed
 
-    private void menuItemBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBuscarClienteActionPerformed
+    private void menuItemBClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBClienteActionPerformed
         if(ventanaBuscarCliente ==null){
             ventanaBuscarCliente= new VentanaBuscarCliente(controladorCompositor);
             jPanel1.add(ventanaBuscarCliente);
         }
+        ventanaBuscarCliente.cambiarIdioma(localizacion);
         ventanaBuscarCliente.setVisible(true);
-    }//GEN-LAST:event_menuItemBuscarClienteActionPerformed
+    }//GEN-LAST:event_menuItemBClienteActionPerformed
 
-    private void menuItemActulalizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemActulalizarClienteActionPerformed
+    private void menuItemAClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAClienteActionPerformed
         if(ventanaActualizarCliente ==null){
             ventanaActualizarCliente= new VentanaActualizarCliente(controladorCompositor);
             jPanel1.add(ventanaActualizarCliente);
         }
+        ventanaActualizarCliente.cambiarIdioma(localizacion);
         ventanaActualizarCliente.setVisible(true);
-    }//GEN-LAST:event_menuItemActulalizarClienteActionPerformed
+    }//GEN-LAST:event_menuItemAClienteActionPerformed
 
-    private void menuItemActulalizarCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemActulalizarCliente1ActionPerformed
-        
-    }//GEN-LAST:event_menuItemActulalizarCliente1ActionPerformed
+    private void menuItemACliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemACliente2ActionPerformed
+        this.menuItemAClienteActionPerformed(evt);
+    }//GEN-LAST:event_menuItemACliente2ActionPerformed
 
-    private void itemMenuRegistrarDisco2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuRegistrarDisco2ActionPerformed
-        this.itemMenuRegistrarDiscoActionPerformed(evt);
-    }//GEN-LAST:event_itemMenuRegistrarDisco2ActionPerformed
+    private void menuItemRdisco2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRdisco2ActionPerformed
+        this.menuItemRdiscoActionPerformed(evt);
+    }//GEN-LAST:event_menuItemRdisco2ActionPerformed
 
-    private void menuItemBuscarDisco2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBuscarDisco2ActionPerformed
-        this.menuItemBuscarDiscoActionPerformed(evt);
-    }//GEN-LAST:event_menuItemBuscarDisco2ActionPerformed
+    private void menuItemBdisco2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBdisco2ActionPerformed
+        this.menuItemBdiscoActionPerformed(evt);
+    }//GEN-LAST:event_menuItemBdisco2ActionPerformed
 
-    private void menuItemActualizarDisco2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemActualizarDisco2ActionPerformed
-        this.menuItemActualizarDiscoActionPerformed(evt);
-    }//GEN-LAST:event_menuItemActualizarDisco2ActionPerformed
+    private void menuItemAdisco2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAdisco2ActionPerformed
+        this.menuItemAdiscoActionPerformed(evt);
+    }//GEN-LAST:event_menuItemAdisco2ActionPerformed
 
-    private void menuItemEliminarDisco2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEliminarDisco2ActionPerformed
-        this.menuItemEliminarDiscoActionPerformed(evt);
-    }//GEN-LAST:event_menuItemEliminarDisco2ActionPerformed
+    private void menuItemEdisco2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEdisco2ActionPerformed
+        this.menuItemEdiscoActionPerformed(evt);
+    }//GEN-LAST:event_menuItemEdisco2ActionPerformed
 
-    private void menuItemListarDisco2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarDisco2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menuItemListarDisco2ActionPerformed
+    private void menuItemLdisco2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemLdisco2ActionPerformed
+        this.menuItemLdiscoActionPerformed(evt);
+    }//GEN-LAST:event_menuItemLdisco2ActionPerformed
 
-    private void menuItemEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEliminarClienteActionPerformed
+    private void menuItemEClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEClienteActionPerformed
         if(ventanaEliminarCliente ==null){
             ventanaEliminarCliente= new VentanaEliminarCliente(controladorCompositor);
             jPanel1.add(ventanaEliminarCliente);
         }
         ventanaEliminarCliente.setVisible(true);
-    }//GEN-LAST:event_menuItemEliminarClienteActionPerformed
+    }//GEN-LAST:event_menuItemEClienteActionPerformed
 
-    private void menuItemEliminarCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEliminarCliente1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menuItemEliminarCliente1ActionPerformed
+    private void menuItemECliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemECliente2ActionPerformed
+        this.menuItemEClienteActionPerformed(evt);
+    }//GEN-LAST:event_menuItemECliente2ActionPerformed
 
-    private void menuItemListarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarClienteActionPerformed
+    private void menuItemLClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemLClienteActionPerformed
         if(ventanaListarCliente ==null){
             ventanaListarCliente= new VentanaListarCliente(controladorCompositor);
             jPanel1.add(ventanaListarCliente);
         }
         ventanaListarCliente.setVisible(true);
-    }//GEN-LAST:event_menuItemListarClienteActionPerformed
+    }//GEN-LAST:event_menuItemLClienteActionPerformed
 
     private void menuItemInglesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemInglesActionPerformed
         localizacion = new Locale("en", "US");
@@ -885,11 +919,77 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         cambiarIdioma();
     }//GEN-LAST:event_menuItemEspaniolActionPerformed
 
+    private void menuItemEcanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEcanActionPerformed
+        if(ventanaEliminarCantante==null){
+            ventanaEliminarCantante= new VentanaEliminarCantante(controladorCantante);
+            jPanel1.add(ventanaEliminarCantante);
+        }
+        ventanaEliminarCantante.cambiarIdioma(localizacion);
+        ventanaEliminarCantante.setVisible(true);
+    }//GEN-LAST:event_menuItemEcanActionPerformed
+
+    private void menuItemLCliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemLCliente2ActionPerformed
+        this.menuItemLClienteActionPerformed(evt);
+    }//GEN-LAST:event_menuItemLCliente2ActionPerformed
+
     private void cambiarIdioma() {
         mensajes = ResourceBundle.getBundle("mensajes.mensaje", localizacion);
+        
         menuCantante.setText(mensajes.getString("menu.cantante"));
+        menuItemBcan.setText(mensajes.getString("menuitem.buscan"));
+        menuItemRcan.setText(mensajes.getString("menuitem.crecan"));
+        menuItemAcan.setText(mensajes.getString("menuitem.actcan"));
+        menuItemEcan.setText(mensajes.getString("menuitem.elican"));
+        menuItemLcan.setText(mensajes.getString("menuitem.liscan"));
+        
+        menuDisco.setText(mensajes.getString("menu.disco"));
+        menuItemRdisco.setText(mensajes.getString("menuitem.credis"));
+        menuItemBdisco.setText(mensajes.getString("menuitem.busdis"));
+        menuItemAdisco.setText(mensajes.getString("menuitem.actdis"));
+        menuItemEdisco.setText(mensajes.getString("menuitem.elidis"));
+        menuItemLdisco.setText(mensajes.getString("menuitem.lisdis"));
+        menuDisco2.setText(mensajes.getString("menu.disco"));
+        menuItemRdisco2.setText(mensajes.getString("menuitem.credis"));
+        menuItemBdisco2.setText(mensajes.getString("menuitem.busdis"));
+        menuItemAdisco2.setText(mensajes.getString("menuitem.actdis"));
+        menuItemEdisco2.setText(mensajes.getString("menuitem.elidis"));
+        menuItemLdisco2.setText(mensajes.getString("menuitem.lisdis"));
+        
+        menuCompositor.setText(mensajes.getString("menu.compositor"));
+        menuItemRCompositor.setText(mensajes.getString("menuitem.crecom"));
+        menuItemBCompositor.setText(mensajes.getString("menuitem.buscom"));
+        menuItemACompositor.setText(mensajes.getString("menuitem.actcom"));
+        menuItemECompositor.setText(mensajes.getString("menuitem.elicom"));
+        menuItemLCompositor.setText(mensajes.getString("menuitem.liscom"));
+        
+        menuCancion.setText(mensajes.getString("menu.cancion"));
+        menuItemRCancion.setText(mensajes.getString("menuitem.crecan"));
+        menuItemBCancion.setText(mensajes.getString("menuitem.buscan"));
+        menuItemACancion.setText(mensajes.getString("menuitem.actcan"));
+        menuItemECancion.setText(mensajes.getString("menuitem.elican"));
+        menuItemLCancion.setText(mensajes.getString("menuitem.liscan"));
+        
+        menuCancion1.setText(mensajes.getString("menu.cancion"));
+        menuItemRCancion2.setText(mensajes.getString("menuitem.crecan"));
+        menuItemBCancion2.setText(mensajes.getString("menuitem.buscan"));
+        menuItemACancion2.setText(mensajes.getString("menuitem.actcan"));
+        menuItemECancion2.setText(mensajes.getString("menuitem.elican"));
+        menuItemLCancion2.setText(mensajes.getString("menuitem.liscan"));
+        
+        menuCliente.setText(mensajes.getString("menu.cliente"));
+        menuItemRCliente.setText(mensajes.getString("menuitem.crecli"));
+        menuItemBCliente.setText(mensajes.getString("menuitem.buscli"));
+        menuItemACliente.setText(mensajes.getString("menuitem.actcli"));
+        menuItemECliente.setText(mensajes.getString("menuitem.elicli"));
+        menuItemLCliente.setText(mensajes.getString("menuitem.liscli"));
+        
+        menuCliente.setText(mensajes.getString("menu.cliente"));
+        menuItemRCliente2.setText(mensajes.getString("menuitem.crecli"));
+        menuItemBCliente2.setText(mensajes.getString("menuitem.buscli"));
+        menuItemACliente2.setText(mensajes.getString("menuitem.actcli"));
+        menuItemECliente2.setText(mensajes.getString("menuitem.elicli"));
+        menuItemLCliente2.setText(mensajes.getString("menuitem.liscli"));
     }
-
     /**
      * @param args the command line arguments
      */
@@ -934,58 +1034,60 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu editMenu;
-    private javax.swing.JMenu helpMenu;
-    private javax.swing.JMenuItem itemMenuCrearCantante;
-    private javax.swing.JMenuItem itemMenuRegistrarDisco;
-    private javax.swing.JMenuItem itemMenuRegistrarDisco2;
-    private javax.swing.JMenuItem itemMenuVerCantante;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenu menuCancion;
+    private javax.swing.JMenu menuCancion1;
     private javax.swing.JMenu menuCantante;
-    private javax.swing.JMenuItem menuItemActualizarCancion;
-    private javax.swing.JMenuItem menuItemActualizarCancion1;
-    private javax.swing.JMenuItem menuItemActualizarCantante;
-    private javax.swing.JMenuItem menuItemActualizarCompositor;
-    private javax.swing.JMenuItem menuItemActualizarDisco;
-    private javax.swing.JMenuItem menuItemActualizarDisco2;
-    private javax.swing.JMenuItem menuItemActulalizarCliente;
-    private javax.swing.JMenuItem menuItemActulalizarCliente1;
-    private javax.swing.JMenuItem menuItemBuscarCancion;
-    private javax.swing.JMenuItem menuItemBuscarCancion1;
-    private javax.swing.JMenuItem menuItemBuscarCliente;
-    private javax.swing.JMenuItem menuItemBuscarCliente2;
-    private javax.swing.JMenuItem menuItemBuscarCompositor;
-    private javax.swing.JMenuItem menuItemBuscarDisco;
-    private javax.swing.JMenuItem menuItemBuscarDisco2;
-    private javax.swing.JMenuItem menuItemEliminarCancion;
-    private javax.swing.JMenuItem menuItemEliminarCancion1;
-    private javax.swing.JMenuItem menuItemEliminarCliente;
-    private javax.swing.JMenuItem menuItemEliminarCliente1;
-    private javax.swing.JMenuItem menuItemEliminarCompositor;
-    private javax.swing.JMenuItem menuItemEliminarDisco;
-    private javax.swing.JMenuItem menuItemEliminarDisco2;
+    private javax.swing.JMenu menuCliente;
+    private javax.swing.JMenu menuCliente2;
+    private javax.swing.JMenu menuCompositor;
+    private javax.swing.JMenu menuDisco;
+    private javax.swing.JMenu menuDisco2;
+    private javax.swing.JMenu menuIdiomar;
+    private javax.swing.JMenuItem menuItemACancion;
+    private javax.swing.JMenuItem menuItemACancion2;
+    private javax.swing.JMenuItem menuItemACliente;
+    private javax.swing.JMenuItem menuItemACliente2;
+    private javax.swing.JMenuItem menuItemACompositor;
+    private javax.swing.JMenuItem menuItemAcan;
+    private javax.swing.JMenuItem menuItemAdisco;
+    private javax.swing.JMenuItem menuItemAdisco2;
+    private javax.swing.JMenuItem menuItemBCancion;
+    private javax.swing.JMenuItem menuItemBCancion2;
+    private javax.swing.JMenuItem menuItemBCliente;
+    private javax.swing.JMenuItem menuItemBCliente2;
+    private javax.swing.JMenuItem menuItemBCompositor;
+    private javax.swing.JMenuItem menuItemBcan;
+    private javax.swing.JMenuItem menuItemBdisco;
+    private javax.swing.JMenuItem menuItemBdisco2;
+    private javax.swing.JMenuItem menuItemECancion;
+    private javax.swing.JMenuItem menuItemECancion2;
+    private javax.swing.JMenuItem menuItemECliente;
+    private javax.swing.JMenuItem menuItemECliente2;
+    private javax.swing.JMenuItem menuItemECompositor;
+    private javax.swing.JMenuItem menuItemEcan;
+    private javax.swing.JMenuItem menuItemEdisco;
+    private javax.swing.JMenuItem menuItemEdisco2;
     private javax.swing.JMenuItem menuItemEspaniol;
     private javax.swing.JMenuItem menuItemFrances;
     private javax.swing.JMenuItem menuItemIngles;
-    private javax.swing.JMenuItem menuItemListarCancion;
-    private javax.swing.JMenuItem menuItemListarCancion1;
-    private javax.swing.JMenuItem menuItemListarCantante;
-    private javax.swing.JMenuItem menuItemListarCliente;
-    private javax.swing.JMenuItem menuItemListarCompositor;
-    private javax.swing.JMenuItem menuItemListarDisco;
-    private javax.swing.JMenuItem menuItemListarDisco2;
-    private javax.swing.JMenuItem menuItemRegistrarCancion;
-    private javax.swing.JMenuItem menuItemRegistrarCancion1;
-    private javax.swing.JMenuItem menuItemRegistrarCliente;
-    private javax.swing.JMenu menuItemRegistrarCliente1;
-    private javax.swing.JMenuItem menuItemRegistrarCliente2;
-    private javax.swing.JMenuItem menuItemRegistrarCompositor;
+    private javax.swing.JMenuItem menuItemLCancion;
+    private javax.swing.JMenuItem menuItemLCancion2;
+    private javax.swing.JMenuItem menuItemLCliente;
+    private javax.swing.JMenuItem menuItemLCliente2;
+    private javax.swing.JMenuItem menuItemLCompositor;
+    private javax.swing.JMenuItem menuItemLcan;
+    private javax.swing.JMenuItem menuItemLdisco;
+    private javax.swing.JMenuItem menuItemLdisco2;
+    private javax.swing.JMenuItem menuItemRCancion;
+    private javax.swing.JMenuItem menuItemRCancion2;
+    private javax.swing.JMenuItem menuItemRCliente;
+    private javax.swing.JMenuItem menuItemRCliente2;
+    private javax.swing.JMenuItem menuItemRCompositor;
+    private javax.swing.JMenuItem menuItemRcan;
+    private javax.swing.JMenuItem menuItemRdisco;
+    private javax.swing.JMenuItem menuItemRdisco2;
     // End of variables declaration//GEN-END:variables
 
 }

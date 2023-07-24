@@ -6,6 +6,8 @@ package ec.edu.ups.practica5joaquinzavala.vista.Compositor;
 
 import ec.edu.ups.practica5joaquinzavala.controlador.ControladorCompositor;
 import ec.edu.ups.practica5joaquinzavala.modelo.Compositor;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,12 +16,32 @@ import javax.swing.JOptionPane;
  */
 public class VentanaBuscarCompositor extends javax.swing.JInternalFrame {
 
-    ControladorCompositor controladorCompositor;
-    Compositor compositor;
+    private ControladorCompositor controladorCompositor;
+    private Compositor compositor;
+    
+    private ResourceBundle mensajes;
+    
+    public void cambiarIdioma(Locale localizacion) {
+        mensajes = ResourceBundle.getBundle("mensajes.mensaje", localizacion);
+        
+        jblApe.setText(mensajes.getString("jlb.ape"));
+        jblCod.setText(mensajes.getString("jlb.cod"));
+        jblMenPan.setText(mensajes.getString("menuitem.buscom"));
+        jblNom.setText(mensajes.getString("jlb.nom"));
+        jblNac.setText(mensajes.getString("jlb.nac"));
+        jblSal.setText(mensajes.getString("jlb.sal"));
+        jblNumCom.setText(mensajes.getString("jlb.numcom"));
+        jblTit.setText(mensajes.getString("menuitem.buscom"));
+        
+        this.setTitle(mensajes.getString("menuitem.buscom"));
+        
+    }
     public VentanaBuscarCompositor(ControladorCompositor controladorCompositor) {
         initComponents();
         this.controladorCompositor = controladorCompositor;
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,25 +54,25 @@ public class VentanaBuscarCompositor extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        jblTit = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        jblApe = new javax.swing.JLabel();
+        jblNom = new javax.swing.JLabel();
+        jblNac = new javax.swing.JLabel();
+        jblSal = new javax.swing.JLabel();
+        jblEda = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
         txtEdad = new javax.swing.JTextField();
         txtSalario = new javax.swing.JTextField();
         txtNacionalidad = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
+        jblNumCom = new javax.swing.JLabel();
         txtNumComposiciones = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jPanel = new javax.swing.JPanel();
+        jblMenPan = new javax.swing.JLabel();
+        jblCod = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
         btnAceptar = new javax.swing.JButton();
 
@@ -80,7 +102,7 @@ public class VentanaBuscarCompositor extends javax.swing.JInternalFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel3.setText("BUSCAR COMPOSITOR");
+        jblTit.setText("BUSCAR COMPOSITOR");
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/compositorImagen.png"))); // NOI18N
 
@@ -92,7 +114,7 @@ public class VentanaBuscarCompositor extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(69, 69, 69)
-                        .addComponent(jLabel3))
+                        .addComponent(jblTit))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(46, 46, 46)
                         .addComponent(jLabel11)))
@@ -102,7 +124,7 @@ public class VentanaBuscarCompositor extends javax.swing.JInternalFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(5, 5, 5)
-                .addComponent(jLabel3)
+                .addComponent(jblTit)
                 .addGap(105, 105, 105)
                 .addComponent(jLabel11)
                 .addContainerGap(240, Short.MAX_VALUE))
@@ -113,25 +135,25 @@ public class VentanaBuscarCompositor extends javax.swing.JInternalFrame {
         jPanel5.setBackground(new java.awt.Color(0, 153, 153));
         jPanel5.setEnabled(false);
 
-        jLabel4.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel4.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabel4.setText("Apellido");
+        jblApe.setBackground(new java.awt.Color(204, 204, 255));
+        jblApe.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblApe.setText("Apellido");
 
-        jLabel5.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel5.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabel5.setText("Nombre");
+        jblNom.setBackground(new java.awt.Color(204, 204, 255));
+        jblNom.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblNom.setText("Nombre");
 
-        jLabel7.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel7.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabel7.setText("Nacionalidad");
+        jblNac.setBackground(new java.awt.Color(204, 204, 255));
+        jblNac.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblNac.setText("Nacionalidad");
 
-        jLabel8.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel8.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabel8.setText("Salario");
+        jblSal.setBackground(new java.awt.Color(204, 204, 255));
+        jblSal.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblSal.setText("Salario");
 
-        jLabel9.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel9.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabel9.setText("Edad");
+        jblEda.setBackground(new java.awt.Color(204, 204, 255));
+        jblEda.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblEda.setText("Edad");
 
         txtNombre.setEditable(false);
         txtNombre.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -153,9 +175,9 @@ public class VentanaBuscarCompositor extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel10.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel10.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabel10.setText("N° compociciones");
+        jblNumCom.setBackground(new java.awt.Color(204, 204, 255));
+        jblNumCom.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblNumCom.setText("N° compociciones");
 
         txtNumComposiciones.setEditable(false);
         txtNumComposiciones.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -181,12 +203,12 @@ public class VentanaBuscarCompositor extends javax.swing.JInternalFrame {
                 .addGap(55, 55, 55)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jblNac, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jblNom, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jblApe, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jblEda, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jblSal, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jblNumCom, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
@@ -212,85 +234,84 @@ public class VentanaBuscarCompositor extends javax.swing.JInternalFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jblNom, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jblApe, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jblEda, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jblSal, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jblNac, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jblNumCom, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNumComposiciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 610, 360));
 
-        jPanel3.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel.setBackground(new java.awt.Color(153, 153, 153));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
-        jLabel1.setText("Buscar un compositor");
-        jLabel1.setToolTipText("");
+        jblMenPan.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jblMenPan.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jblMenPan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
+        jblMenPan.setText("Buscar un compositor");
+        jblMenPan.setToolTipText("");
 
-        jLabel6.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel6.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabel6.setText("Codigo");
+        jblCod.setBackground(new java.awt.Color(204, 204, 255));
+        jblCod.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblCod.setText("Codigo");
 
         txtCodigo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/search.png"))); // NOI18N
-        btnAceptar.setText("Buscar");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAceptarActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
+        jPanel.setLayout(jPanelLayout);
+        jPanelLayout.setHorizontalGroup(
+            jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelLayout.createSequentialGroup()
+                .addComponent(jblMenPan, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(jPanelLayout.createSequentialGroup()
                 .addGap(51, 51, 51)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jblCod, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnAceptar)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        jPanelLayout.setVerticalGroup(
+            jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jblMenPan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jblCod, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAceptar))
                 .addGap(30, 30, 30))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 610, 170));
+        jPanel1.add(jPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 610, 170));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -357,20 +378,20 @@ public class VentanaBuscarCompositor extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JLabel jblApe;
+    private javax.swing.JLabel jblCod;
+    private javax.swing.JLabel jblEda;
+    private javax.swing.JLabel jblMenPan;
+    private javax.swing.JLabel jblNac;
+    private javax.swing.JLabel jblNom;
+    private javax.swing.JLabel jblNumCom;
+    private javax.swing.JLabel jblSal;
+    private javax.swing.JLabel jblTit;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtEdad;

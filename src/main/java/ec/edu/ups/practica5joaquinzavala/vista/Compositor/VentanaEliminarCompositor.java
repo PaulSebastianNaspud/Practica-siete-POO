@@ -6,6 +6,8 @@ package ec.edu.ups.practica5joaquinzavala.vista.Compositor;
 
 import ec.edu.ups.practica5joaquinzavala.controlador.ControladorCompositor;
 import ec.edu.ups.practica5joaquinzavala.modelo.Compositor;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,10 +18,25 @@ public class VentanaEliminarCompositor extends javax.swing.JInternalFrame {
 
     private ControladorCompositor controladorCompositor;
     private Compositor compositor;
-
+    private ResourceBundle mensajes;
     public VentanaEliminarCompositor(ControladorCompositor controladorCompositor) {
         initComponents();
         this.controladorCompositor = controladorCompositor;
+    }
+    
+    public void cambiarIdioma(Locale localizacion) {
+         mensajes = ResourceBundle.getBundle("mensajes.mensaje", localizacion);
+        
+        jblApe.setText(mensajes.getString("jlb.ape"));
+        jblCod.setText(mensajes.getString("jlb.cod"));
+        jblMenPan.setText(mensajes.getString("menuitem.buscom"));
+        jblNom.setText(mensajes.getString("jlb.nom"));
+        jblTit.setText(mensajes.getString("menuitem.buscom"));
+        btnAceptar.setText(mensajes.getString("btn.ace"));
+        btnCancelar.setText(mensajes.getString("btn.can"));
+        
+        this.setTitle(mensajes.getString("menuitem.buscom"));
+        
     }
 
     /**
@@ -32,20 +49,20 @@ public class VentanaEliminarCompositor extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        jblTit = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jblApe = new javax.swing.JLabel();
+        jblNom = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
         btnAceptar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jblMenPan = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
+        jblCod = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -71,21 +88,21 @@ public class VentanaEliminarCompositor extends javax.swing.JInternalFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel3.setText("ELIMINAR COMPOSITOR");
-        jPanel2.add(jLabel3);
+        jblTit.setText("ELIMINAR COMPOSITOR");
+        jPanel2.add(jblTit);
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/compositorImagen.png"))); // NOI18N
         jPanel2.add(jLabel10);
 
         jPanel5.setBackground(new java.awt.Color(0, 153, 153));
 
-        jLabel4.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel4.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabel4.setText("Apellido");
+        jblApe.setBackground(new java.awt.Color(204, 204, 255));
+        jblApe.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblApe.setText("Apellido");
 
-        jLabel5.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel5.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabel5.setText("Nombre");
+        jblNom.setBackground(new java.awt.Color(204, 204, 255));
+        jblNom.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblNom.setText("Nombre");
 
         txtNombre.setEditable(false);
         txtNombre.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -117,8 +134,8 @@ public class VentanaEliminarCompositor extends javax.swing.JInternalFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jblNom, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jblApe, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -135,10 +152,10 @@ public class VentanaEliminarCompositor extends javax.swing.JInternalFrame {
                 .addGap(39, 39, 39)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jblNom, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jblApe, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -149,11 +166,11 @@ public class VentanaEliminarCompositor extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Elimiar.png"))); // NOI18N
-        jLabel1.setText("Eliminar Compositor");
-        jLabel1.setToolTipText("");
+        jblMenPan.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jblMenPan.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jblMenPan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Elimiar.png"))); // NOI18N
+        jblMenPan.setText("Eliminar Compositor");
+        jblMenPan.setToolTipText("");
 
         txtCodigo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtCodigo.addActionListener(new java.awt.event.ActionListener() {
@@ -169,9 +186,9 @@ public class VentanaEliminarCompositor extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel6.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel6.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabel6.setText("Codigo");
+        jblCod.setBackground(new java.awt.Color(204, 204, 255));
+        jblCod.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblCod.setText("Codigo");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -181,10 +198,10 @@ public class VentanaEliminarCompositor extends javax.swing.JInternalFrame {
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
+                        .addComponent(jblCod)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                         .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jblMenPan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
@@ -193,11 +210,11 @@ public class VentanaEliminarCompositor extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(jLabel1)
+                .addComponent(jblMenPan)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel6)
+                        .addComponent(jblCod)
                         .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnBuscar))
                 .addGap(24, 24, 24))
@@ -286,15 +303,15 @@ public class VentanaEliminarCompositor extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JLabel jblApe;
+    private javax.swing.JLabel jblCod;
+    private javax.swing.JLabel jblMenPan;
+    private javax.swing.JLabel jblNom;
+    private javax.swing.JLabel jblTit;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtNombre;

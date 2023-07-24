@@ -7,6 +7,8 @@ package ec.edu.ups.practica5joaquinzavala.vista.Cancion;
 import ec.edu.ups.practica5joaquinzavala.controlador.ControladorCompositor;
 import ec.edu.ups.practica5joaquinzavala.modelo.Cancion;
 import ec.edu.ups.practica5joaquinzavala.modelo.Compositor;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,6 +19,32 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
 
     private ControladorCompositor controladorCompositor;
     private Compositor compositor;
+    private ResourceBundle mensajes;
+    
+    
+    public void cambiarIdioma(Locale localizacion) {
+        mensajes = ResourceBundle.getBundle("mensajes.mensaje", localizacion);
+        
+        jblApe.setText(mensajes.getString("jlb.ape"));
+        jblMenPanB.setText(mensajes.getString("menuitem.buscan"));
+        jblMenPanC.setText(mensajes.getString("menuitem.actcnc"));
+        jblCod.setText(mensajes.getString("jlb.cod"));
+        jblCod2.setText(mensajes.getString("jlb.cod"));
+        jblNom.setText(mensajes.getString("jlb.nom"));
+        jblTieMin.setText(mensajes.getString("jlb.min"));
+        jblTitP.setText(mensajes.getString("menuitem.actcnc"));
+        jblTitC.setText(mensajes.getString("jlb.tit"));
+        btnCancelar.setText(mensajes.getString("btn.can"));
+        btnCancelar1.setText(mensajes.getString("btn.can"));
+        jblLet.setText(mensajes.getString("jlb.let"));
+        btnBuscarCompositor.setText(mensajes.getString("btn.bus"));
+        btnActualizarCancion.setText(mensajes.getString("btn.gua"));
+        
+        
+        this.setTitle(mensajes.getString("menuitem.buscnc"));
+        
+    }
+    
     public VentanaActualizarCancion(ControladorCompositor controladorCompositor) {
         initComponents();
         this.controladorCompositor = controladorCompositor;
@@ -33,31 +61,31 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        jblTitP = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        jblApe = new javax.swing.JLabel();
+        jblNom = new javax.swing.JLabel();
+        jblCod = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
         btnBuscarCompositor = new javax.swing.JButton();
-        jLabel15 = new javax.swing.JLabel();
+        jblMenPanB = new javax.swing.JLabel();
         btnCancelar1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
-        jLabelTiempoEnMinutos = new javax.swing.JLabel();
-        jLabelTituloCancion = new javax.swing.JLabel();
-        jLabelCodigoCancion = new javax.swing.JLabel();
+        jblTieMin = new javax.swing.JLabel();
+        jblTitC = new javax.swing.JLabel();
+        jblCod2 = new javax.swing.JLabel();
         txtCodigoCancion = new javax.swing.JTextField();
         txtTitulo = new javax.swing.JTextField();
         txtTiempoEnMinutos = new javax.swing.JTextField();
         btnActualizarCancion = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jblMenPanC = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
-        jLabelLetra1 = new javax.swing.JLabel();
+        jblLet = new javax.swing.JLabel();
         btnBuscarCancion = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtLetra = new javax.swing.JTextArea();
@@ -65,12 +93,13 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         setIconifiable(true);
+        setTitle("Actualizar Cancion");
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setText("Actualizar una cancion");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 14, 191, -1));
+        jblTitP.setText("Buscar Cancion");
+        jPanel2.add(jblTitP, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 14, 191, -1));
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 36, -1, 190));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/disco.png"))); // NOI18N
@@ -83,20 +112,20 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
         jPanel6.setEnabled(false);
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel12.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel12.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabel12.setText("Apellido");
-        jPanel6.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 227, 114, 45));
+        jblApe.setBackground(new java.awt.Color(204, 204, 255));
+        jblApe.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblApe.setText("Apellido");
+        jPanel6.add(jblApe, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 227, 114, 45));
 
-        jLabel13.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel13.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabel13.setText("Nombre");
-        jPanel6.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 176, 114, 45));
+        jblNom.setBackground(new java.awt.Color(204, 204, 255));
+        jblNom.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblNom.setText("Nombre");
+        jPanel6.add(jblNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 176, 114, 45));
 
-        jLabel14.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel14.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabel14.setText("Codigo");
-        jPanel6.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 125, 114, 45));
+        jblCod.setBackground(new java.awt.Color(204, 204, 255));
+        jblCod.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblCod.setText("Codigo");
+        jPanel6.add(jblCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 125, 114, 45));
 
         txtCodigo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         jPanel6.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 138, 295, -1));
@@ -116,14 +145,14 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
                 btnBuscarCompositorActionPerformed(evt);
             }
         });
-        jPanel6.add(btnBuscarCompositor, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, -1, -1));
+        jPanel6.add(btnBuscarCompositor, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, -1, -1));
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
-        jLabel15.setText("Buscar un compositor");
-        jLabel15.setToolTipText("");
-        jPanel6.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 465, -1));
+        jblMenPanB.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jblMenPanB.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jblMenPanB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
+        jblMenPanB.setText("Buscar un compositor");
+        jblMenPanB.setToolTipText("");
+        jPanel6.add(jblMenPanB, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 465, -1));
 
         btnCancelar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.png"))); // NOI18N
         btnCancelar1.setText("Cancelar");
@@ -138,20 +167,20 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
         jPanel5.setEnabled(false);
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelTiempoEnMinutos.setBackground(new java.awt.Color(204, 204, 255));
-        jLabelTiempoEnMinutos.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabelTiempoEnMinutos.setText("TiempoEnMinutos");
-        jPanel5.add(jLabelTiempoEnMinutos, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 200, 45));
+        jblTieMin.setBackground(new java.awt.Color(204, 204, 255));
+        jblTieMin.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblTieMin.setText("TiempoEnMinutos");
+        jPanel5.add(jblTieMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 200, 45));
 
-        jLabelTituloCancion.setBackground(new java.awt.Color(204, 204, 255));
-        jLabelTituloCancion.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabelTituloCancion.setText("Titulo");
-        jPanel5.add(jLabelTituloCancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 114, 45));
+        jblTitC.setBackground(new java.awt.Color(204, 204, 255));
+        jblTitC.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblTitC.setText("Titulo");
+        jPanel5.add(jblTitC, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 114, 45));
 
-        jLabelCodigoCancion.setBackground(new java.awt.Color(204, 204, 255));
-        jLabelCodigoCancion.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabelCodigoCancion.setText("Codigo");
-        jPanel5.add(jLabelCodigoCancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 114, 45));
+        jblCod2.setBackground(new java.awt.Color(204, 204, 255));
+        jblCod2.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblCod2.setText("Codigo");
+        jPanel5.add(jblCod2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 114, 45));
 
         txtCodigoCancion.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtCodigoCancion.setEnabled(false);
@@ -175,12 +204,12 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
         });
         jPanel5.add(btnActualizarCancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/updateCD.png"))); // NOI18N
-        jLabel1.setText("Actuzalir una cancion");
-        jLabel1.setToolTipText("Actulizar cancion");
-        jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 465, -1));
+        jblMenPanC.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jblMenPanC.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jblMenPanC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/updateCD.png"))); // NOI18N
+        jblMenPanC.setText("Actuzalir una cancion");
+        jblMenPanC.setToolTipText("Actulizar cancion");
+        jPanel5.add(jblMenPanC, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 465, -1));
 
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
@@ -191,10 +220,10 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
         });
         jPanel5.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, -1, -1));
 
-        jLabelLetra1.setBackground(new java.awt.Color(204, 204, 255));
-        jLabelLetra1.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabelLetra1.setText("Letra");
-        jPanel5.add(jLabelLetra1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 114, 45));
+        jblLet.setBackground(new java.awt.Color(204, 204, 255));
+        jblLet.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblLet.setText("Letra");
+        jPanel5.add(jblLet, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, 114, 45));
 
         btnBuscarCancion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/search.png"))); // NOI18N
         btnBuscarCancion.setEnabled(false);
@@ -356,24 +385,24 @@ public class VentanaActualizarCancion extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnBuscarCompositor;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnCancelar1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabelCodigoCancion;
-    private javax.swing.JLabel jLabelLetra1;
-    private javax.swing.JLabel jLabelTiempoEnMinutos;
-    private javax.swing.JLabel jLabelTituloCancion;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jblApe;
+    private javax.swing.JLabel jblCod;
+    private javax.swing.JLabel jblCod2;
+    private javax.swing.JLabel jblLet;
+    private javax.swing.JLabel jblMenPanB;
+    private javax.swing.JLabel jblMenPanC;
+    private javax.swing.JLabel jblNom;
+    private javax.swing.JLabel jblTieMin;
+    private javax.swing.JLabel jblTitC;
+    private javax.swing.JLabel jblTitP;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtCodigoCancion;

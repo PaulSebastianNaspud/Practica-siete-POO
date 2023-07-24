@@ -10,6 +10,8 @@ import ec.edu.ups.practica5joaquinzavala.modelo.Cantante;
 import ec.edu.ups.practica5joaquinzavala.modelo.Compositor;
 import ec.edu.ups.practica5joaquinzavala.modelo.GeneroMusical;
 import ec.edu.ups.practica5joaquinzavala.modelo.Nacionalidad;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -20,6 +22,34 @@ public class VentanaActualizarCliente extends javax.swing.JInternalFrame {
     private Compositor  compositor;
     private Cantante cantante;
     private ControladorCompositor controladorCompositor;
+    private ResourceBundle mensajes;
+    
+    public void cambiarIdioma(Locale localizacion) {
+        mensajes = ResourceBundle.getBundle("mensajes.mensaje", localizacion);
+        jblApe.setText(mensajes.getString("jlb.ape"));
+        jblApe2.setText(mensajes.getString("jlb.ape"));
+        jblCod.setText(mensajes.getString("jlb.cod"));
+        jblCod1.setText(mensajes.getString("jlb.cod"));
+        jblCon.setText(mensajes.getString("jlb.con"));
+        jblEda.setText(mensajes.getString("jlb.eda"));
+        jblGenMus.setText(mensajes.getString("jlb.genmus"));
+        jblMenPanCl.setText(mensajes.getString("jlb.ingnue"));
+        jblMenPanC.setText(mensajes.getString("menuitem.buscom"));
+        jblNac.setText(mensajes.getString("jlb.nac"));
+        jblNom.setText(mensajes.getString("jlb.nom"));
+        jblNom2.setText(mensajes.getString("jlb.nom"));
+        jblNomArt.setText(mensajes.getString("jlb.nomart"));
+        jblSal.setText(mensajes.getString("jlb.sal"));
+        btnGuardar.setText(mensajes.getString("btn.gua"));
+        btnBuscarCompositor.setText(mensajes.getString("btn.bus"));
+        btnCancelar.setText(mensajes.getString("btn.can"));
+        btnCancelarTotal.setText(mensajes.getString("btn.can"));
+        jblTit.setText(mensajes.getString("menuitem.actcli"));
+        
+        this.setTitle(mensajes.getString("menuitem.actcli"));
+        
+        
+    }
     
     public VentanaActualizarCliente(ControladorCompositor controladorCompositor) {
         initComponents();
@@ -37,33 +67,33 @@ public class VentanaActualizarCliente extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel5 = new javax.swing.JPanel();
-        jLabelCodigoCancion = new javax.swing.JLabel();
+        jblCod1 = new javax.swing.JLabel();
         txtCodigoCantante = new javax.swing.JTextField();
         btnBuscarCantante = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jblMenPanCl = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        jblTit = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        jblCod = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
+        jblNom = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
+        jblApe = new javax.swing.JLabel();
         txtApellido = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
+        jblMenPanC = new javax.swing.JLabel();
         btnBuscarCompositor = new javax.swing.JButton();
         btnCancelarTotal = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
+        jblApe2 = new javax.swing.JLabel();
+        jblNom2 = new javax.swing.JLabel();
+        jblNac = new javax.swing.JLabel();
+        jblSal = new javax.swing.JLabel();
+        jblEda = new javax.swing.JLabel();
+        jblGenMus = new javax.swing.JLabel();
+        jblNomArt = new javax.swing.JLabel();
+        jblGir = new javax.swing.JLabel();
+        jblCon = new javax.swing.JLabel();
         txtNombreCantante = new javax.swing.JTextField();
         txtApellidoCantante = new javax.swing.JTextField();
         txtEdad = new javax.swing.JTextField();
@@ -105,10 +135,10 @@ public class VentanaActualizarCliente extends javax.swing.JInternalFrame {
         jPanel5.setEnabled(false);
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelCodigoCancion.setBackground(new java.awt.Color(204, 204, 255));
-        jLabelCodigoCancion.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabelCodigoCancion.setText("Codigo");
-        jPanel5.add(jLabelCodigoCancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 114, 45));
+        jblCod1.setBackground(new java.awt.Color(204, 204, 255));
+        jblCod1.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblCod1.setText("Codigo");
+        jPanel5.add(jblCod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 114, 45));
 
         txtCodigoCantante.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtCodigoCantante.setEnabled(false);
@@ -123,27 +153,27 @@ public class VentanaActualizarCliente extends javax.swing.JInternalFrame {
         });
         jPanel5.add(btnBuscarCantante, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cantante jlabel.png"))); // NOI18N
-        jLabel1.setText("   Buscar un cantante");
-        jLabel1.setToolTipText("");
-        jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 480, -1));
+        jblMenPanCl.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jblMenPanCl.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jblMenPanCl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cantante jlabel.png"))); // NOI18N
+        jblMenPanCl.setText("   Buscar un cantante");
+        jblMenPanCl.setToolTipText("");
+        jPanel5.add(jblMenPanCl, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 480, -1));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setText("Actulizar Cliente");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 14, 191, -1));
+        jblTit.setText("Actulizar Cliente");
+        jPanel2.add(jblTit, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 14, 191, -1));
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 36, -1, 190));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cantante.png"))); // NOI18N
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, 190));
 
-        jLabel14.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel14.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabel14.setText("Codigo");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 114, 45));
+        jblCod.setBackground(new java.awt.Color(204, 204, 255));
+        jblCod.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblCod.setText("Codigo");
+        jPanel2.add(jblCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 114, 45));
 
         txtCodigo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtCodigo.addActionListener(new java.awt.event.ActionListener() {
@@ -153,10 +183,10 @@ public class VentanaActualizarCliente extends javax.swing.JInternalFrame {
         });
         jPanel2.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 295, -1));
 
-        jLabel13.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel13.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabel13.setText("Nombre");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 114, 45));
+        jblNom.setBackground(new java.awt.Color(204, 204, 255));
+        jblNom.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblNom.setText("Nombre");
+        jPanel2.add(jblNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 114, 45));
 
         txtNombre.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtNombre.setEnabled(false);
@@ -167,10 +197,10 @@ public class VentanaActualizarCliente extends javax.swing.JInternalFrame {
         });
         jPanel2.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 295, -1));
 
-        jLabel12.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel12.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabel12.setText("Apellido");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, 114, 45));
+        jblApe.setBackground(new java.awt.Color(204, 204, 255));
+        jblApe.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblApe.setText("Apellido");
+        jPanel2.add(jblApe, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, 114, 45));
 
         txtApellido.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtApellido.setEnabled(false);
@@ -181,12 +211,12 @@ public class VentanaActualizarCliente extends javax.swing.JInternalFrame {
         });
         jPanel2.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 480, 295, -1));
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busquedaCliente.png"))); // NOI18N
-        jLabel15.setText("  Buscar Compositor");
-        jLabel15.setToolTipText("");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 330, -1));
+        jblMenPanC.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jblMenPanC.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jblMenPanC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busquedaCliente.png"))); // NOI18N
+        jblMenPanC.setText("  Buscar Compositor");
+        jblMenPanC.setToolTipText("");
+        jPanel2.add(jblMenPanC, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 330, -1));
 
         btnBuscarCompositor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/search.png"))); // NOI18N
         btnBuscarCompositor.setText("Buscar");
@@ -208,41 +238,41 @@ public class VentanaActualizarCliente extends javax.swing.JInternalFrame {
 
         jPanel6.setBackground(new java.awt.Color(102, 153, 255));
 
-        jLabel4.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel4.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabel4.setText("Apellido");
+        jblApe2.setBackground(new java.awt.Color(204, 204, 255));
+        jblApe2.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblApe2.setText("Apellido");
 
-        jLabel5.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel5.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabel5.setText("Nombre");
+        jblNom2.setBackground(new java.awt.Color(204, 204, 255));
+        jblNom2.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblNom2.setText("Nombre");
 
-        jLabel7.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel7.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabel7.setText("Nacionalidad");
+        jblNac.setBackground(new java.awt.Color(204, 204, 255));
+        jblNac.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblNac.setText("Nacionalidad");
 
-        jLabel8.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel8.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabel8.setText("Salario");
+        jblSal.setBackground(new java.awt.Color(204, 204, 255));
+        jblSal.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblSal.setText("Salario");
 
-        jLabel9.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel9.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabel9.setText("Edad");
+        jblEda.setBackground(new java.awt.Color(204, 204, 255));
+        jblEda.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblEda.setText("Edad");
 
-        jLabel16.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel16.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabel16.setText("GeneroMusical");
+        jblGenMus.setBackground(new java.awt.Color(204, 204, 255));
+        jblGenMus.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblGenMus.setText("GeneroMusical");
 
-        jLabel17.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel17.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabel17.setText("NombreArtistico");
+        jblNomArt.setBackground(new java.awt.Color(204, 204, 255));
+        jblNomArt.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblNomArt.setText("NombreArtistico");
 
-        jLabel18.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel18.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabel18.setText("Giras");
+        jblGir.setBackground(new java.awt.Color(204, 204, 255));
+        jblGir.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblGir.setText("Giras");
 
-        jLabel19.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel19.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
-        jLabel19.setText("Conciertos");
+        jblCon.setBackground(new java.awt.Color(204, 204, 255));
+        jblCon.setFont(new java.awt.Font("Roman", 0, 18)); // NOI18N
+        jblCon.setText("Conciertos");
 
         txtNombreCantante.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txtNombreCantante.setToolTipText("Introduce tu Nombre");
@@ -314,33 +344,35 @@ public class VentanaActualizarCliente extends javax.swing.JInternalFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jblApe2)
+                            .addComponent(jblSal, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jblGir, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(23, 23, 23)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtGiras, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtApellidoCantante, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jblNom2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtNombreCantante, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jblNac, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(cmbxNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnGuardar)
+                            .addComponent(cmbxNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel17)
+                        .addComponent(jblNomArt)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtNombreArtistico, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jblGenMus, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jblCon, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jblEda, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -349,8 +381,6 @@ public class VentanaActualizarCliente extends javax.swing.JInternalFrame {
                 .addContainerGap(51, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnGuardar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCancelar)
                 .addGap(168, 168, 168))
         );
@@ -359,33 +389,33 @@ public class VentanaActualizarCliente extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap(90, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jblNom2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNombreCantante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jblNomArt, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNombreArtistico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jblApe2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtApellidoCantante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jblEda, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jblSal, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jblCon, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtConciertos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jblGenMus, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jblGir, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtGiras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbxGeneroMusical, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jblNac, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbxNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -607,27 +637,27 @@ public class VentanaActualizarCliente extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JComboBox<String> cmbxGeneroMusical;
     private javax.swing.JComboBox<String> cmbxNacionalidad;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabelCodigoCancion;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JLabel jblApe;
+    private javax.swing.JLabel jblApe2;
+    private javax.swing.JLabel jblCod;
+    private javax.swing.JLabel jblCod1;
+    private javax.swing.JLabel jblCon;
+    private javax.swing.JLabel jblEda;
+    private javax.swing.JLabel jblGenMus;
+    private javax.swing.JLabel jblGir;
+    private javax.swing.JLabel jblMenPanC;
+    private javax.swing.JLabel jblMenPanCl;
+    private javax.swing.JLabel jblNac;
+    private javax.swing.JLabel jblNom;
+    private javax.swing.JLabel jblNom2;
+    private javax.swing.JLabel jblNomArt;
+    private javax.swing.JLabel jblSal;
+    private javax.swing.JLabel jblTit;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtApellidoCantante;
     private javax.swing.JTextField txtCodigo;
