@@ -220,7 +220,7 @@ public class VentanaListarCliente extends javax.swing.JInternalFrame {
             String salario = String.valueOf(cantante.calularSalario());
             String nombreArtistico = cantante.getNombreArtistico();
             GeneroMusical generoMusical = cantante.getGeneroMusical();
-            String numSencillos = String.valueOf(cantante.getNumeroDeGiras());
+            String numSencillos = String.valueOf(cantante.getNumeroDeSensillos());
             String numConciertos = String.valueOf(cantante.getNumeroDeConciertos());
             String numGiras = String.valueOf(cantante.getNumeroDeGiras());
             Object[] rowData = {codigo, nombre, apellido, edad, nacionalidad, salario, nombreArtistico, generoMusical, numSencillos, numConciertos, numGiras};

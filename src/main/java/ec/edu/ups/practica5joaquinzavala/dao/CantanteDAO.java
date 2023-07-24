@@ -434,7 +434,7 @@ public class CantanteDAO implements ICantanteDAO {
 
             if (listaCantanteRAF.readInt() == cantante.getCodigo()) {
                 long cont2 = cont + 148;
-                while (cont2 < (cont + 350)) {
+                while (cont2 < (cont + 498)) {
                     try {
                         listaCantanteRAF.seek(cont2);
                         int codigo = listaCantanteRAF.readInt();

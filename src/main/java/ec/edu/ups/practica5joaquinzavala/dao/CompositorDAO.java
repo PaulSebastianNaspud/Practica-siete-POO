@@ -8,6 +8,7 @@ import ec.edu.ups.practica5joaquinzavala.idao.ICompositorDAO;
 import ec.edu.ups.practica5joaquinzavala.modelo.Cancion;
 import ec.edu.ups.practica5joaquinzavala.modelo.Cantante;
 import ec.edu.ups.practica5joaquinzavala.modelo.Compositor;
+import ec.edu.ups.practica5joaquinzavala.modelo.Disco;
 import ec.edu.ups.practica5joaquinzavala.modelo.GeneroMusical;
 import ec.edu.ups.practica5joaquinzavala.modelo.Nacionalidad;
 import java.io.IOException;
@@ -514,9 +515,14 @@ public class CompositorDAO implements ICompositorDAO {
 
                      listaCompositorRAF.writeInt(obj.getNumeroDeSensillos());
                      
-                     listaCompositorRAF.writeUTF(rellenarBite("", 348));
-                     
-                     // Falta agregarlos discos, son nescesarios para calcular el numero de sensillos, no me devo olvidar
+                     for (Disco disco : obj.listarDiscografia()) {
+                         try{
+                             listaCompositorRAF.writeInt(disco.getCodigo());
+                             listaCompositorRAF.writeUTF(rellenarBite(disco.getNombre(), 25));
+                             listaCompositorRAF.writeInt(disco.getAnioDeLanzamiento());
+                         }catch(IOException iOException){}
+                         
+                     }
                      
                      return;
                  }
@@ -555,7 +561,7 @@ public class CompositorDAO implements ICompositorDAO {
 
                                 Nacionalidad nacionalidad = Nacionalidad.valueOf((listaCompositorRAF.readUTF().replaceAll("\\s", "")));
 
-                                String nombreArtistico = listaCompositorRAF.readUTF().trim();
+                                String nombreArtistico = listaCompositorRAF.readUTF();
 
                                 GeneroMusical generoMusical = GeneroMusical.valueOf(listaCompositorRAF.readUTF().trim().replaceAll("\\s", ""));
 
@@ -564,21 +570,33 @@ public class CompositorDAO implements ICompositorDAO {
                                 int numeroDeGiras = listaCompositorRAF.readInt();
 
                                 //numero de sensillos se calcula en base de la lista
-                                return new Cantante(nombreArtistico, generoMusical, numeroDeConciertos, numeroDeGiras, codigoLista, nombre, apellido, edad, salario, nacionalidad);
+                                Cantante cantante = new Cantante(nombreArtistico, generoMusical, numeroDeConciertos, numeroDeGiras, codigoLista, nombre, apellido, edad, salario, nacionalidad);
+                                
+                                long cont2 = conCliente + 148;
+                                while (cont2 < (conCliente + 350)) {
+                                    try {
+                                        listaCompositorRAF.seek(cont2);
+                                        int codigoDisco = listaCompositorRAF.readInt();
+                                        String nombreDisco = listaCompositorRAF.readUTF().strip();
+                                        int anioDeLanzamiento = listaCompositorRAF.readInt();
+                                        cantante.agregarDisco(new Disco(codigoDisco, nombreDisco, anioDeLanzamiento));
 
+                                    } catch (IOException iOException) {
+                                    } finally {
+                                        cont2 += 35;
+                                    }
+                                }
+                                return cantante;
                             }
 
-                        } catch (IOException iOException) {
-                            System.out.println("EXCEPCION DOS");
-                        } finally {
+                        } catch (IOException iOException) {}
+                          finally {
                             conCliente += 498;
                         }
-
                     }
                 }
-            } catch (IOException iOException) {
-                System.out.println("EXCEPCION UNO");
-            } finally {
+            } catch (IOException iOException) {}
+              finally {
                 cont += 5896;
             }
         }
@@ -710,8 +728,24 @@ public class CompositorDAO implements ICompositorDAO {
 
                             int numeroDeGiras = listaCompositorRAF.readInt();
                             
-                            listaFindAllCliente.add(new Cantante(nombreArtistico, generoMusical, numeroDeConciertos, numeroDeGiras, codigoLista, nombre, apellido, edad, salario, nacionalidad));
+                            Cantante cantante = new Cantante(nombreArtistico, generoMusical, numeroDeConciertos, numeroDeGiras, codigoLista, nombre, apellido, edad, salario, nacionalidad);
+                            
+                            long cont2 = conCliente + 148;
+                            while (cont2 < (conCliente + 498)) {
+                                try {
+                                    listaCompositorRAF.seek(cont2);
+                                    int codigoDisco = listaCompositorRAF.readInt();
+                                    String nombreDisco = listaCompositorRAF.readUTF().strip();
+                                    int anioDeLanzamiento = listaCompositorRAF.readInt();
+                                    cantante.agregarDisco(new Disco(codigoDisco, nombreDisco, anioDeLanzamiento));
 
+                                } catch (IOException iOException) {
+                                } finally {
+                                    cont2 += 35;
+                                }
+                            }
+                            
+                            listaFindAllCliente.add(cantante);
 
                         } catch (IOException iOException) {
                         } finally {

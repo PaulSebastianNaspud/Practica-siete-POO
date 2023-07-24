@@ -33,6 +33,8 @@ import ec.edu.ups.practica5joaquinzavala.vista.disco.VentanaBuscarDisco;
 import ec.edu.ups.practica5joaquinzavala.vista.disco.VentanaCrearDisco;
 import ec.edu.ups.practica5joaquinzavala.vista.disco.VentanaEliminarDisco;
 import ec.edu.ups.practica5joaquinzavala.vista.disco.VentanaListarDisco;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 
 
@@ -77,7 +79,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private CantanteDAO cantanteDAO;
     private CompositorDAO compositorDAO;
-
+    private Locale localizacion;
+    private ResourceBundle mensajes;
     /**
      * Creates new form VentanaPrincipal
      */
@@ -87,7 +90,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         controladorCantante = new ControladorCantante(cantanteDAO);
         compositorDAO = new CompositorDAO();
         controladorCompositor = new ControladorCompositor(compositorDAO, cantanteDAO);
-
+        localizacion = new Locale("es", "EC");
+        
     }
 
     //System.exit(0);
@@ -102,7 +106,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         menuBar = new javax.swing.JMenuBar();
-        fileMenu = new javax.swing.JMenu();
+        menuCantante = new javax.swing.JMenu();
         itemMenuCrearCantante = new javax.swing.JMenuItem();
         itemMenuVerCantante = new javax.swing.JMenuItem();
         menuItemActualizarCantante = new javax.swing.JMenuItem();
@@ -149,8 +153,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuItemActulalizarCliente1 = new javax.swing.JMenuItem();
         menuItemEliminarCliente1 = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
-        contentMenuItem = new javax.swing.JMenuItem();
-        aboutMenuItem = new javax.swing.JMenuItem();
+        menuItemEspaniol = new javax.swing.JMenuItem();
+        menuItemIngles = new javax.swing.JMenuItem();
+        menuItemFrances = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mi Aplicaion");
@@ -176,10 +181,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuBar.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         menuBar.setMinimumSize(new java.awt.Dimension(400, 32000));
 
-        fileMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menuDos-menu.png"))); // NOI18N
-        fileMenu.setMnemonic('f');
-        fileMenu.setText("Cantante");
-        fileMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        menuCantante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menuDos-menu.png"))); // NOI18N
+        menuCantante.setMnemonic('f');
+        menuCantante.setText("Cantante");
+        menuCantante.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         itemMenuCrearCantante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar-usuario-menu.png"))); // NOI18N
         itemMenuCrearCantante.setMnemonic('o');
@@ -189,7 +194,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 itemMenuCrearCantanteActionPerformed(evt);
             }
         });
-        fileMenu.add(itemMenuCrearCantante);
+        menuCantante.add(itemMenuCrearCantante);
 
         itemMenuVerCantante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busac-menu.png"))); // NOI18N
         itemMenuVerCantante.setMnemonic('s');
@@ -199,7 +204,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 itemMenuVerCantanteActionPerformed(evt);
             }
         });
-        fileMenu.add(itemMenuVerCantante);
+        menuCantante.add(itemMenuVerCantante);
 
         menuItemActualizarCantante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/actualizar-menu.png"))); // NOI18N
         menuItemActualizarCantante.setMnemonic('a');
@@ -209,7 +214,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 menuItemActualizarCantanteActionPerformed(evt);
             }
         });
-        fileMenu.add(menuItemActualizarCantante);
+        menuCantante.add(menuItemActualizarCantante);
 
         menuItemListarCantante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/listar-menu.png"))); // NOI18N
         menuItemListarCantante.setText("Listar cantante");
@@ -218,7 +223,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 menuItemListarCantanteActionPerformed(evt);
             }
         });
-        fileMenu.add(menuItemListarCantante);
+        menuCantante.add(menuItemListarCantante);
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menuDos-menu.png"))); // NOI18N
         jMenu1.setText("Disco");
@@ -268,9 +273,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(menuItemListarDisco);
 
-        fileMenu.add(jMenu1);
+        menuCantante.add(jMenu1);
 
-        menuBar.add(fileMenu);
+        menuBar.add(menuCantante);
 
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menuDos-menu.png"))); // NOI18N
         jMenu5.setText("Disco");
@@ -568,16 +573,36 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         menuBar.add(menuItemRegistrarCliente1);
 
+        helpMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menuDos-menu.png"))); // NOI18N
         helpMenu.setMnemonic('h');
-        helpMenu.setText("Help");
+        helpMenu.setText("Idioma");
 
-        contentMenuItem.setMnemonic('c');
-        contentMenuItem.setText("Contents");
-        helpMenu.add(contentMenuItem);
+        menuItemEspaniol.setMnemonic('c');
+        menuItemEspaniol.setText("Español");
+        menuItemEspaniol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemEspaniolActionPerformed(evt);
+            }
+        });
+        helpMenu.add(menuItemEspaniol);
 
-        aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("About");
-        helpMenu.add(aboutMenuItem);
+        menuItemIngles.setMnemonic('a');
+        menuItemIngles.setText("Ingles");
+        menuItemIngles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemInglesActionPerformed(evt);
+            }
+        });
+        helpMenu.add(menuItemIngles);
+
+        menuItemFrances.setMnemonic('a');
+        menuItemFrances.setText("Frances");
+        menuItemFrances.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemFrancesActionPerformed(evt);
+            }
+        });
+        helpMenu.add(menuItemFrances);
 
         menuBar.add(helpMenu);
 
@@ -845,6 +870,26 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         ventanaListarCliente.setVisible(true);
     }//GEN-LAST:event_menuItemListarClienteActionPerformed
 
+    private void menuItemInglesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemInglesActionPerformed
+        localizacion = new Locale("en", "US");
+        cambiarIdioma();
+    }//GEN-LAST:event_menuItemInglesActionPerformed
+
+    private void menuItemFrancesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemFrancesActionPerformed
+        localizacion = new Locale("fr", "FR");
+        cambiarIdioma();
+    }//GEN-LAST:event_menuItemFrancesActionPerformed
+
+    private void menuItemEspaniolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEspaniolActionPerformed
+        localizacion = new Locale("es", "EC");
+        cambiarIdioma();
+    }//GEN-LAST:event_menuItemEspaniolActionPerformed
+
+    private void cambiarIdioma() {
+        mensajes = ResourceBundle.getBundle("mensajes.mensaje", localizacion);
+        menuCantante.setText(mensajes.getString("menu.cantante"));
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -889,10 +934,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem aboutMenuItem;
-    private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JMenu editMenu;
-    private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuItem itemMenuCrearCantante;
     private javax.swing.JMenuItem itemMenuRegistrarDisco;
@@ -905,6 +947,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenu menuCantante;
     private javax.swing.JMenuItem menuItemActualizarCancion;
     private javax.swing.JMenuItem menuItemActualizarCancion1;
     private javax.swing.JMenuItem menuItemActualizarCantante;
@@ -927,6 +970,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuItemEliminarCompositor;
     private javax.swing.JMenuItem menuItemEliminarDisco;
     private javax.swing.JMenuItem menuItemEliminarDisco2;
+    private javax.swing.JMenuItem menuItemEspaniol;
+    private javax.swing.JMenuItem menuItemFrances;
+    private javax.swing.JMenuItem menuItemIngles;
     private javax.swing.JMenuItem menuItemListarCancion;
     private javax.swing.JMenuItem menuItemListarCancion1;
     private javax.swing.JMenuItem menuItemListarCantante;
